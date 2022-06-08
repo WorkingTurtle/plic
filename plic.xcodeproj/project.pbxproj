@@ -13,6 +13,7 @@
 		D54307F12850EA7300CFF605 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54307F02850EA7300CFF605 /* Preview Assets.xcassets */; };
 		D54307F32850EA7300CFF605 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307F22850EA7300CFF605 /* Persistence.swift */; };
 		D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D54307F42850EA7300CFF605 /* plic.xcdatamodeld */; };
+		D54307FF2850ECF300CFF605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54307FE2850ECF300CFF605 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,8 @@
 		D54307F02850EA7300CFF605 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D54307F22850EA7300CFF605 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D54307F52850EA7300CFF605 /* plic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = plic.xcdatamodel; sourceTree = "<group>"; };
+		D54307FC2850ECE800CFF605 /* plic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = plic.entitlements; sourceTree = "<group>"; };
+		D54307FE2850ECF300CFF605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D54307FF2850ECF300CFF605 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +45,7 @@
 			children = (
 				D54307E82850EA7100CFF605 /* plic */,
 				D54307E72850EA7100CFF605 /* Products */,
+				D54307FD2850ECF300CFF605 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +60,7 @@
 		D54307E82850EA7100CFF605 /* plic */ = {
 			isa = PBXGroup;
 			children = (
+				D54307FC2850ECE800CFF605 /* plic.entitlements */,
 				D54307E92850EA7100CFF605 /* plicApp.swift */,
 				D54307EB2850EA7100CFF605 /* ContentView.swift */,
 				D54307ED2850EA7300CFF605 /* Assets.xcassets */,
@@ -71,6 +77,14 @@
 				D54307F02850EA7300CFF605 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D54307FD2850ECF300CFF605 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D54307FE2850ECF300CFF605 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = plic/plic.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"plic/Preview Content\"";
@@ -301,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = plic/plic.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"plic/Preview Content\"";
