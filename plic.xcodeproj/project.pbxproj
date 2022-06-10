@@ -14,6 +14,7 @@
 		D54307F32850EA7300CFF605 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307F22850EA7300CFF605 /* Persistence.swift */; };
 		D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D54307F42850EA7300CFF605 /* plic.xcdatamodeld */; };
 		D54307FF2850ECF300CFF605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54307FE2850ECF300CFF605 /* CloudKit.framework */; };
+		D543080128530B7700CFF605 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D543080028530B7700CFF605 /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D54307F52850EA7300CFF605 /* plic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = plic.xcdatamodel; sourceTree = "<group>"; };
 		D54307FC2850ECE800CFF605 /* plic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = plic.entitlements; sourceTree = "<group>"; };
 		D54307FE2850ECF300CFF605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		D543080028530B7700CFF605 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		D543080228530CA700CFF605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 		D54307E82850EA7100CFF605 /* plic */ = {
 			isa = PBXGroup;
 			children = (
+				D543080228530CA700CFF605 /* Info.plist */,
+				D543080028530B7700CFF605 /* assets */,
 				D54307FC2850ECE800CFF605 /* plic.entitlements */,
 				D54307E92850EA7100CFF605 /* plicApp.swift */,
 				D54307EB2850EA7100CFF605 /* ContentView.swift */,
@@ -145,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D543080128530B7700CFF605 /* assets in Resources */,
 				D54307F12850EA7300CFF605 /* Preview Assets.xcassets in Resources */,
 				D54307EE2850EA7300CFF605 /* Assets.xcassets in Resources */,
 			);
@@ -293,6 +299,7 @@
 				DEVELOPMENT_TEAM = 5N5TS7Y4MA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = plic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -323,6 +330,7 @@
 				DEVELOPMENT_TEAM = 5N5TS7Y4MA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = plic/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
