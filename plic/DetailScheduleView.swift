@@ -17,6 +17,7 @@ struct DetailScheduleView: View {
                     leading: NavigationLink(destination: ContentView(), label: {
                         Image(systemName: "chevron.left")
                         Text("오늘의 일정")
+                            .offset(x: -5)
                     }),
                     trailing: NavigationLink(destination: ContentView(), label: {
                         Text("Edit")
