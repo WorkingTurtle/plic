@@ -9,23 +9,41 @@ import SwiftUI
 
 // 기념일 네비게이션 바 생성
 struct UserAnniversaryNavigationView: View {
-    
+        
     var body: some View {
         NavigationView{
-            Text("기념일 뷰 들어갈 곳")
+            AnniversaryView()
                 .navigationBarTitle("기념일", displayMode: .inline)
-            /* 앞에서 네비게이션 바를 생성할 건데 여기서 이걸 해야 할 필요가 있을까용? 일단 주석 처리할게요
-             
-                .navigationBarItems(leading: NavigationLink(destination: 이전뷰(), label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.black)
-                }))*/
         }
     }
 }
+//
+//struct UserAnniversaryNavigationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserAnniversaryNavigationView()
+//    }
+//}
 
-struct UserAnniversaryNavigationView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserAnniversaryNavigationView()
+
+struct AnniversaryView: View {
+    @State var anniversaryDday: [Int] = [3,27, 28]
+    @State var anniversaryFullDate: [String] = ["2022년 6월 5일", "2022년 6월 29일", "2022년 6월 30일"]
+    @State var anniversaryName: [String] = ["서울 여행", "사귄지 150일", "OOO생일"]
+    
+    var body: some View {
+        ForEach(anniversaryDday, id: \.self) { item in
+            
+            VStack(alignment: .leading, spacing: 35){
+                ForEach(anniversaryDday, id: \.self) { item in
+                    HStack{
+                        Text("D-\(item)")
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 30))
+                            .foregroundColor(Color("plicPink"))
+                        
+//                        Text(anniversaryFullDate[item])
+                    }
+                }
+            }
+        }
     }
 }
