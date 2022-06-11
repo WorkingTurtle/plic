@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EAFEE9128536B8E008652CA /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAFEE9028536B8E008652CA /* AddSchedule.swift */; };
+		7EF8F1BF285472940008FB44 /* AddSchedule1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule1.swift */; };
 		D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307E92850EA7100CFF605 /* plicApp.swift */; };
 		D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307EB2850EA7100CFF605 /* ContentView.swift */; };
 		D54307EE2850EA7300CFF605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54307ED2850EA7300CFF605 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EAFEE9028536B8E008652CA /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
+		7EF8F1BE285472930008FB44 /* AddSchedule1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddSchedule1.swift; path = plic/AddSchedule1.swift; sourceTree = "<group>"; };
 		D54307E62850EA7100CFF605 /* plic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54307E92850EA7100CFF605 /* plicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plicApp.swift; sourceTree = "<group>"; };
 		D54307EB2850EA7100CFF605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		D54307DD2850EA7100CFF605 = {
 			isa = PBXGroup;
 			children = (
+				7EAFEE9028536B8E008652CA /* AddSchedule.swift */,
+				7EF8F1BE285472930008FB44 /* AddSchedule1.swift */,
 				D54307E82850EA7100CFF605 /* plic */,
 				D54307E72850EA7100CFF605 /* Products */,
 				D54307FD2850ECF300CFF605 /* Frameworks */,
@@ -163,10 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EF8F1BF285472940008FB44 /* AddSchedule1.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,
+				7EAFEE9128536B8E008652CA /* AddSchedule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
