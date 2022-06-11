@@ -4,11 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SpoqaHanSansNeo-Bold.otf</string>
-		<string>SpoqaHanSansNeo-Light.otf</string>
-		<string>SpoqaHanSansNeo-Medium.otf</string>
-		<string>SpoqaHanSansNeo-Regular.otf</string>
-		<string>SpoqaHanSansNeo-Regular.otf</string>
+		<string>assets/fonts/SpoqaHanSansNeo-Bold.otf</string>
+		<string>assets/fonts/SpoqaHanSansNeo-Light.otf</string>
+		<string>assets/fonts/SpoqaHanSansNeo-Medium.otf</string>
+		<string>assets/fonts/SpoqaHanSansNeo-Regular.otf</string>
+		<string>assets/fonts/SpoqaHanSansNeo-Regular.otf</string>
 	</array>
 </dict>
 </plist>

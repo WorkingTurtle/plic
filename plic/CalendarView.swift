@@ -90,7 +90,7 @@ struct DayView: View {
         VStack(spacing: 2){
             HStack{
                 Text("\(letter)")
-                    .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
+                    .font(Font.custom("SpoqaHanSansNeo-Bold",size: 13))
                     .foregroundColor(Color("plicBlack"))
             }.frame(width: 32, height: 32)
             HStack(spacing: 2){
