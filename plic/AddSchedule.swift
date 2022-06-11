@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddSchedule1: View {
+struct AddSchedule: View {
     
     // NavigationBar의 버튼을 눌렀을 때, Modal View가 닫히게끔
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -106,8 +106,8 @@ struct ColorManage {
     static let plicDarkgrey = Color("plicDarkgrey")
     static let plicModalgrey = Color("plicModalgrey")
 }
-struct AddSchedule1_Previews: PreviewProvider {
+struct AddSchedule_Previews: PreviewProvider {
     static var previews: some View {
-        AddSchedule1()
+        AddSchedule()
     }
 }
