@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307E92850EA7100CFF605 /* plicApp.swift */; };
 		D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307EB2850EA7100CFF605 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		D54307E62850EA7100CFF605 /* plic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54307E92850EA7100CFF605 /* plicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plicApp.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				D54307F22850EA7300CFF605 /* Persistence.swift */,
 				D54307F42850EA7300CFF605 /* plic.xcdatamodeld */,
 				D54307EF2850EA7300CFF605 /* Preview Content */,
+				D500A6FA285489AD005A90AD /* CalendarView.swift */,
 			);
 			path = plic;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
