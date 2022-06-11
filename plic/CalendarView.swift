@@ -40,8 +40,8 @@ struct CalendarView: View {
             HStack{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 30), spacing: 18)],
                     spacing: 10) {
-                    ForEach(0..<31){ i in
-                    DayView(letter: "i", firstCheck: true, secondCheck: true, thirdCheck: true)
+                    ForEach(1..<32){ i in
+                    DayView(letter: i, firstCheck: true, secondCheck: true, thirdCheck: true)
                     }
                 }
             }.padding([.leading, .trailing], 36)
@@ -68,7 +68,7 @@ struct DayOfWeekView: View {
 }
 
 struct DayView: View {
-    let letter: String
+    let letter: Int
     @State var firstCheck: Bool
     @State var secondCheck: Bool
     @State var thirdCheck: Bool
