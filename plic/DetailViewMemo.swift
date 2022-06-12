@@ -11,6 +11,12 @@ import SwiftUI
 // 작성된 메모 확인란
 struct DetailViewMemo: View {
     @State var memoText: String?
+    @State private var isShowingDialog: Bool = false
+    
+        //Alert가 기본 틴트 컬러를 빨간색으로 가지게 하기 위한 코드
+    init() {
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemRed
+    }
     
     var body: some View {
         VStack{
@@ -36,7 +42,7 @@ struct DetailViewMemo: View {
             }
             
             Button(action: {
-                // 일정 삭제 동작
+                isShowingDialog = true
             }) {
                 Text("일정 삭제")
                     .foregroundColor(.white)
@@ -46,6 +52,12 @@ struct DetailViewMemo: View {
                         .foregroundColor(Color("plicPink")))
                     .padding(.top, 13)
                 
+            }.confirmationDialog("", isPresented: $isShowingDialog, titleVisibility: .hidden) {
+                Button("일정 삭제", role: .destructive) {
+                    //일정 삭제 코드
+                }
+                Button("취소", role: .cancel) {
+                }
             }
         }
     }
@@ -56,3 +68,4 @@ struct DetailViewMemo_Previews: PreviewProvider {
         DetailViewMemo()
     }
 }
+
