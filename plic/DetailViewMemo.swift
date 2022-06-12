@@ -34,6 +34,19 @@ struct DetailViewMemo: View {
                     .foregroundColor((memoText != nil) ? .black : .gray)
                     .padding(12)
             }
+            
+            Button(action: {
+                // 일정 삭제 동작
+            }) {
+                Text("일정 삭제")
+                    .foregroundColor(.white)
+                    .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 350, height: 46)
+                        .foregroundColor(Color("plicPink")))
+                    .padding(.top, 13)
+                
+            }
         }
     }
 }
