@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */; };
 		5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */; };
 		5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D27077028536322006F6480 /* DetailScheduleView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryView.swift; sourceTree = "<group>"; };
 		5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTime.swift; sourceTree = "<group>"; };
 		5D27077028536322006F6480 /* DetailScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleView.swift; sourceTree = "<group>"; };
