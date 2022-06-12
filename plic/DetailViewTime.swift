@@ -25,55 +25,53 @@ struct DetailViewTime: View {
                     .foregroundColor(Color("plicPink"))
                     .frame(width: 15, height: 14)
                 Text("시간")
-                    .font(.system(size: 14))
+                    .font(.custom("SpoqaHanSansNeo-Regular",size: 14))
                 Spacer()
             }
             .padding(.leading, 24)
             
             HStack{
-                Text("시작")
-                    .font(.system(size: 13))
-                    .padding(.leading, 45)
+                VStack(alignment: .leading){
+                    Text("시작")
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 13))
+                        .padding(.leading, 45)
+                    Text("\(startTime) \(isAMPM(isMorning))")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                        .padding(.leading, 45)
+                        .padding(.top, 1)
+                    Text("\(startDate)")
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 13))
+                    //색상 추가되면 바뀌어야 하는 구간 gray -> #757575
+                        .foregroundColor(.gray)
+                        .padding(.leading, 45)
+                        .padding(.top, 7)
+                }
+                
                 Spacer()
-                Text("종료")
-                    .font(.system(size: 13))
-                    .padding(.trailing, 109)
+                Image(systemName: "arrow.right")
+                    .foregroundColor(Color("plicPink"))
+                Spacer()
+                
+                VStack(alignment: .leading){
+                    Text("종료")
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 13))
+                        .padding(.trailing, 97)
+                    Text("\(endTime) \(isAMPM(!isMorning))")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                        .padding(.trailing, 42)
+                        .padding(.top, 1)
+                    Text("\(endDate)")
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 13))
+                        .foregroundColor(.gray)
+                        .padding(.trailing, 52)
+                        .padding(.top, 7)
+                }
             }
             .padding(.top, 11)
             
-            HStack{
-                Text("\(startTime) \(isAMPM(isMorning))")
-                    .font(.system(size: 17, weight: .bold))
-                    .padding(.leading, 45)
-                Image(systemName: "arrow.right")
-                    .foregroundColor(Color("plicPink"))
-                
-                //arrow를 어떻게 padding값을 줘야 할까요?
-                    .padding(.horizontal, 49)
-                Text("\(endTime) \(isAMPM(isMorning))")
-                    .font(.system(size: 17, weight: .bold))
-                    .padding(.trailing, 57)
-            }
-            .padding(.top, 1)
-            
-            HStack{
-                Text("\(startDate)")
-                    .font(.system(size: 13))
-                
-                //색상 추가되면 바뀌어야 하는 구간 gray -> #757575
-                    .foregroundColor(.gray)
-                    .padding(.leading, 45)
-                Spacer()
-                Text("\(endDate)")
-                    .font(.system(size: 13))
-                    .foregroundColor(.gray)
-                    .padding(.trailing, 67)
-            }
-            .padding(.top, 7)
-            
             Divider()
                 .padding(.horizontal, 20)
-                .padding(.top, 13.92)
+                .padding(.top, 14)
         }
     }
 }
