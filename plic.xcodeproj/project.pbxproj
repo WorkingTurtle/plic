@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */; };
 		5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D27077028536322006F6480 /* DetailScheduleView.swift */; };
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTime.swift; sourceTree = "<group>"; };
 		5D27077028536322006F6480 /* DetailScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleView.swift; sourceTree = "<group>"; };
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				7EF8F1BE285472930008FB44 /* AddSchedule.swift */,
 				D54307ED2850EA7300CFF605 /* Assets.xcassets */,
 				D54307F22850EA7300CFF605 /* Persistence.swift */,
+				5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */,
 				5D27077028536322006F6480 /* DetailScheduleView.swift */,
 				D54307F42850EA7300CFF605 /* plic.xcdatamodeld */,
 				D54307EF2850EA7300CFF605 /* Preview Content */,
@@ -180,6 +183,7 @@
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
+				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,
 				5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */,
 			);
