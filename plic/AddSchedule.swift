@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 // 제목 란에서 내용을 입력했을 때, X버튼이 생성되고 X버튼을 눌렀을 때 기입한 내용이 삭제됨
 struct TextFieldClearButton: ViewModifier {
     @Binding var scheduleNameText: String
@@ -102,6 +103,88 @@ struct AddSchedule: View {
                 Text("완료")
             }
                 .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink))
+    @State private var allDayToggle = false
+    // 시작 날짜, 시간 설정
+    @State private var timetoStart = Date()
+    
+    
+    var body: some View {
+        ZStack {
+            ColorManage.plicModalgrey
+                .edgesIgnoringSafeArea(.all)
+            NavigationView {
+                Form {
+                    Section {
+                        TextField("제목", text: $scheduleName)
+                            .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                            .cornerRadius(10)
+                            .overlay(
+                                HStack {
+                                    Spacer()
+                                    Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(ColorManage.plicDarkgrey)
+                                    }
+                                })
+                        
+                    }
+                    
+                    Section {
+                        Toggle("하루 종일", isOn: $allDayToggle)
+                        // if allDayToggle {
+                        // 하루 종일 체크 O
+                        // } else {
+                        // 하루 종일 체크 X
+                        DatePicker("시작", selection: $timetoStart)
+                        DatePicker("종료", selection: $timetoStart)
+                    }
+                    
+                    Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
+                        // 사용자를 변수로
+                        HStack {
+                            Button(action: {/*some action*/}) {
+                                Text("사용자1")
+                            }
+                            .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                            .foregroundColor(Color(.black))
+                            Spacer()
+                            Button(action: {/*some action*/}) {
+                                Text("함께")
+                            }
+                            .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                            .foregroundColor(Color(.black))
+                            Spacer()
+                            Button(action: {/*some action*/}) {
+                                Text("사용자2")
+                            }
+                            .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                            .foregroundColor(Color(.black))
+                        }
+                    }
+                    
+                    Section(header: Text("노트 작성하기").padding(.leading, -20)) {
+                        // 작성된 노트가 보이게끔 해야함(새로운 페이지 X, Textfield)
+                        Spacer()
+                            .frame(height: 250)
+                        // 버튼을 누르면 노트 작성 페이지로 이동하게 해야 함
+                            .overlay(
+                                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                                    Image(systemName: "square.and.pencil")
+                                        .foregroundColor(ColorManage.plicPink)
+                                        .padding(.bottom, 220)
+                                        .padding(.leading, 610)
+                                })
+                    }
+                }
+                .navigationBarTitle("일정추가", displayMode: .inline).font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                .navigationBarItems(leading:
+                                        Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                    Image(systemName: "chevron.left")
+                }.font(.custom("SpoqaHanSansNeo-Bold", size: 17)).foregroundColor(ColorManage.plicPink),
+                                    trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                    Text("완료")
+                }.font(.custom("SpoqaHanSansNeo-Bold", size: 17)).foregroundColor(ColorManage.plicPink))
+            }
         }
     }
 }
