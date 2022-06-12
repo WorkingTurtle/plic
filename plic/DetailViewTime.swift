@@ -41,8 +41,7 @@ struct DetailViewTime: View {
                         .padding(.top, 1)
                     Text("\(startDate)")
                         .font(.custom("SpoqaHanSansNeo-Regular",size: 13))
-                    //색상 추가되면 바뀌어야 하는 구간 gray -> #757575
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("plicDarkgrey"))
                         .padding(.leading, 45)
                         .padding(.top, 7)
                 }
@@ -62,7 +61,7 @@ struct DetailViewTime: View {
                         .padding(.top, 1)
                     Text("\(endDate)")
                         .font(.custom("SpoqaHanSansNeo-Regular",size: 13))
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("plicDarkgrey"))
                         .padding(.trailing, 52)
                         .padding(.top, 7)
                 }
