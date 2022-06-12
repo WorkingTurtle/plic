@@ -10,8 +10,8 @@ import SwiftUI
 
 // 작성된 메모 확인란
 struct DetailViewMemo: View {
-    @State var memoText = "비어있는 메모"
-        
+    @State var memoText: String?
+    
     var body: some View {
         VStack{
             HStack{
@@ -20,7 +20,7 @@ struct DetailViewMemo: View {
                     .foregroundColor(Color("plicPink"))
                     .padding(.leading, 24)
                 Text("메모")
-                    .font(.system(size: 14))
+                    .font(.custom("SpoqaHanSansNeo-Regular",size: 14))
                     .padding(.leading, 5)
                 Spacer()
             }
@@ -28,11 +28,10 @@ struct DetailViewMemo: View {
             ZStack(alignment: .topLeading){
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 350, height: 146)
-                    // plicPurple -> #F5F5F5 추가되면 바뀔 색상
-                    .foregroundColor(Color("plicPurple"))
-                Text("\(memoText)")
-                    .font(.system(size: 14))
-                    .foregroundColor(changeMemoTextColor(text: memoText))
+                    .foregroundColor(Color("plicLightestgrey"))
+                Text("\(memoText ?? "비어 있는 메모")")
+                    .font(.custom("SpoqaHanSansNeo-Regular",size: 14))
+                    .foregroundColor((memoText != nil) ? .black : .gray)
                     .padding(12)
             }
         }
@@ -42,20 +41,5 @@ struct DetailViewMemo: View {
 struct DetailViewMemo_Previews: PreviewProvider {
     static var previews: some View {
         DetailViewMemo()
-    }
-}
-
-
-
-// 메모하지 않았을 경우 텍스트를 회색으로 처리, 했을 경우 검정으로 처리
-func changeMemoTextColor(text: String) -> Color {
-    var textColor: Color
-    
-    if text == "비어있는 메모" {
-        textColor = .gray
-        return textColor
-    } else {
-        textColor = .black
-        return textColor
     }
 }
