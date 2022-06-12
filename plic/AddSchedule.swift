@@ -5,6 +5,11 @@
 //  Created by 최홍준 on 2022/06/11.
 //
 
+// 해야하는 것
+// 1. 변수로 저장(제목, 토글, 시작종료, 누구의 일정인가요, 노트 작성)
+// 3. 노트 작성하기를 Textfield 혹은 새로운 화면 띄우기
+// 5. 시작 종료 기간에서 날짜, 시간을 '2022.6.7', '오전 8:00' 이런 식으로 보여줘야함
+
 import SwiftUI
 
 // 제목 란에서 내용을 입력했을 때, X버튼이 생성되고 X버튼을 눌렀을 때 기입한 내용이 삭제됨
@@ -16,10 +21,9 @@ struct TextFieldClearButton: ViewModifier {
             content
             if !scheduleNameText.isEmpty {
                 Button(action: { self.scheduleNameText = "" }, label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(ColorManage.plicLightgrey)
-                    }
-                )
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(ColorManage.plicLightgrey)
+                })
             }
         }
     }
@@ -60,7 +64,7 @@ struct AddSchedule: View {
                      하루 종일 체크 O
                      } else {
                      하루 종일 체크 X */
-
+                    
                     // 전 날을 체크할 수 없도록 in: Date 사용
                     DatePicker("시작", selection: $timeStart, in: Date()...)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
@@ -70,11 +74,11 @@ struct AddSchedule: View {
                 }
                 
                 Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
-                        Picker(selection: $whoSchedule, label: Text(""), content: {
-                            Text("사용자1").tag("사용자1")
-                            Text("함께").tag("함께")
-                            Text("사용자2").tag("사용자2")
-                        }).pickerStyle(SegmentedPickerStyle())
+                    Picker(selection: $whoSchedule, label: Text(""), content: {
+                        Text("사용자1").tag("사용자1")
+                        Text("함께").tag("함께")
+                        Text("사용자2").tag("사용자2")
+                    }).pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("노트 작성하기").padding(.leading, -20)) {
@@ -98,11 +102,11 @@ struct AddSchedule: View {
                                     Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                 Image(systemName: "chevron.left")
             }
-            .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink),
+                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink),
                                 trailing: Button(action: {/* 일정 저장*/}) {
                 Text("완료")
             }
-            .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink))
+                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink))
         }
     }
 }
@@ -113,8 +117,10 @@ struct ColorManage {
     static let plicLightgrey = Color("plicLightgrey")
     static let plicModalgrey = Color("plicModalgrey")
 }
+
 struct AddSchedule_Previews: PreviewProvider {
     static var previews: some View {
         AddSchedule()
     }
 }
+
