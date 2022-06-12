@@ -13,7 +13,8 @@ struct plicApp: App {
 
     var body: some Scene {
         WindowGroup {
-            UserAnniversaryNavigationView()
+//            UserAnniversaryNavigationView()
+            UserAnniversaryView()
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
