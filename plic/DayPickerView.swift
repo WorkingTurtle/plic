@@ -69,12 +69,12 @@ struct DayPicksView: View {
         ZStack{
             VStack(spacing: 0){
                     Text("\(letter)")
-                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 12))
                         .foregroundColor(Color("plicDarkgrey"))
                         .padding(.bottom, 8)
                         .padding(.top, 1)
                     Text("\(whatDate)")
-                        .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 18))
                         .foregroundColor(Color("plicDarkgrey"))
                         .padding(.bottom, 3)
             }
