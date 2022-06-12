@@ -17,12 +17,15 @@ struct DetailScheduleView: View {
                     leading: NavigationLink(destination: ContentView(), label: {
                         Image(systemName: "chevron.left")
                         Text("오늘의 일정")
+                            .font(Font.custom("SpoqaHanSansNeo-Regular", size: 16))
                             .offset(x: -5)
                     }),
                     trailing: NavigationLink(destination: ContentView(), label: {
                         Text("Edit")
+                            .font(Font.custom("SpoqaHanSansNeo-Regular", size: 16))
                     })
                 )
+                .accentColor(Color("plicPink"))
         }
     }
 }
