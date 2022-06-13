@@ -25,6 +25,7 @@
 		D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A4A28565C1800D2CECF /* TapBarMainView.swift */; };
 		D5279A572857262A00D2CECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5279A562857262900D2CECF /* Assets.xcassets */; };
 		D5279A5928574ECC00D2CECF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A5828574ECC00D2CECF /* MainView.swift */; };
+		D5279A5B28576C8900D2CECF /* MainTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A5A28576C8900D2CECF /* MainTimeTableView.swift */; };
 		D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307E92850EA7100CFF605 /* plicApp.swift */; };
 		D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307EB2850EA7100CFF605 /* ContentView.swift */; };
 		D54307F12850EA7300CFF605 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54307F02850EA7300CFF605 /* Preview Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		D5279A4A28565C1800D2CECF /* TapBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarMainView.swift; sourceTree = "<group>"; };
 		D5279A562857262900D2CECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5279A5828574ECC00D2CECF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D5279A5A28576C8900D2CECF /* MainTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTimeTableView.swift; sourceTree = "<group>"; };
 		D54307E62850EA7100CFF605 /* plic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54307E92850EA7100CFF605 /* plicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plicApp.swift; sourceTree = "<group>"; };
 		D54307EB2850EA7100CFF605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				D500A6FA285489AD005A90AD /* CalendarView.swift */,
+				D5279A5A28576C8900D2CECF /* MainTimeTableView.swift */,
 			);
 			path = MainViewRecycle;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
 				5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */,
+				D5279A5B28576C8900D2CECF /* MainTimeTableView.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
 				7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,

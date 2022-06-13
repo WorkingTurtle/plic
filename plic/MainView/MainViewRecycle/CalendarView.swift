@@ -42,7 +42,7 @@ struct CalendarView: View {
                         .foregroundColor(Color("plicPink"))
                 }
             }
-            .padding([.leading, .trailing], 32)
+            .padding([.leading, .trailing], 20)
             .padding(.bottom, 15)
             HStack{
                 LazyVGrid(columns: columns) {
@@ -50,15 +50,15 @@ struct CalendarView: View {
                     DayOfWeekView(letter: dayoftheWeek[i])
                 }
                 }
-            }.padding([.leading, .trailing], 32)
+            }.padding([.leading, .trailing], 20)
             HStack{
                 LazyVGrid(columns: columns) {
                     ForEach(1..<42){ i in
                     DayView(letter: i, firstCheck: true, secondCheck: true, thirdCheck: true)
                     }
                 }
-            }.padding([.leading, .trailing], 32)
-        }
+            }.padding([.leading, .trailing], 20)
+        }.frame(height: 360)
     }
 }
 
