@@ -42,6 +42,13 @@ struct AddSchedule: View {
     // 사용자 선택에 관한 설정(함께, 사용자 둘), 선택할 때 tag값을 줌
     @State var whoSchedule = "함께"
 
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(ColorManage.plicPink)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+        UISegmentedControl.appearance().backgroundColor = .white
+    }
+    
     
     var body: some View {
         NavigationView {
@@ -49,7 +56,7 @@ struct AddSchedule: View {
                 Section {
                     TextField("제목", text: $scheduleName)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-                        .cornerRadius(10)
+                        .disableAutocorrection(true)
                         .modifier(TextFieldClearButton(scheduleNameText: $scheduleName))
                         .multilineTextAlignment(.leading)
                 }
@@ -71,17 +78,18 @@ struct AddSchedule: View {
                 }
                 
                 Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
-                    Picker(selection: $whoSchedule, label: Text(""), content: {
+                    Picker(selection: $whoSchedule, label: Text("")) {
                         Text("사용자1").tag("사용자1")
                         Text("함께").tag("함께")
-                        Text("사용자2").tag("사용자2")
-                    }).pickerStyle(SegmentedPickerStyle())
+                    }
+                        .pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("노트 작성하기").padding(.leading, -20)) {
                     // 작성된 노트가 보이게끔 해야함(새로운 페이지 X, Textfield)
                     TextField("메모를 작성해주세요", text: $noteContent)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .disableAutocorrection(true)
                         .padding(.bottom, 210)
                         .cornerRadius(10)
                         .frame(height: 250)
