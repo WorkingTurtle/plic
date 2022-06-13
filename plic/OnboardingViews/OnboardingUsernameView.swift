@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingUsernameView: View {
     @State var userNickname: String = ""
-    @State var titleText: String = "사용할 이름 또는 애칭을 입력해 주세요"
+    @State var titleText: String = "사용할 이름 또는 애칭을 \n입력해 주세요"
     @State var subtitleText: String = "추후 사용자 설정 란에서 변경이 가능합니다"
     @State var buttonText: String = "다음 단계"
     
