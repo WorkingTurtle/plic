@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */; };
 		5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */; };
+		5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA728572FE500F45814 /* RecycleTitleText.swift */; };
+		5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */; };
+		5D13ACAC28574E6F00F45814 /* OnboardingDateOfBirth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */; };
 		5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */; };
 		5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */; };
 		5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */; };
@@ -17,9 +20,11 @@
 		7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */; };
 		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
+		B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */; };
 		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A4A28565C1800D2CECF /* TapBarMainView.swift */; };
 		D5279A572857262A00D2CECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5279A562857262900D2CECF /* Assets.xcassets */; };
+		D5279A5928574ECC00D2CECF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A5828574ECC00D2CECF /* MainView.swift */; };
 		D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307E92850EA7100CFF605 /* plicApp.swift */; };
 		D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307EB2850EA7100CFF605 /* ContentView.swift */; };
 		D54307F12850EA7300CFF605 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54307F02850EA7300CFF605 /* Preview Assets.xcassets */; };
@@ -32,6 +37,9 @@
 /* Begin PBXFileReference section */
 		5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
 		5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUsernameView.swift; sourceTree = "<group>"; };
+		5D13ACA728572FE500F45814 /* RecycleTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecycleTitleText.swift; path = plic/RecycleTitleText.swift; sourceTree = SOURCE_ROOT; };
+		5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleNextButton.swift; sourceTree = "<group>"; };
+		5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDateOfBirth.swift; sourceTree = "<group>"; };
 		5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTime.swift; sourceTree = "<group>"; };
 		5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewMemo.swift; sourceTree = "<group>"; };
 		5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryView.swift; sourceTree = "<group>"; };
@@ -40,10 +48,12 @@
 		7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileView.swift; sourceTree = "<group>"; };
 		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingPlanView.swift; sourceTree = "<group>"; };
 		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D5279A292854FE0000D2CECF /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		D5279A4A28565C1800D2CECF /* TapBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarMainView.swift; sourceTree = "<group>"; };
 		D5279A562857262900D2CECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5279A5828574ECC00D2CECF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D54307E62850EA7100CFF605 /* plic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54307E92850EA7100CFF605 /* plicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plicApp.swift; sourceTree = "<group>"; };
 		D54307EB2850EA7100CFF605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +92,7 @@
 				D5279A4D2857239900D2CECF /* OnboardingRecycle */,
 				5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */,
 				5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */,
+				5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -89,6 +100,8 @@
 		D5279A4D2857239900D2CECF /* OnboardingRecycle */ = {
 			isa = PBXGroup;
 			children = (
+				5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */,
+				5D13ACA728572FE500F45814 /* RecycleTitleText.swift */,
 			);
 			path = OnboardingRecycle;
 			sourceTree = "<group>";
@@ -107,6 +120,7 @@
 				B3C093082855DF2900C53793 /* UserSettingView.swift */,
 				5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */,
 				7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */,
+				B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */,
 			);
 			path = SettingViews;
 			sourceTree = "<group>";
@@ -114,6 +128,7 @@
 		D5279A50285724A600D2CECF /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D5279A5828574ECC00D2CECF /* MainView.swift */,
 				D5279A4A28565C1800D2CECF /* TapBarMainView.swift */,
 				D5279A51285724BA00D2CECF /* MainViewRecycle */,
 			);
@@ -296,11 +311,16 @@
 				5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
 				5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */,
+				5D13ACAC28574E6F00F45814 /* OnboardingDateOfBirth.swift in Sources */,
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
+				D5279A5928574ECC00D2CECF /* MainView.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
+				B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
+				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
+				5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
 				7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,

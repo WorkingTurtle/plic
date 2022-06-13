@@ -41,7 +41,7 @@ struct UserSettingView: View {
                     Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
                 }
                 
-                VStack(){
+                VStack(spacing:20){
                     ForEach(letterArr, id: \.self){ value in
                         SettingListView(letter: value)
                     }
@@ -60,12 +60,14 @@ struct SettingListView : View{
     var letter : String
     var body: some View {
         HStack(){
-            Text("\(letter)").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
+            Text("\(letter)").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2).frame(maxWidth:200,alignment:.leading).padding(.leading,50)
                 
             Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
                 .frame(maxWidth:255, maxHeight: 30, alignment: .trailing)
                        .listRowInsets(EdgeInsets())
+                       .padding(.trailing,40)
         }
+        
     }
 }
 
