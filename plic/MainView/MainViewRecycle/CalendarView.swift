@@ -115,7 +115,7 @@ struct CalendarView: View {
     func getCurrentMonth() -> Date {
         let calendar = Calendar.current
         
-        guard let currentMonth = calendar.date(bySetting: .month, value: self.currentMonth, to: Date())
+        guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date())
         else{
             return Date()
         }
