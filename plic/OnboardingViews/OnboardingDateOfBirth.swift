@@ -32,26 +32,8 @@ struct OnboardingDateOfBirth: View {
                 .ignoresSafeArea(.all)
             VStack(alignment: .leading, spacing: 30){
                 RecycleTitleText(titleText: $titleText, subtitleText: $subtitleText)
-                
                     VStack{
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.white)
-                                .frame(width: .infinity, height: 45)
-                                .padding(.horizontal, 20)
-                            Text("\(dateOfBirth, formatter: OnboardingDateOfBirth.dateformat)")
-                                .font(Font.custom("SpoqaHanSansNeo-Regular", size: 20))
-                        }
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.white)
-                                .frame(width: .infinity, height: 200)
-                                .padding(.horizontal, 20)
-                            DatePicker("선택", selection: $dateOfBirth, displayedComponents: .date)
-                                .datePickerStyle(WheelDatePickerStyle())
-                                .labelsHidden()
-                        }
-                        
+                        RecycleDatePicker(dateOfBirth: $dateOfBirth)
                         RecycleNextButton(buttonText: $buttonText)
                     }
                 Spacer()
