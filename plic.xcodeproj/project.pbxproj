@@ -16,6 +16,7 @@
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
+		B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */; };
 		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A4A28565C1800D2CECF /* TapBarMainView.swift */; };
 		D5279A572857262A00D2CECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5279A562857262900D2CECF /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingPlanView.swift; sourceTree = "<group>"; };
 		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D5279A292854FE0000D2CECF /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		D5279A4A28565C1800D2CECF /* TapBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarMainView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				B3C093082855DF2900C53793 /* UserSettingView.swift */,
 				5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */,
+				B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */,
 			);
 			path = SettingViews;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
+				B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
