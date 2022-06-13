@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecycleDatePicker: View {
-    @Binding var dateOfBirth: Date
+    @Binding var date: Date
     
     var body: some View {
         ZStack{
@@ -17,7 +17,7 @@ struct RecycleDatePicker: View {
                 .foregroundColor(.white)
                 .frame(width: .infinity, height: 45)
                 .padding(.horizontal, 20)
-            Text("\(dateOfBirth, formatter: OnboardingDateOfBirth.dateformat)")
+            Text("\(date, formatter: OnboardingDateOfBirth.dateformat)")
                 .font(Font.custom("SpoqaHanSansNeo-Regular", size: 20))
         }
         ZStack{
@@ -26,7 +26,7 @@ struct RecycleDatePicker: View {
                 .foregroundColor(.white)
                 .frame(width: .infinity, height: 200)
                 .padding(.horizontal, 20)
-            DatePicker("선택", selection: $dateOfBirth, displayedComponents: .date)
+            DatePicker("선택", selection: $date, displayedComponents: .date)
                 .datePickerStyle(WheelDatePickerStyle())
                 .labelsHidden()
         }
