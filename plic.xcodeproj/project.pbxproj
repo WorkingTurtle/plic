@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
+		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
+		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307E92850EA7100CFF605 /* plicApp.swift */; };
 		D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307EB2850EA7100CFF605 /* ContentView.swift */; };
 		D54307EE2850EA7300CFF605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D54307ED2850EA7300CFF605 /* Assets.xcassets */; };
@@ -20,8 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
+		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D54307E62850EA7100CFF605 /* plic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54307E92850EA7100CFF605 /* plicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plicApp.swift; sourceTree = "<group>"; };
 		D54307EB2850EA7100CFF605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				D543080028530B7700CFF605 /* assets */,
 				D54307FC2850ECE800CFF605 /* plic.entitlements */,
 				D54307E92850EA7100CFF605 /* plicApp.swift */,
+				B3C093082855DF2900C53793 /* UserSettingView.swift */,
 				D54307EB2850EA7100CFF605 /* ContentView.swift */,
 				7EF8F1BE285472930008FB44 /* AddSchedule.swift */,
 				D54307ED2850EA7300CFF605 /* Assets.xcassets */,
@@ -172,6 +175,7 @@
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
+				B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,
