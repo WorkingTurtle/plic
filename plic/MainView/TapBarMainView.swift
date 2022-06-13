@@ -22,7 +22,7 @@ struct TapBarMainView: View {
     var body: some View {
         TabView(selection: $tabbarIndex){
 
-            CalendarView()
+            MainView()
                 .tabItem {
                     Image(systemName: "calendar")
                     
@@ -36,7 +36,7 @@ struct TapBarMainView: View {
                     Text("목표")
                 }.tag(1)
             
-            DetailScheduleView()
+            UserSettingView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                     Text("설정")
