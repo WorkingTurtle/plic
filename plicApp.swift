@@ -12,8 +12,12 @@ struct plicApp: App {
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {
+        
         WindowGroup {
-            EditingPlanView()
+//            TapBarMainView(tabbarIndex: 0)
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            OnboardingUsernameView()
+            OnboardingDateOfBirth()
         }
     }
 }
