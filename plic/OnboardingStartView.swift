@@ -20,7 +20,6 @@ struct OnboardingStartView: View {
                 
                 Spacer()
                 
-                //이미지 png Asset에 다시 받아서 변경 예정
                 Image("plicLogoExample")
                     .resizable()
                     .frame(width: 290, height: 118)
