@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
+		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
+		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */; };
 		5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */; };
 		5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
+		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
 		5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUsernameView.swift; sourceTree = "<group>"; };
 		5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTime.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 				D54307FC2850ECE800CFF605 /* plic.entitlements */,
 				D5279A4A28565C1800D2CECF /* TapBarMainView.swift */,
 				D54307E92850EA7100CFF605 /* plicApp.swift */,
+				B3C093082855DF2900C53793 /* UserSettingView.swift */,
 				D54307EB2850EA7100CFF605 /* ContentView.swift */,
 				7EF8F1BE285472930008FB44 /* AddSchedule.swift */,
 				D54307ED2850EA7300CFF605 /* Assets.xcassets */,
@@ -207,6 +214,7 @@
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
+				B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */,
 				5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
 				5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */,
