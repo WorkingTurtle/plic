@@ -13,7 +13,7 @@ struct plicApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TapBarMainView(tabbarIndex: 0)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
