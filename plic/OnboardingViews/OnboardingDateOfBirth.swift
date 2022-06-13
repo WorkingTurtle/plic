@@ -42,9 +42,17 @@ struct OnboardingDateOfBirth: View {
                             Text("\(dateOfBirth, formatter: OnboardingDateOfBirth.dateformat)")
                                 .font(Font.custom("SpoqaHanSansNeo-Regular", size: 20))
                         }
-                        DatePicker("선택", selection: $dateOfBirth, displayedComponents: .date)
-                            .datePickerStyle(WheelDatePickerStyle())
-                            .labelsHidden()
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(.white)
+                                .frame(width: .infinity, height: 200)
+                                .padding(.horizontal, 20)
+                            DatePicker("선택", selection: $dateOfBirth, displayedComponents: .date)
+                                .datePickerStyle(WheelDatePickerStyle())
+                                .labelsHidden()
+                        }
+                        
+                        RecycleNextButton(buttonText: $buttonText)
                     }
                 Spacer()
             }
