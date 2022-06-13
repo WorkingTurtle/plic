@@ -9,6 +9,9 @@ import SwiftUI
 
 struct OnboardingUsernameView: View {
     @State var userNickname: String = ""
+    @State var titleText: String = "사용할 이름 또는 애칭을 입력해 주세요"
+    @State var subtitleText: String = "추후 사용자 설정 란에서 변경이 가능합니다"
+    @State var buttonText: String = "다음 단계"
     
     var body: some View {
         ZStack{
@@ -19,16 +22,7 @@ struct OnboardingUsernameView: View {
                 .ignoresSafeArea(.all)
             
             VStack(alignment: .leading, spacing: 30){
-                VStack(alignment: .leading, spacing: 15){
-                    Text("사용할 이름 또는 애칭을 입력해 주세요")
-                        .font(Font.custom("SpoqaHanSansNeo-Bold", size: 25))
-                        .padding(EdgeInsets(top: 308, leading: 20, bottom: 0, trailing: 0))
-                    Text("추후 사용자 설정 란에서 변경이 가능합니다")
-                        .font(Font.custom("SpoqaHanSansNeo-Regular", size: 13))
-                        .foregroundColor(Color("plicGrey"))
-                        .padding(.leading, 20)
-                }
-                
+                RecycleTitleText(titleText: $titleText, subtitleText: $subtitleText)
                 // 애칭 입력 텍스트필드
                 TextField("본인의 애칭을 입력해 주세요", text: $userNickname)
                     .font(Font.custom("SpoqaHanSansNeo-Regular", size: 17))
@@ -45,18 +39,7 @@ struct OnboardingUsernameView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    
-                }) {
-                    Text("다음 단계")
-                        .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
-                        .foregroundColor(Color("plicPink"))
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding(.vertical, 18)
-                        .background(RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(.white).cornerRadius(10))
-                        .padding(.horizontal, 20)
-                }
+                RecycleNextButton(buttonText: $buttonText)
                 
                 HStack(spacing: 12){
                     Spacer()
