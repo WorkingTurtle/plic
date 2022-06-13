@@ -74,7 +74,7 @@ struct SettingProfileView: View {
                                         Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                     Image(systemName: "chevron.left")
                 }
-                    .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink))
+                    .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")))
             }
         }
     }
