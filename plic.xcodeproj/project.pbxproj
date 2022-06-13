@@ -14,6 +14,7 @@
 		5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */; };
 		5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D27077028536322006F6480 /* DetailScheduleView.swift */; };
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
+		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D500A6FA285489AD005A90AD /* CalendarView.swift */; };
 		D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A4A28565C1800D2CECF /* TapBarMainView.swift */; };
 		D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54307E92850EA7100CFF605 /* plicApp.swift */; };
@@ -34,6 +35,7 @@
 		5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryView.swift; sourceTree = "<group>"; };
 		5D27077028536322006F6480 /* DetailScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleView.swift; sourceTree = "<group>"; };
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
+		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		D500A6FA285489AD005A90AD /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D5279A292854FE0000D2CECF /* DayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerView.swift; sourceTree = "<group>"; };
 		D5279A4A28565C1800D2CECF /* TapBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarMainView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B7DA00928570D6E00AB62D1 /* Cloudkit */ = {
+			isa = PBXGroup;
+			children = (
+				8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */,
+			);
+			path = Cloudkit;
+			sourceTree = "<group>";
+		};
 		D54307DD2850EA7100CFF605 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 				D5279A292854FE0000D2CECF /* DayPickerView.swift */,
 				5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */,
 				5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */,
+				8B7DA00928570D6E00AB62D1 /* Cloudkit */,
 			);
 			path = plic;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
 				5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */,
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
+				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
