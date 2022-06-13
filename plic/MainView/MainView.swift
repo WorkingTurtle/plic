@@ -15,16 +15,20 @@ struct MainView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 170)
                 .ignoresSafeArea(.all)
-            VStack{
+            VStack(spacing: 0){
                 HStack{
                     
-                }.frame(height: 170)
+                }.frame(height: 100)
+                    .padding(0)
                 HStack{
                     CalendarView()
                 }.frame(height: 360)
+                    .padding(.bottom,10)
+                    Divider()
                 HStack{
-                    
+                    MainTimeTableView()
                 }.frame(height: 230)
+                    .padding(.top,10)
             }
             
         }
