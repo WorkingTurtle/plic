@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D13ACA6285700ED00F45814 /* OnboardingUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA5285700ED00F45814 /* OnboardingUsernameView.swift */; };
 		5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */; };
 		5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */; };
 		5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D13ACA5285700ED00F45814 /* OnboardingUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUsernameView.swift; sourceTree = "<group>"; };
 		5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTime.swift; sourceTree = "<group>"; };
 		5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewMemo.swift; sourceTree = "<group>"; };
 		5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */,
 				D500A6FA285489AD005A90AD /* CalendarView.swift */,
 				D5279A292854FE0000D2CECF /* DayPickerView.swift */,
+				5D13ACA5285700ED00F45814 /* OnboardingUsernameView.swift */,
 			);
 			path = plic;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
+				5D13ACA6285700ED00F45814 /* OnboardingUsernameView.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,
 				5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */,
 			);
