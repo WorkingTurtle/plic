@@ -17,6 +17,7 @@ struct SettingProfileView: View {
     @State var opponentNickName: String = ""
     // 처음 사귀게 된 날짜 수정
     @State var firstDay = Date()
+    @State var check: Bool = false
     
     var body: some View {
         NavigationView {
@@ -48,10 +49,29 @@ struct SettingProfileView: View {
                 Text("사귀게 된 날짜 수정")
                     .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
                     .padding(EdgeInsets(top: 65, leading: 20, bottom: 10, trailing: 0))
-                DatePicker("", selection: $firstDay, displayedComponents: .date)
-                    .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
-//                Text("\(firstDay, formatter: dateFormatter)")
+                VStack {
+                    Button(action: {
+                        check.toggle()
+                    })
+                    {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color("plicLightestgrey"))
+                                .frame(width: 350, height: 45)
+                                .padding(.leading, 20)
+                            Text("\(firstDay, formatter: OnboardingDateOfBirth.dateformat)")
+                                .font(Font.custom("SpoqaHanSansNeo-Regular", size: 20))
+                                .foregroundColor(.black)
+                        }
+                    }
+                    if(check){
+                        DatePicker("선택", selection: $firstDay, displayedComponents: .date)
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .labelsHidden()
+                            .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                    }
+                    
+                }
                 
                 Spacer()
                 
