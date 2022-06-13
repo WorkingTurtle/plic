@@ -13,6 +13,14 @@ struct OnboardingUsernameView: View {
     @State var subtitleText: String = "추후 사용자 설정 란에서 변경이 가능합니다"
     @State var buttonText: String = "다음 단계"
     
+    var buttonIsValid: Bool {
+        if userNickname.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     var body: some View {
         ZStack{
             Image("onboardingBackgroundImage2")
@@ -39,7 +47,19 @@ struct OnboardingUsernameView: View {
                 
                 Spacer()
                 
-                RecycleNextButton(buttonText: $buttonText)
+                Button(action: {
+                    
+                }) {
+                    Text("\(buttonText)")
+                        .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
+                        .foregroundColor(buttonIsValid ? Color("plicPink") : Color("plicGrey"))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding(.vertical, 18)
+                        .background(RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(.white).cornerRadius(10))
+                        .padding(.horizontal, 20)
+                }.disabled(!buttonIsValid)
+                    
                 
                 HStack(spacing: 12){
                     Spacer()
@@ -60,6 +80,8 @@ struct OnboardingUsernameView: View {
                 .padding(.bottom, 31)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
     }
 }
 

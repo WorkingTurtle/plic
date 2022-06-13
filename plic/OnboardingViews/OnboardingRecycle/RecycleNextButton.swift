@@ -15,7 +15,7 @@ struct RecycleNextButton: View {
         }) {
             Text("\(buttonText)")
                 .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
-                .foregroundColor(Color("plicPink"))
+                .foregroundColor(buttonText.isEmpty ? Color("plicGrey") : Color("plicPink"))
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .padding(.vertical, 18)
                 .background(RoundedRectangle(cornerRadius: 10)
