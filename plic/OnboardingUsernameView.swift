@@ -80,7 +80,6 @@ struct OnboardingUsernameView: View {
     }
 }
 
-
 struct OnboardingUsernameView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingUsernameView()
