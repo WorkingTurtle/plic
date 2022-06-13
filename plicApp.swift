@@ -16,8 +16,6 @@ struct plicApp: App {
         WindowGroup {
             TapBarMainView(tabbarIndex: 0)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//            OnboardingUsernameView()
-//            OnboardingDateOfBirth()
         }
     }
 }

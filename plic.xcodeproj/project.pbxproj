@@ -12,6 +12,8 @@
 		5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA728572FE500F45814 /* RecycleTitleText.swift */; };
 		5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */; };
 		5D13ACAC28574E6F00F45814 /* OnboardingDateOfBirth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */; };
+		5D13ACAE285767C400F45814 /* RecycleDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */; };
+		5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAF2857694A00F45814 /* OnboardingFirstDayWeMet.swift */; };
 		5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */; };
 		5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */; };
 		5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */; };
@@ -41,6 +43,8 @@
 		5D13ACA728572FE500F45814 /* RecycleTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecycleTitleText.swift; path = plic/RecycleTitleText.swift; sourceTree = SOURCE_ROOT; };
 		5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleNextButton.swift; sourceTree = "<group>"; };
 		5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDateOfBirth.swift; sourceTree = "<group>"; };
+		5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleDatePicker.swift; sourceTree = "<group>"; };
+		5D13ACAF2857694A00F45814 /* OnboardingFirstDayWeMet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFirstDayWeMet.swift; sourceTree = "<group>"; };
 		5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTime.swift; sourceTree = "<group>"; };
 		5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewMemo.swift; sourceTree = "<group>"; };
 		5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryView.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */,
 				5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */,
 				5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */,
+				5D13ACAF2857694A00F45814 /* OnboardingFirstDayWeMet.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			children = (
 				5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */,
 				5D13ACA728572FE500F45814 /* RecycleTitleText.swift */,
+				5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */,
 			);
 			path = OnboardingRecycle;
 			sourceTree = "<group>";
@@ -318,9 +324,11 @@
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
 				D5279A5928574ECC00D2CECF /* MainView.swift in Sources */,
+				5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
 				8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */,
 				B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */,
+				5D13ACAE285767C400F45814 /* RecycleDatePicker.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
