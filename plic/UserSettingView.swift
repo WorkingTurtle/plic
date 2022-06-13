@@ -16,6 +16,8 @@ extension Color {
 }
 
 struct UserSettingView: View {
+    let letterArr: [String] = ["기념일", "알림 설정", "캘린더 연동", "커플 연결", "로그아웃"]
+    
     var body: some View {
         ScrollView {
             VStack(spacing:30){
@@ -40,46 +42,9 @@ struct UserSettingView: View {
                 }
                 
                 VStack(){
-                HStack(){
-                    Text("기념일").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
-                        
-                    Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                        .frame(maxWidth:255, maxHeight: 30, alignment: .trailing)
-                               .listRowInsets(EdgeInsets())
-                }
-                
-                HStack(){
-                    Text("알림 설정").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
-                       
-                    Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                        .frame(maxWidth:238, maxHeight: 30, alignment: .trailing)
-                               .listRowInsets(EdgeInsets())
-                }
-                
-                HStack(){
-                    Text("캘린더 연동").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
-                       
-                        
-                    Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                        .frame(maxWidth:225, maxHeight: 30, alignment: .trailing)
-                               .listRowInsets(EdgeInsets())
-                }
-                HStack(){
-                    Text("커플 연결").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
-                        
-                    Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                        .frame(maxWidth:241, maxHeight: 30, alignment: .trailing)
-                               .listRowInsets(EdgeInsets())
-                }
-            
-                
-                HStack(){
-                    Text("로그아웃").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
-                        
-                    Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                        .frame(maxWidth:246, maxHeight: 30, alignment: .trailing)
-                               .listRowInsets(EdgeInsets())
-                }
+                    ForEach(letterArr, id: \.self){ value in
+                        SettingListView(letter: value)
+                    }
             }
                     
             }
@@ -91,7 +56,18 @@ struct UserSettingView: View {
 }
 
 
-
+struct SettingListView : View{
+    var letter : String
+    var body: some View {
+        HStack(){
+            Text("\(letter)").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2)
+                
+            Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
+                .frame(maxWidth:255, maxHeight: 30, alignment: .trailing)
+                       .listRowInsets(EdgeInsets())
+        }
+    }
+}
 
 
 
