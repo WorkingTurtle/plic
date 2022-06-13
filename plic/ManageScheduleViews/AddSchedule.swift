@@ -18,7 +18,7 @@ struct TextFieldClearButton: ViewModifier {
             if !scheduleNameText.isEmpty {
                 Button(action: { self.scheduleNameText = "" }, label: {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(ColorManage.plicLightgrey)
+                        .foregroundColor(Color("plicLightgrey"))
                 })
             }
         }
@@ -43,7 +43,7 @@ struct AddSchedule: View {
     @State var whoSchedule = "함께"
 
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(ColorManage.plicPink)
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color("plicPink"))
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         UISegmentedControl.appearance().backgroundColor = .white
@@ -96,7 +96,7 @@ struct AddSchedule: View {
                         .overlay(
                             Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                                 Image(systemName: "square.and.pencil")
-                                    .foregroundColor(ColorManage.plicPink)
+                                    .foregroundColor(Color("plicPink"))
                                     .padding(.bottom, 210)
                                     .padding(.leading, 290)
                             })
@@ -107,24 +107,14 @@ struct AddSchedule: View {
                                     Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                 Image(systemName: "chevron.left")
             }
-                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink),
+                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
                                 trailing: Button(action: {/* 일정 저장*/}) {
                 Text("완료")
             }
-                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(ColorManage.plicPink))
-            
+                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
+            )
         }
     }
-//
-//
-}
-        
-
-struct ColorManage {
-    static let plicPink = Color("plicPink")
-    static let plicGrey = Color("plicGrey")
-    static let plicLightgrey = Color("plicLightgrey")
-    static let plicModalgrey = Color("plicModalgrey")
 }
 
 struct AddSchedule_Previews: PreviewProvider {
