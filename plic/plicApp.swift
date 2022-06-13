@@ -10,10 +10,10 @@ import SwiftUI
 @main
 struct plicApp: App {
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TapBarMainView(tabbarIndex: 0)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
