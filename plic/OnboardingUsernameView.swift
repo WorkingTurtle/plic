@@ -57,7 +57,24 @@ struct OnboardingUsernameView: View {
                             .foregroundColor(.white).cornerRadius(10))
                         .padding(.horizontal, 20)
                 }
-                .padding(.bottom, 62)
+                
+                HStack(spacing: 12){
+                    Spacer()
+                    Circle()
+                        .frame(width: 8, height: 8)
+                        .foregroundColor(Color("plicPink"))
+                    Circle()
+                        .frame(width: 8, height: 8)
+                        .foregroundColor(Color("plicLightgrey"))
+                    Circle()
+                        .frame(width: 8, height: 8)
+                        .foregroundColor(Color("plicLightgrey"))
+                    Circle()
+                        .frame(width: 8, height: 8)
+                        .foregroundColor(Color("plicLightgrey"))
+                    Spacer()
+                }
+                .padding(.bottom, 31)
             }
         }
     }
