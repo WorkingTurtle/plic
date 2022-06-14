@@ -60,9 +60,9 @@ struct CalendarView: View {
                     }
                 }.padding([.leading, .trailing], 20)
                 HStack{
-                    LazyVGrid(columns: columns) {
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(extractDate()){ value in
-                            DayView(value: value, firstCheck: false, secondCheck: true, thirdCheck: false)
+                            DayView(value: value, firstCheck: false, secondCheck: true, thirdCheck: true)
                         }
                     }
                 }.padding([.leading, .trailing], 20)
@@ -182,7 +182,7 @@ struct DayView: View {
     @State var thirdCheck: Bool
     
     var body: some View{
-        VStack(spacing: 2){
+        VStack(spacing: 5){
             if value.day != -1{
                 HStack{
                     Text("\(value.day)")

@@ -35,6 +35,10 @@
 		D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D54307F42850EA7300CFF605 /* plic.xcdatamodeld */; };
 		D54307FF2850ECF300CFF605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54307FE2850ECF300CFF605 /* CloudKit.framework */; };
 		D543080128530B7700CFF605 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D543080028530B7700CFF605 /* assets */; };
+		D5D42C0028585B37003C7574 /* WeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42BFF28585B37003C7574 /* WeeklyView.swift */; };
+		D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A292854FE0000D2CECF /* DayPickerView.swift */; };
+		D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */; };
+		D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C042858B4B3003C7574 /* TimeTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +74,9 @@
 		D54307FE2850ECF300CFF605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D543080028530B7700CFF605 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		D543080228530CA700CFF605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D5D42BFF28585B37003C7574 /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
+		D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTimeTable.swift; sourceTree = "<group>"; };
+		D5D42C042858B4B3003C7574 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +162,7 @@
 		D5279A52285724D100D2CECF /* WeeklyView */ = {
 			isa = PBXGroup;
 			children = (
+				D5D42BFF28585B37003C7574 /* WeeklyView.swift */,
 				D5279A552857255D00D2CECF /* WeeklyViewRecycle */,
 			);
 			path = WeeklyView;
@@ -182,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				D5279A292854FE0000D2CECF /* DayPickerView.swift */,
+				D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */,
+				D5D42C042858B4B3003C7574 /* TimeTableView.swift */,
 			);
 			path = WeeklyViewRecycle;
 			sourceTree = "<group>";
@@ -313,9 +323,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */,
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
+				D5D42C0028585B37003C7574 /* WeeklyView.swift in Sources */,
 				B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */,
 				5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
@@ -329,9 +341,12 @@
 				8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */,
 				B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */,
 				5D13ACAE285767C400F45814 /* RecycleDatePicker.swift in Sources */,
+				D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
+				D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */,
+				5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */,
 				D5279A5B28576C8900D2CECF /* MainTimeTableView.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
 				7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */,

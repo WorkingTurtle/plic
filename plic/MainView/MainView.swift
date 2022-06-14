@@ -10,28 +10,34 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         ZStack{
-            Image("MainTab")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 170)
-                .ignoresSafeArea(.all)
-            VStack(spacing: 0){
-                HStack{
+            ScrollView{
+                VStack(spacing: 0){
+                        Image("TabMain")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .ignoresSafeArea(.all)
+                            .frame(height: 160)
+                        .padding(0)
                     
-                }.frame(height: 100)
-                    .padding(0)
-                HStack{
-                    CalendarView()
-                }.frame(height: 360)
-                    .padding(.bottom,10)
-                    Divider()
-                HStack{
-                    MainTimeTableView()
-                }.frame(height: 230)
-                    .padding(.top,10)
+                        VStack{
+                            HStack{
+                                CalendarView()
+                            }
+                                .padding(.bottom,20)
+                            Divider()
+                            HStack{
+                                MainTimeTableView()
+                            }
+                                .padding(.top,20)
+                            HStack{
+                               
+                            }.frame(height: 70)
+                                .padding(.top,20)
+                        }
+                    }
             }
-            
-        }
+        }.ignoresSafeArea()
     }
 }
 
