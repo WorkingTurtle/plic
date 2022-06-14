@@ -39,8 +39,9 @@ struct OnboardingDateOfBirth: View {
                 VStack{
                     
                     RecycleDatePicker(date: $dateOfBirth)
-                    
-                    NavigationLink(destination: OnboardingFirstDayWeMet(), isActive: $isButtonClicked){ EmptyView() }
+                  
+                    NavigationLink(destination: OnboardingFirstDayWeMet().navigationBarHidden(true), isActive: $isButtonClicked){ EmptyView() }
+
                         .disabled(true)
                     
                     Button(action: {
@@ -73,7 +74,8 @@ struct OnboardingDateOfBirth: View {
                 }
                 .padding(.bottom, 31)
             }
-        }.navigationBarHidden(true)
+        }
+        .navigationBarHidden(true)
     }
 }
 
