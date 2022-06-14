@@ -45,3 +45,9 @@ struct TapBarMainView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
+
+struct TapBarMainView_Previews: PreviewProvider {
+    static var previews: some View {
+        TapBarMainView(tabbarIndex: 0)
+    }
+}
