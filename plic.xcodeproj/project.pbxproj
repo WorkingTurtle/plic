@@ -110,8 +110,8 @@
 		D5279A4D2857239900D2CECF /* OnboardingRecycle */ = {
 			isa = PBXGroup;
 			children = (
-				5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */,
 				5D13ACA728572FE500F45814 /* RecycleTitleText.swift */,
+				5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */,
 				5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */,
 			);
 			path = OnboardingRecycle;

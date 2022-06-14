@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RecycleTitleText: View {
-    @Binding var titleText: String
-    @Binding var subtitleText: String
+    var titleText: String
+    var subtitleText: String
     var body: some View {
         VStack(alignment: .leading, spacing: 15){
             Text("\(titleText)")

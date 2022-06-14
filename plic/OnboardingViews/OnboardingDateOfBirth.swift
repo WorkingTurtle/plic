@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct OnboardingDateOfBirth: View {
-    @State var titleText: String = "본인의 생년월일을 \n입력해 주세요"
-    @State var subtitleText: String = "커플 달력에 표시될 생일 날짜입니다"
-    @State var buttonText: String = "다음 단계"
+    let titleText: String = "본인의 생년월일을 \n입력해 주세요"
+    let subtitleText: String = "커플 달력에 표시될 생일 날짜입니다"
+    let buttonText: String = "다음 단계"
     @State var dateOfBirth = Date()
     
     //날짜 포맷 함수
@@ -31,10 +31,10 @@ struct OnboardingDateOfBirth: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .ignoresSafeArea(.all)
             VStack(alignment: .leading, spacing: 30){
-                RecycleTitleText(titleText: $titleText, subtitleText: $subtitleText)
+                RecycleTitleText(titleText: titleText, subtitleText: subtitleText)
                     VStack{
                         RecycleDatePicker(date: $dateOfBirth)
-                        RecycleNextButton(buttonText: $buttonText)
+                        RecycleNextButton(buttonText: buttonText)
                     }
                 HStack(spacing: 12){
                     Spacer()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecycleNextButton: View {
-    @Binding var buttonText: String
+    var buttonText: String
     var body: some View {
         Button(action: {
             

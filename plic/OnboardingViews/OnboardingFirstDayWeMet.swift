@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct OnboardingFirstDayWeMet: View {
-    @State var titleText: String = "처음 사귀게 된 \n기념일은 언제인가요?"
-    @State var subtitleText: String = "기념일 날짜를 세고 위젯에 표시합니다"
+    let titleText: String = "처음 사귀게 된 \n기념일은 언제인가요?"
+    let subtitleText: String = "기념일 날짜를 세고 위젯에 표시합니다"
     @State var firstDayWeMet = Date()
-    @State var buttonText: String = "다음단계"
+    let buttonText: String = "다음단계"
     
     var body: some View {
         ZStack{
@@ -22,10 +22,10 @@ struct OnboardingFirstDayWeMet: View {
                 .ignoresSafeArea(.all)
             
             VStack(alignment: .leading, spacing: 30){
-                RecycleTitleText(titleText: $titleText, subtitleText: $subtitleText)
+                RecycleTitleText(titleText: titleText, subtitleText: subtitleText)
                 VStack{
                     RecycleDatePicker(date: $firstDayWeMet)
-                    RecycleNextButton(buttonText: $buttonText)
+                    RecycleNextButton(buttonText: buttonText)
                 }
                 HStack(spacing: 12){
                     Spacer()
