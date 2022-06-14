@@ -19,7 +19,6 @@ struct CalendarView: View {
     
     let dayoftheWeek : [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     let columns = [
-          //추가 하면 할수록 화면에 보여지는 개수가 변함
             GridItem(.flexible()),
             GridItem(.flexible()),
             GridItem(.flexible()),

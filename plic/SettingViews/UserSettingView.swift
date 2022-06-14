@@ -19,37 +19,56 @@ struct UserSettingView: View {
     let letterArr: [String] = ["기념일", "알림 설정", "캘린더 연동", "커플 연결", "로그아웃"]
     
     var body: some View {
-        ScrollView {
-            VStack(spacing:30){
-                Image("TabMain").frame(width: .infinity)
-//                    .offset(y:-195)
-            
-               
-                HStack(spacing:50){
-                    Circle()
-                        .frame(width:65, height:65).foregroundColor(.Symbole_Color)
-                VStack(alignment:.leading){
-                    Text("뱃저♥디기").font(.title).foregroundColor(.Symbole_Color).offset(x:-30)
-                   
-                        Text("123일째 연애중").font(.subheadline).foregroundColor(.Symbole_Color)
-                        .offset(x:-30)
-                        
-                    
-                    
-                        
-                    }
-                    Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                }
+        NavigationView{
+            ScrollView {
+                VStack(spacing:30){
+                    Image("TabMain").frame(width: .infinity)
+    //                    .offset(y:-195)
                 
-                VStack(spacing:20){
-                    ForEach(letterArr, id: \.self){ value in
-                        SettingListView(letter: value)
-                    }
-            }
+                    NavigationLink(destination: SettingProfileView(), label: {
+                        HStack(spacing:50){
+                            Circle()
+                                .frame(width:65, height:65).foregroundColor(.Symbole_Color)
+                        
+                        VStack(alignment:.leading){
+                            Text("뱃저♥디기").font(.title).foregroundColor(.Symbole_Color).offset(x:-30)
+                           
+                                Text("123일째 연애중").font(.subheadline).foregroundColor(.Symbole_Color)
+                                .offset(x:-30)
+                                
+                            
+                            
+                                
+                            }
+                            Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
+                        }
+                    })
                     
-            }
+                    
+                    VStack(spacing:20){
+                        
+                        NavigationLink(destination: UserAnniversaryView(), label: {
+                            SettingListView(letter : letterArr[0])
+                        })
+                        NavigationLink(destination: UserAnniversaryView(), label: {
+                            SettingListView(letter : letterArr[1])
+                        })
+                        NavigationLink(destination: UserAnniversaryView(), label: {
+                            SettingListView(letter : letterArr[2])
+                        })
+                        NavigationLink(destination: UserAnniversaryView(), label: {
+                            SettingListView(letter : letterArr[3])
+                        })
+                        NavigationLink(destination: UserAnniversaryView(), label: {
+                            SettingListView(letter : letterArr[4])
+                        })
+                }
+                }
+                        
+            
+            }.ignoresSafeArea()
+        }
         
-        }.ignoresSafeArea()
      
             
   }
