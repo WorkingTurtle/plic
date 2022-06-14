@@ -88,7 +88,6 @@ struct OnboardingUsernameView: View {
                     }
                     .padding(.bottom, 31)
                 }
-                
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
