@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TimeTableView: View {
-    let letter: String = "점심 약속"
-    let num: Int = 1
+    let letter: String
+    let num: Int
     let width: CGFloat = 60.0
-    var height: CGFloat = 35.0
+    let coupleWidth: CGFloat = 210.0
+    var height: CGFloat = 43.0
+    let who: Int
     
     var body: some View {
+        if(who == 0){
             VStack{
                 Text(letter)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
@@ -24,12 +27,32 @@ struct TimeTableView: View {
             .frame(width: width, height: height * CGFloat(num))
             .background(Color("plicYellow"))
             .cornerRadius(3)
+        }else if(who == 1){
+            VStack{
+                Text(letter)
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                    .foregroundColor(Color("plicPink"))
+                    .padding(.top, 5)
+                Spacer()
+            }
+            .frame(width: coupleWidth, height: height * CGFloat(num))
+            .background(Color("plicTimepink"))
+            .cornerRadius(3)
+        }else if(who == 2){
+            VStack{
+                Text(letter)
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                    .foregroundColor(Color("plicNavy"))
+                    .padding(.top, 5)
+                Spacer()
+            }
+            .frame(width: width, height: height * CGFloat(num))
+            .background(Color("plicTimeblue"))
+            .cornerRadius(3)
+        }
+            
             
         }
 }
 
-struct TimeTableView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeTableView()
-    }
-}
+
