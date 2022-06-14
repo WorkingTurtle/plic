@@ -7,14 +7,15 @@
 
 import SwiftUI
 
+
 struct MainAddSchedule: View {
-    // 임시로 값을 넘겨주는 뷰를 DetailScheduleView로 함
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var scheduleName: String = ""
     @State var allDayToggle: Bool = false
     @State var timeStart = Date()
     @State var timeEnd = Date()
-    @State var noteContent: String = ""
+    @State var noteContent: String = "메모를 작성해 주세요"
     @State var whoSchedule = "함께"
     
     init() {
@@ -41,8 +42,10 @@ struct MainAddSchedule: View {
                     
                     DatePicker("시작", selection: $timeStart, in: Date()...)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .accentColor(Color("plicPink"))
                     DatePicker("종료", selection: $timeEnd, in: timeStart...)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .accentColor(Color("plicPink"))
                 }
                 
                 Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
@@ -53,27 +56,41 @@ struct MainAddSchedule: View {
                 }
                 
                 Section(header: Text("노트 작성하기").padding(.leading, -20)){
-//                    
-//                    TextEditor(text: $noteContent)
-//                        .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-//                        .disableAutocorrection(true)
-//                        .padding(.bottom, 210)
-//                        .cornerRadius(10)
-//                        .frame(height: 250)
-//                    
-//                    TextField("메모를 작성해 주세요", text: $noteContent)
-//                        .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-//                        .disableAutocorrection(true)
-//                        .padding(.bottom, 210)
-//                        .cornerRadius(10)
-//                        .frame(height: 250)
-//                        .overlay(
-//                            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-//                                Image(systemName: "square.and.pencil")
-//                                    .foregroundColor(Color("plicPink"))
-//                                    .padding(.bottom, 210)
-//                                    .padding(.leading, 290)
-//                            })
+                    
+                    TextEditor(text: $noteContent)
+                        .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .foregroundColor((noteContent == "메모를 작성해 주세요") ? Color("plicLightgrey") : .black )
+                        .frame(height: 250)
+                        .disableAutocorrection(true)
+                        .padding(.horizontal, -10)
+//                        .onTapGesture {
+//                            //메모가 없을 때 placeholder 역할
+//                            if self.noteContent == "메모를 작성해 주세요" {
+//                                self.noteContent = ""
+//                            }
+//                        }
+                    //키보드가 뜨면 placeholder 지우기
+                        .onAppear {
+                            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+                                
+                                withAnimation {
+                                    if self.noteContent == "메모를 작성해 주세요" {
+                                        self.noteContent = ""
+                                    }
+                                }
+                            }
+                            
+                            //키보드를 내려 놓을 때 입력한 게 없으면 placeholder 뜨게 하기
+                            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+                                
+                                withAnimation {
+                                    if self.noteContent == "" {
+                                        self.noteContent = "메모를 작성해 주세요"
+                                    }
+                                }
+                            }
+                        }
+
                 }
             }.navigationBarTitle("일정 추가", displayMode: .inline)
                 .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
@@ -91,8 +108,93 @@ struct MainAddSchedule: View {
     }
 }
 
-struct MainAddSchedule_Previews: PreviewProvider {
-    static var previews: some View {
-        MainAddSchedule()
-    }
-}
+
+//struct MainAddSchedule_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainAddSchedule()
+//    }
+//}
+
+//struct TextView: UIViewRepresentable {
+//    var placeholder: String
+//    @Binding var text: String
+//
+//    var minHeight: CGFloat
+//    @Binding var calculatedHeight: CGFloat
+//
+//    init(placeholder: String, text: Binding<String>, minHeight: CGFloat, calculatedHeight: Binding<CGFloat>) {
+//        self.placeholder = placeholder
+//        self._text = text
+//        self.minHeight = minHeight
+//        self._calculatedHeight = calculatedHeight
+//    }
+//
+//    func makeCoordinator() -> Coordinator {
+//        Coordinator(self)
+//    }
+//
+//    func makeUIView(context: Context) -> UITextView {
+//        let textView = UITextView()
+//        textView.delegate = context.coordinator
+//
+//        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//
+//        textView.isScrollEnabled = false
+//        textView.isEditable = true
+//        textView.isUserInteractionEnabled = true
+//        textView.backgroundColor = UIColor(.white)
+//
+//        textView.text = placeholder
+//        textView.textColor = UIColor.lightGray
+//
+//        return textView
+//    }
+//
+//    func updateUIView(_ textView: UITextView, context: Context) {
+////        textView.text = self.text
+//
+//        recalculateHeight(view: textView)
+//    }
+//
+//    func recalculateHeight(view: UIView) {
+//        let newSize = view.sizeThatFits(CGSize(width: view.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
+//        if minHeight < newSize.height && $calculatedHeight.wrappedValue != newSize.height {
+//            DispatchQueue.main.async {
+//                self.$calculatedHeight.wrappedValue = newSize.height
+//            }
+//        } else if minHeight >= newSize.height && $calculatedHeight.wrappedValue != minHeight {
+//            DispatchQueue.main.async {
+//                self.$calculatedHeight.wrappedValue = self.minHeight
+//            }
+//        }
+//    }
+//
+//    class Coordinator : NSObject, UITextViewDelegate {
+//        var parent: TextView
+//
+//        init (_ uiTextView: TextView) {
+//            self.parent = uiTextView
+//        }
+//
+//        func textViewDidChange(_ textView: UITextView) {
+//            if textView.markedTextRange == nil {
+//                parent.text = textView.text ?? String()
+//                parent.recalculateHeight(view: textView)
+//            }
+//        }
+//
+//        func textViewDidBeginEditing(_ textView: UITextView) {
+//            if textView.textColor == UIColor.lightGray {
+//                textView.text = nil
+//                textView.textColor = UIColor.black
+//            }
+//        }
+//
+//        func textViewDidEndEditing(_ textView: UITextView) {
+//            if textView.text.isEmpty {
+//                textView.text = parent.placeholder
+//                textView.textColor = UIColor.lightGray
+//            }
+//        }
+//    }
+//}
