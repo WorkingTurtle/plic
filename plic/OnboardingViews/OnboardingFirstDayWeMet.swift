@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct OnboardingFirstDayWeMet: View {
+    @State private var isButtonClicked = false
+    @State var firstDayWeMet = Date()
     let titleText: String = "처음 사귀게 된 \n기념일은 언제인가요?"
     let subtitleText: String = "기념일 날짜를 세고 위젯에 표시합니다"
-    @State var firstDayWeMet = Date()
     let buttonText: String = "다음단계"
     
     var body: some View {
@@ -21,12 +22,35 @@ struct OnboardingFirstDayWeMet: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .ignoresSafeArea(.all)
             
-            VStack(alignment: .leading, spacing: 30){
+            VStack(alignment: .leading, spacing: 0){
+                
+                Spacer()
+                
                 RecycleTitleText(titleText: titleText, subtitleText: subtitleText)
+                
                 VStack{
+                    
                     RecycleDatePicker(date: $firstDayWeMet)
-                    RecycleNextButton(buttonText: buttonText)
+                    
+                    NavigationLink(destination: TapBarMainView(tabbarIndex: 0), isActive: $isButtonClicked){ EmptyView() }
+                        .disabled(true)
+                    
+                    Button(action: {
+                        isButtonClicked = true
+                    }) {
+                        Text("\(buttonText)")
+                            .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
+                            .foregroundColor(Color("plicPink"))
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding(.vertical, 18)
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(.white).cornerRadius(10))
+                            .padding(.horizontal, 20)
+                    }
+                    .padding(.top, 15)
+                    .padding(.bottom, 23)
                 }
+                
                 HStack(spacing: 12){
                     Spacer()
                     Circle()
@@ -38,14 +62,11 @@ struct OnboardingFirstDayWeMet: View {
                     Circle()
                         .frame(width: 8, height: 8)
                         .foregroundColor(Color("plicPink"))
-                    Circle()
-                        .frame(width: 8, height: 8)
-                        .foregroundColor(Color("plicLightgrey"))
                     Spacer()
                 }
                 .padding(.bottom, 31)
             }
-        }
+        }.navigationBarHidden(true)
     }
 }
 

@@ -9,7 +9,8 @@ import SwiftUI
 
 
 struct OnboardingDateOfBirth: View {
-    let titleText: String = "본인의 생년월일을 \n입력해 주세요"
+    @State private var isButtonClicked = false
+    let titleText: String = "본인의 생년월일을\n입력해 주세요"
     let subtitleText: String = "커플 달력에 표시될 생일 날짜입니다"
     let buttonText: String = "다음 단계"
     @State var dateOfBirth = Date()
@@ -30,12 +31,34 @@ struct OnboardingDateOfBirth: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .ignoresSafeArea(.all)
-            VStack(alignment: .leading, spacing: 30){
+            VStack(alignment: .leading, spacing: 0){
+                
+                Spacer()
+                
                 RecycleTitleText(titleText: titleText, subtitleText: subtitleText)
-                    VStack{
-                        RecycleDatePicker(date: $dateOfBirth)
-                        RecycleNextButton(buttonText: buttonText)
+                
+                VStack{
+                    
+                    RecycleDatePicker(date: $dateOfBirth)
+                    
+                    NavigationLink(destination: OnboardingFirstDayWeMet(), isActive: $isButtonClicked){ EmptyView() }
+                        .disabled(true)
+                    
+                    Button(action: {
+                        isButtonClicked.toggle()
+                    }) {
+                        Text("\(buttonText)")
+                            .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
+                            .foregroundColor(Color("plicPink"))
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding(.vertical, 18)
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(.white).cornerRadius(10))
+                            .padding(.horizontal, 20)
                     }
+                    .padding(.top, 15)
+                    .padding(.bottom, 23)
+                }
                 HStack(spacing: 12){
                     Spacer()
                     Circle()
@@ -47,14 +70,11 @@ struct OnboardingDateOfBirth: View {
                     Circle()
                         .frame(width: 8, height: 8)
                         .foregroundColor(Color("plicLightgrey"))
-                    Circle()
-                        .frame(width: 8, height: 8)
-                        .foregroundColor(Color("plicLightgrey"))
                     Spacer()
                 }
                 .padding(.bottom, 31)
             }
-        }
+        }.navigationBarHidden(true)
     }
 }
 

@@ -10,7 +10,6 @@
 		5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */; };
 		5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */; };
 		5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA728572FE500F45814 /* RecycleTitleText.swift */; };
-		5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */; };
 		5D13ACAC28574E6F00F45814 /* OnboardingDateOfBirth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */; };
 		5D13ACAE285767C400F45814 /* RecycleDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */; };
 		5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D13ACAF2857694A00F45814 /* OnboardingFirstDayWeMet.swift */; };
@@ -42,7 +41,6 @@
 		5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
 		5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUsernameView.swift; sourceTree = "<group>"; };
 		5D13ACA728572FE500F45814 /* RecycleTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecycleTitleText.swift; path = plic/RecycleTitleText.swift; sourceTree = SOURCE_ROOT; };
-		5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleNextButton.swift; sourceTree = "<group>"; };
 		5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDateOfBirth.swift; sourceTree = "<group>"; };
 		5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleDatePicker.swift; sourceTree = "<group>"; };
 		5D13ACAF2857694A00F45814 /* OnboardingFirstDayWeMet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFirstDayWeMet.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				5D13ACA728572FE500F45814 /* RecycleTitleText.swift */,
-				5D13ACA9285733AA00F45814 /* RecycleNextButton.swift */,
 				5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */,
 			);
 			path = OnboardingRecycle;
@@ -335,7 +332,6 @@
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
-				5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */,
 				D5279A5B28576C8900D2CECF /* MainTimeTableView.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
 				7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */,
@@ -470,7 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"plic/Preview Content\"";
-				DEVELOPMENT_TEAM = 5N5TS7Y4MA;
+				DEVELOPMENT_TEAM = PCJ686F4KQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = plic/Info.plist;
@@ -484,7 +480,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.workingturtle.plic;
+				PRODUCT_BUNDLE_IDENTIFIER = .com.sworkingturtletest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -501,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"plic/Preview Content\"";
-				DEVELOPMENT_TEAM = 5N5TS7Y4MA;
+				DEVELOPMENT_TEAM = PCJ686F4KQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = plic/Info.plist;
@@ -515,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.workingturtle.plic;
+				PRODUCT_BUNDLE_IDENTIFIER = .com.sworkingturtletest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
