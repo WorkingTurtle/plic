@@ -90,14 +90,6 @@ struct SettingProfileView: View {
             
             .navigationBarTitle("프로필 수정", displayMode: .inline)
             .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
-//            .navigationBarItems(leading:
-//                                    Button(action: {
-//                self.presentationMode.wrappedValue.dismiss()
-//            }) {
-//                Image(systemName: "chevron.left")
-//            }
-//                .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-//                .foregroundColor(Color("plicPink")))
         }
     }
 }
