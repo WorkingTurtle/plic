@@ -47,3 +47,9 @@ struct TapBarMainView: View {
         .accentColor(Color("plicPink"))
     }
 }
+
+struct TapBarMainView_Previews: PreviewProvider {
+    static var previews: some View {
+        TapBarMainView(tabbarIndex: 0)
+    }
+}

@@ -22,7 +22,7 @@ struct DayPickerView: View {
                 Image(systemName: "chevron.right")
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                     .foregroundColor(Color("plicPink"))
-            }.padding([.leading, .trailing], 20)
+            }
         }
         
     }
