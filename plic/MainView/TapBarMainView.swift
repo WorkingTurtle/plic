@@ -21,29 +21,27 @@ struct TapBarMainView: View {
     
     var body: some View {
         TabView(selection: $tabbarIndex){
-
             MainView()
                 .tabItem {
                     Image(systemName: "calendar")
-                    
                     Text("일정")
-                   
-                }.tag(0)
+                }
+                .tag(0)
             
-            AddSchedule()
-                .tabItem {
-                    Image(systemName: "heart.text.square.fill")
-                    Text("목표")
-                }.tag(1)
+//            AddSchedule()
+//                .tabItem {
+//                    Image(systemName: "heart.text.square.fill")
+//                    Text("목표")
+//                }.tag(1)
             
             UserSettingView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                     Text("설정")
                 }.tag(2)
-            
-            
         }
         .accentColor(Color("plicPink"))
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
 }

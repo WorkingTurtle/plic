@@ -30,8 +30,8 @@ struct MainView: View {
                 }.frame(height: 230)
                     .padding(.top,10)
             }
-            
         }
+        .navigationBarHidden(true)
     }
 }
 

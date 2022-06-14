@@ -32,7 +32,7 @@ struct OnboardingFirstDayWeMet: View {
                     
                     RecycleDatePicker(date: $firstDayWeMet)
                     
-                    NavigationLink(destination: TapBarMainView(tabbarIndex: 0), isActive: $isButtonClicked){ EmptyView() }
+                    NavigationLink(destination: TapBarMainView(tabbarIndex: 0).navigationBarHidden(true), isActive: $isButtonClicked){ EmptyView() }
                         .disabled(true)
                     
                     Button(action: {
@@ -66,7 +66,8 @@ struct OnboardingFirstDayWeMet: View {
                 }
                 .padding(.bottom, 31)
             }
-        }.navigationBarHidden(true)
+        }
+        .navigationBarHidden(true)
     }
 }
 
