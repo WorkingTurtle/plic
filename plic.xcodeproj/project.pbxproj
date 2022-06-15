@@ -19,6 +19,8 @@
 		5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D27077028536322006F6480 /* DetailScheduleView.swift */; };
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */; };
+		8B21FCCB285A102B008B6EC4 /* OnboardingStartShareUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */; };
+		8B21FCCD285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */; };
 		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */; };
 		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
@@ -62,6 +64,8 @@
 		5D27077028536322006F6480 /* DetailScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleView.swift; sourceTree = "<group>"; };
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileView.swift; sourceTree = "<group>"; };
+		8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartShareUser.swift; sourceTree = "<group>"; };
+		8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleSubtitleTextOnly.swift; sourceTree = "<group>"; };
 		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRequestNotificationPermission.swift; sourceTree = "<group>"; };
 		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */,
 				5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */,
 				5D13ACAF2857694A00F45814 /* OnboardingFirstDayWeMet.swift */,
+				8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */,
 			);
 			path = OnboardingViews;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				5D13ACA728572FE500F45814 /* RecycleTitleText.swift */,
+				8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */,
 				5D13ACAD285767C400F45814 /* RecycleDatePicker.swift */,
 			);
 			path = OnboardingRecycle;
@@ -355,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B21FCCD285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift in Sources */,
 				D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */,
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
@@ -381,6 +388,7 @@
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
 				F972C2942859C16600E00039 /* CoupleViewModel.swift in Sources */,
 				F972C28E2859BF6700E00039 /* CloudKitManager.swift in Sources */,
+				8B21FCCB285A102B008B6EC4 /* OnboardingStartShareUser.swift in Sources */,
 				F972C2862859B15100E00039 /* RecordProtocol.swift in Sources */,
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
