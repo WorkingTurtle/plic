@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-extension Color {
-    static let Symbole_Color = Color("plicCirclepink")
-    static let SettingView_FontColor = Color("plicGrey")
-    static let SettingView_FontColor2 = Color("plicDarkgrey")
-    
-    
-}
-
 struct UserSettingView: View {
     let letterArr: [String] = ["기념일", "알림 설정", "캘린더 연동", "커플 연결", "로그아웃"]
     
@@ -23,30 +15,32 @@ struct UserSettingView: View {
             ScrollView {
                 VStack(spacing:30){
                     Image("TabMain").frame(width: .infinity)
-    //                    .offset(y:-195)
-                
-                    NavigationLink(destination: SettingProfileView(), label: {
-                        HStack(spacing:50){
-                            Circle()
-                                .frame(width:65, height:65).foregroundColor(.Symbole_Color)
-                        
-                        VStack(alignment:.leading){
-                            Text("뱃저♥디기").font(.title).foregroundColor(.Symbole_Color).offset(x:-30)
-                           
-                                Text("123일째 연애중").font(.subheadline).foregroundColor(.Symbole_Color)
-                                .offset(x:-30)
-                                
-                            
-                            
-                                
+                    
+                    HStack {
+                        Circle()
+                            .frame(width:65, height:65)
+                            .foregroundColor(Color("plicPink"))
+                        Spacer()
+                        NavigationLink(destination: SettingProfileView(), label: {
+                            VStack(alignment:.leading){
+                                Text("뱃저♥디기")
+                                    .font(.custom("SpoqaHanSansNeo-Bold", size: 24))
+                                    .foregroundColor(Color("plicPink"))
+                                Text("123일째 연애중")
+                                    .font(.custom("SpoqaHanSansNeo-Regular", size: 13))
+                                    .foregroundColor(Color("plicPink"))
                             }
-                            Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
-                        }
-                    })
+                            .padding(.leading, 15)
+                            .padding(.top, 15)
+                            Spacer()
+                            Image(systemName: "chevron.forward")
+                                .foregroundColor(Color("plicGrey"))
+                        })
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 10)
                     
-                    
-                    VStack(spacing:20){
-                        
+                    VStack(spacing:30){
                         NavigationLink(destination: UserAnniversaryView(), label: {
                             SettingListView(letter : letterArr[0])
                         })
@@ -62,41 +56,31 @@ struct UserSettingView: View {
                         NavigationLink(destination: UserAnniversaryView(), label: {
                             SettingListView(letter : letterArr[4])
                         })
+                    }
                 }
-                }
-                        
-            
             }.ignoresSafeArea()
         }
-        
-     
-            
-  }
+    }
 }
-
 
 struct SettingListView : View{
     var letter : String
     var body: some View {
         HStack(){
-            Text("\(letter)").font(.system(size: 17, weight: .medium)).foregroundColor(.SettingView_FontColor2).frame(maxWidth:200,alignment:.leading).padding(.leading,50)
-                
-            Image(systemName: "chevron.forward").foregroundColor(.SettingView_FontColor2)
+            Text("\(letter)")
+                .font(.system(size: 17, weight: .medium))
+                .foregroundColor(Color("plicGrey"))
+                .frame(maxWidth:200,alignment:.leading)
+                .padding(.leading,30)
+            
+            Image(systemName: "chevron.forward")
+                .foregroundColor(Color("plicGrey"))
                 .frame(maxWidth:255, maxHeight: 30, alignment: .trailing)
-                       .listRowInsets(EdgeInsets())
-                       .padding(.trailing,40)
+                .listRowInsets(EdgeInsets())
+                .padding(.trailing,30)
         }
-        
     }
 }
-
-
-
-
-
-
-        
-
 
 struct UserSettingView_Previews: PreviewProvider {
     static var previews: some View {
