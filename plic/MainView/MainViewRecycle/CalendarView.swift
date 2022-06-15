@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalendarView: View {
     @State var year = [Int](2022..<2100)
-    @State var month = [Int](1..<13)
+    @State var month = [Int](0..<13)
     @State var currentDate = Date()
     @State var currentMonth: Int = 0
     @State var currentYear: Int = 0
@@ -20,7 +20,6 @@ struct CalendarView: View {
     
     let dayoftheWeek : [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     let columns = [
-          //추가 하면 할수록 화면에 보여지는 개수가 변함
             GridItem(.flexible()),
             GridItem(.flexible()),
             GridItem(.flexible()),
@@ -37,13 +36,45 @@ struct CalendarView: View {
                     check.toggle()
                 }){
                     HStack{
-                        Text("\(extraData()[1])년 \(extraData()[0])월")
+                        Text("\(extraData(currentDate)[1])년 \(extraData(currentDate)[0])월")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                             .foregroundColor(Color("plicPink"))
-                        Image(systemName: "chevron.right")
-                            .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
-                            .foregroundColor(Color("plicPink"))
+//                        Image(systemName: "chevron.right")
+//                            .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
+//                            .foregroundColor(Color("plicPink"))
                     }
+                }
+                Button(action:
+                    {
+                        withAnimation{
+                            currentMonth -= 1
+                            
+                        }
+                    }
+                ){
+                    Image(systemName: "chevron.left")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
+                        .foregroundColor(Color("plicPink"))
+                }
+//                    Image(systemName: "chevron.left")
+//                        .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
+//                        .foregroundColor(Color("plicPink"))
+//
+//                    .onTapGesture {
+//                        withAnimation{currentMonth -= 1}
+//
+//                    }
+                Button(action:
+                    {
+                        withAnimation{
+                            currentMonth += 1
+                            
+                        }
+                    }
+                ){
+                    Image(systemName: "chevron.right")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
+                        .foregroundColor(Color("plicPink"))
                 }
                 Spacer()
                 //Image를 plus로 변경 + 모달 팝업
@@ -70,29 +101,37 @@ struct CalendarView: View {
                 HStack{
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(extractDate()){ value in
-                            DayView(value: value, firstCheck: false, secondCheck: true, thirdCheck: true)
+                            DayView(value: value, currentDate: currentDate, firstCheck: false, secondCheck: true, thirdCheck: true)
+                                
+                                .onTapGesture {
+                                    currentDate = value.date
+                                }
                         }
                     }
                 }.padding([.leading, .trailing], 20)
             }
             else{
                 HStack(spacing: 0) {
-                            Picker(selection: self.$currentYear, label: Text("")) {
-                                ForEach(0 ..< self.year.count) { index in
-                                    Text("\(self.year[index]) 년")
-                                        .padding(.leading, 40)
-                                }
-                            }
-                            .pickerStyle(.wheel)
-
-
-                            Picker(selection: self.$currentMonth, label: Text("")) {
-                                ForEach(0 ..< self.month.count) { index in
-                                    Text("\(self.month[index]) 월")
-                                        .padding(.trailing, 40)
-                                }
-                            }
-                            .pickerStyle(.wheel)
+                    DatePicker("Please enter a date", selection: $selection,
+                                       displayedComponents: .date)
+                                .datePickerStyle(WheelDatePickerStyle())
+                                .labelsHidden()
+//                            Picker(selection: self.$currentYear, label: Text("")) {
+//                                ForEach(0 ..< self.year.count) { index in
+//                                    Text("\(self.year[index]) 년")
+//                                        .padding(.leading, 40)
+//                                }
+//                            }
+//                            .pickerStyle(.wheel)
+//
+//
+//                            Picker(selection: self.$currentMonth, label: Text("")) {
+//                                ForEach(0 ..< self.month.count) { index in
+//                                    Text("\(self.month[index]) 월")
+//                                        .padding(.trailing, 40)
+//                                }
+//                            }
+//                            .pickerStyle(.wheel)
                 }.frame(width: 340, height: 300)
             
             }
@@ -102,16 +141,21 @@ struct CalendarView: View {
         .onChange(of: currentMonth){ newValue in
            currentDate = getCurrentMonth()
         }
-        .onChange(of: currentYear){ newValue in
-           currentDate = getCurrentYear()
-        }
+//        .onChange(of: currentYear){ newValue in
+//           currentDate = getCurrentYear()
+//        }
         .onChange(of: selection){ newValue in
             currentDate = selection
-            
+
         }
     }
     
-    func extraData() -> [String]{
+    func isSameDay(date1: Date, date2: Date) -> Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
+    }
+    func extraData(_ currentDate: Date) -> [String]{
         let formatter = DateFormatter()
         formatter.dateFormat = "MM YYYY"
         
@@ -122,6 +166,7 @@ struct CalendarView: View {
     
     func getCurrentMonth() -> Date {
         let calendar = Calendar.current
+        
         
         guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date())
         else{
@@ -185,18 +230,30 @@ struct DayOfWeekView: View {
 
 struct DayView: View {
     let value: DateValue
-    @State var firstCheck: Bool
-    @State var secondCheck: Bool
-    @State var thirdCheck: Bool
+    let currentDate: Date
+    let firstCheck: Bool
+    let secondCheck: Bool
+    let thirdCheck: Bool
     
     var body: some View{
         VStack(spacing: 5){
             if value.day != -1{
-                HStack{
-                    Text("\(value.day)")
-                        .font(Font.custom("SpoqaHanSansNeo-Regular",size: 16))
-                        .foregroundColor(Color("plicDarkgrey"))
-                }.frame(width: 32, height: 32)
+                ZStack{
+                    Circle()
+                        .fill(isSameDay(date1: value.date, date2: currentDate) ? Color("plicPink") : Color("plicWhite"))
+                    HStack{
+                        Text("\(value.day)")
+                            .font(isSameDay(date1: value.date, date2: currentDate) ? Font.custom("SpoqaHanSansNeo-Bold",size: 16) : Font.custom("SpoqaHanSansNeo-Regular",size: 16) )
+                            .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? Color("plicWhite") : Color("plicDarkgrey"))
+//                            .background(
+//                                Capsule()
+//                                    .fill(Color("plicPink"))
+//                                    .padding(2)
+//                                    .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+//                            )
+                    }
+                }
+                .frame(width: 32, height: 32)
                 HStack(spacing: 2){
                     if(firstCheck){
                         Circle()
@@ -218,6 +275,12 @@ struct DayView: View {
             }
             
         }.frame(width: 30, height: 40)
+    }
+    
+    func isSameDay(date1: Date, date2: Date) -> Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
     }
 }
 

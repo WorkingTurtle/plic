@@ -20,9 +20,10 @@ struct UserAnniversaryView: View {
         Anniversary(dDay: 27, date: "2022년 6월 29일", name: "사귄지 150일"),
         Anniversary(dDay: 28, date: "2022년 6월 30일", name: "OOO생일")
     ]
+    @State var isPresentedAddAnniversary: Bool = false
+    
     
     var body: some View {
-        NavigationView{
             VStack{
                 ForEach(anniversaryList, id: \.self) { item in
                     VStack{
@@ -48,7 +49,15 @@ struct UserAnniversaryView: View {
                 Spacer()
             }
             .navigationBarTitle(Text("기념일"), displayMode: .inline)
-        }
+                .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+            .navigationBarItems(trailing: Button(action: {isPresentedAddAnniversary = true}) {
+                    Image(systemName: "plus")
+            }
+            .foregroundColor(Color("plicPink")))
+            .sheet(isPresented: $isPresentedAddAnniversary) {
+                UserAnniversaryAddView()
+            }
+            .padding(.top, 30)
     }
 }
 
