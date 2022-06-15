@@ -56,20 +56,18 @@ struct MainAddSchedule: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
-                
                 Section(header: Text("노트 작성하기").padding(.leading, -20)){
-                    
                     HStack{
                         Spacer()
                         Button(action: {
                             //버튼 클릭시 입력완료(키보드 내리기)
                             UIApplication.shared.endEditing()
-                        }){ Text("완료")
-                            .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-                            .foregroundColor(Color("plicPink"))
+                        }){
+                            Text("완료")
+                                .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                                .foregroundColor(Color("plicPink"))
                         }
                     }
-                    
                     TextEditor(text: $noteContent)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
                         .foregroundColor((noteContent == "메모를 작성해 주세요") ? Color("plicLightgrey") : .black )
