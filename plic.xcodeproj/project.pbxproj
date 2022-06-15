@@ -39,6 +39,14 @@
 		D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A292854FE0000D2CECF /* DayPickerView.swift */; };
 		D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */; };
 		D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C042858B4B3003C7574 /* TimeTableView.swift */; };
+		F972C2862859B15100E00039 /* RecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2852859B15100E00039 /* RecordProtocol.swift */; };
+		F972C2882859B16A00E00039 /* Couple.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2872859B16A00E00039 /* Couple.swift */; };
+		F972C28A2859B19400E00039 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2892859B19400E00039 /* Schedule.swift */; };
+		F972C28C2859B8DD00E00039 /* CKConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C28B2859B8DD00E00039 /* CKConstant.swift */; };
+		F972C28E2859BF6700E00039 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C28D2859BF6700E00039 /* CloudKitManager.swift */; };
+		F972C2902859C09D00E00039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C28F2859C09D00E00039 /* AppDelegate.swift */; };
+		F972C2922859C0BB00E00039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2912859C0BB00E00039 /* SceneDelegate.swift */; };
+		F972C2942859C16600E00039 /* CoupleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2932859C16600E00039 /* CoupleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +85,14 @@
 		D5D42BFF28585B37003C7574 /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
 		D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTimeTable.swift; sourceTree = "<group>"; };
 		D5D42C042858B4B3003C7574 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
+		F972C2852859B15100E00039 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
+		F972C2872859B16A00E00039 /* Couple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Couple.swift; sourceTree = "<group>"; };
+		F972C2892859B19400E00039 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		F972C28B2859B8DD00E00039 /* CKConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKConstant.swift; sourceTree = "<group>"; };
+		F972C28D2859BF6700E00039 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		F972C28F2859C09D00E00039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F972C2912859C0BB00E00039 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F972C2932859C16600E00039 /* CoupleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +110,10 @@
 		8B7DA00928570D6E00AB62D1 /* Cloudkit */ = {
 			isa = PBXGroup;
 			children = (
+				F972C28B2859B8DD00E00039 /* CKConstant.swift */,
+				F972C28D2859BF6700E00039 /* CloudKitManager.swift */,
+				F972C2932859C16600E00039 /* CoupleViewModel.swift */,
+				F972C2842859B13500E00039 /* Model */,
 				8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */,
 			);
 			path = Cloudkit;
@@ -199,6 +219,8 @@
 		D54307DD2850EA7100CFF605 = {
 			isa = PBXGroup;
 			children = (
+				F972C28F2859C09D00E00039 /* AppDelegate.swift */,
+				F972C2912859C0BB00E00039 /* SceneDelegate.swift */,
 				D54307E92850EA7100CFF605 /* plicApp.swift */,
 				D54307EB2850EA7100CFF605 /* ContentView.swift */,
 				D54307F22850EA7300CFF605 /* Persistence.swift */,
@@ -250,6 +272,16 @@
 				D54307FE2850ECF300CFF605 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F972C2842859B13500E00039 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F972C2852859B15100E00039 /* RecordProtocol.swift */,
+				F972C2872859B16A00E00039 /* Couple.swift */,
+				F972C2892859B19400E00039 /* Schedule.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,8 +358,10 @@
 				D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */,
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
+				F972C28C2859B8DD00E00039 /* CKConstant.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
 				D5D42C0028585B37003C7574 /* WeeklyView.swift in Sources */,
+				F972C28A2859B19400E00039 /* Schedule.swift in Sources */,
 				B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */,
 				5D13ACA228563D2F00F45814 /* OnboardingStartView.swift in Sources */,
 				D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */,
@@ -336,13 +370,18 @@
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
 				D5279A5928574ECC00D2CECF /* MainView.swift in Sources */,
+				F972C2922859C0BB00E00039 /* SceneDelegate.swift in Sources */,
 				5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
+				F972C2882859B16A00E00039 /* Couple.swift in Sources */,
 				8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */,
 				B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */,
 				5D13ACAE285767C400F45814 /* RecycleDatePicker.swift in Sources */,
 				D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
+				F972C2942859C16600E00039 /* CoupleViewModel.swift in Sources */,
+				F972C28E2859BF6700E00039 /* CloudKitManager.swift in Sources */,
+				F972C2862859B15100E00039 /* RecordProtocol.swift in Sources */,
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
 				D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */,
@@ -350,6 +389,7 @@
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
 				7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */,
 				D54307EA2850EA7100CFF605 /* plicApp.swift in Sources */,
+				F972C2902859C09D00E00039 /* AppDelegate.swift in Sources */,
 				5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +517,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = plic/plic.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"plic/Preview Content\"";
 				DEVELOPMENT_TEAM = 5N5TS7Y4MA;
@@ -496,6 +537,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.workingturtle.plic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = workingturtle;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,7 +550,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = plic/plic.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"plic/Preview Content\"";
 				DEVELOPMENT_TEAM = 5N5TS7Y4MA;
@@ -527,6 +570,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.workingturtle.plic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = workingturtle;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
