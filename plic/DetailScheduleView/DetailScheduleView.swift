@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct DetailScheduleView: View {
+    
+    @Binding var scheduleName: String
+    @Binding var allDayToggle: Bool
+    @Binding var timeStart: Date
+    @Binding var timeEnd: Date
+    @Binding var noteContent: String
+    @Binding var whoSchedule: String
+    
+    
     var body: some View {
         NavigationView{
             Text("뷰 들어갈 곳")
@@ -30,8 +39,8 @@ struct DetailScheduleView: View {
     }
 }
 
-struct DetailScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailScheduleView()
-    }
-}
+//struct DetailScheduleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailScheduleView()
+//    }
+//}

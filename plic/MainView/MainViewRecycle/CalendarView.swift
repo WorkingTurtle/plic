@@ -15,6 +15,7 @@ struct CalendarView: View {
     @State var currentYear: Int = 0
     @State var check: Bool = true
     @State var selection = Date()
+    @State private var showAddScheduleModal = false
     
     
     let dayoftheWeek : [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
@@ -76,10 +77,16 @@ struct CalendarView: View {
                         .foregroundColor(Color("plicPink"))
                 }
                 Spacer()
+                //Image를 plus로 변경 + 모달 팝업
+                Button(action: {
+                    self.showAddScheduleModal = true
+                }){
                     Image(systemName: "plus")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                         .foregroundColor(Color("plicPink"))
-                        
+                }.sheet(isPresented: self.$showAddScheduleModal){
+                    MainAddSchedule()
+                }
             }
             .padding([.leading, .trailing], 20)
             .padding(.bottom, 15)
