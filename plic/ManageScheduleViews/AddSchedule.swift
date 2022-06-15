@@ -70,14 +70,18 @@ struct AddSchedule: View {
                         // 전 날을 체크할 수 없도록 in: Date 사용
                         DatePicker("시작", selection: $timeStart, in: Date()..., displayedComponents: .date)
                             .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                            .accentColor(Color("plicPink"))
                         // 시작 날짜보다 이전의 날짜를 선택하지 못하게끔 in: timeStart... 사용
                         DatePicker("종료", selection: $timeEnd, in: timeStart..., displayedComponents: .date)
                             .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                            .accentColor(Color("plicPink"))
                      } else {
                          DatePicker("시작", selection: $timeStart, in: Date()...)
                              .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                             .accentColor(Color("plicPink"))
                          DatePicker("종료", selection: $timeEnd, in: timeStart...)
                              .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                             .accentColor(Color("plicPink"))
                      }
                 }
                     
@@ -91,21 +95,29 @@ struct AddSchedule: View {
                         .pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Section(header: Text("노트 작성하기").padding(.leading, -20)) {
-                    // 작성된 노트가 보이게끔 해야함(새로운 페이지 X, Textfield)
-                    TextField("메모를 작성해주세요", text: $noteContent)
+                Section(header: Text("노트 작성하기").padding(.leading, -20)){
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            //버튼 클릭시 입력완료(키보드 내리기)
+                            UIApplication.shared.endEditing()
+                        }){
+                            Text("완료")
+                                .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                                .foregroundColor(Color("plicPink"))
+                        }
+                    }
+                    TextEditor(text: $noteContent)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-                        .disableAutocorrection(true)
-                        .padding(.bottom, 210)
-                        .cornerRadius(10)
+                        .foregroundColor((noteContent == "메모를 작성해 주세요") ? Color("plicLightgrey") : .black )
                         .frame(height: 250)
-                        .overlay(
-                            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                                Image(systemName: "square.and.pencil")
-                                    .foregroundColor(Color("plicPink"))
-                                    .padding(.bottom, 210)
-                                    .padding(.leading, 290)
-                            })
+                        .disableAutocorrection(true)
+                        .onTapGesture {
+                            //메모가 없을 때 placeholder 역할
+                            if self.noteContent == "메모를 작성해 주세요" {
+                                self.noteContent = ""
+                            }
+                        }
                 }
             }
             .navigationBarTitle("일정 추가", displayMode: .inline).font(.custom("SpoqaHanSansNeo-Bold", size: 17))

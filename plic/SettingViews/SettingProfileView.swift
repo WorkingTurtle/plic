@@ -58,7 +58,7 @@ struct SettingProfileView: View {
                             .foregroundColor(Color("plicLightestgrey"))
                             .frame(width: 350, height: 45)
                             .padding(.leading, 20)
-                        Text("\(firstDay, formatter: OnboardingDateOfBirth.dateformat)")
+                        Text("\(firstDay, formatter: RecycleDatePicker.dateformat)")
                             .font(Font.custom("SpoqaHanSansNeo-Regular", size: 20))
                             .foregroundColor(.black)
                     }
