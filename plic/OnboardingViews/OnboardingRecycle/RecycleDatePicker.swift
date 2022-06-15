@@ -10,6 +10,14 @@ import SwiftUI
 struct RecycleDatePicker: View {
     @Binding var date: Date
     
+    static let dateformat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "YYYY년 M월 d일"
+        return formatter
+    }()
+    
+    
     var body: some View {
         VStack(spacing: 15){
             ZStack{
@@ -18,7 +26,7 @@ struct RecycleDatePicker: View {
                     .foregroundColor(.white)
                     .frame(width: .infinity, height: 45)
                     .padding(.horizontal, 20)
-                Text("\(date, formatter: OnboardingDateOfBirth.dateformat)")
+                Text("\(date, formatter: RecycleDatePicker.dateformat)")
                     .font(Font.custom("SpoqaHanSansNeo-Regular", size: 20))
             }
             ZStack{

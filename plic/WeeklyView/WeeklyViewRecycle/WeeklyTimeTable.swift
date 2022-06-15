@@ -38,7 +38,7 @@ struct WeeklyTimeTable: View {
                     }
                     .background(Color.white)
                     .cornerRadius(10)
-                    .shadow(color: Color.gray, radius: 5)
+                    .shadow(color: Color.gray, radius: 2)
                     .padding(.top, 20)
                     .padding([.leading,.trailing], 20)
                 
@@ -74,8 +74,8 @@ struct WeeklyTimeTableTitleView: View {
 }
 
 struct DumyTime: Hashable{
-    let startTime: Int
-    let endTime: Int
+    let startTime: Float
+    let endTime: Float
     let name: String
     let who: Int
 }
@@ -84,10 +84,10 @@ struct DumyTime: Hashable{
 struct TimeTableWeeklyView : View {
     let Time: [String] = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
     let Times: [DumyTime] =
-    [DumyTime(startTime: 9, endTime: 12, name: "친구 약속", who: 0),
-     DumyTime(startTime: 12, endTime: 18, name: "데이트", who: 1),
-     DumyTime(startTime: 18, endTime: 19, name: "저녁", who: 0),
-     DumyTime(startTime: 18, endTime: 19, name: "저녁", who: 2)]
+    [DumyTime(startTime: 15.5, endTime: 24, name: "친구 약속", who: 2),
+     DumyTime(startTime: 8, endTime: 11, name: "데이트", who: 1),
+     DumyTime(startTime: 12, endTime: 13, name: "점심", who: 0),
+     DumyTime(startTime: 12, endTime: 13, name: "점심", who: 2)]
                              
     
     var body: some View {
