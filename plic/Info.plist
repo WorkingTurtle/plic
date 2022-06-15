@@ -10,5 +10,7 @@
 		<string>assets/fonts/SpoqaHanSansNeo-Regular.otf</string>
 		<string>assets/fonts/SpoqaHanSansNeo-Regular.otf</string>
 	</array>
+    <key>CKSharingSupported</key>
+    <true/>
 </dict>
 </plist>
