@@ -17,6 +17,7 @@ struct MainAddSchedule: View {
     @State var timeEnd = Date()
     @State var noteContent: String = "메모를 작성해 주세요"
     @State var whoSchedule = "함께"
+
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color("plicPink"))
@@ -55,65 +56,54 @@ struct MainAddSchedule: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
+                
                 Section(header: Text("노트 작성하기").padding(.leading, -20)){
+                    
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            //버튼 클릭시 입력완료(키보드 내리기)
+                            UIApplication.shared.endEditing()
+                        }){ Text("완료")
+                            .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                            .foregroundColor(Color("plicPink"))
+                        }
+                    }
                     
                     TextEditor(text: $noteContent)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
                         .foregroundColor((noteContent == "메모를 작성해 주세요") ? Color("plicLightgrey") : .black )
                         .frame(height: 250)
                         .disableAutocorrection(true)
-                        .padding(.horizontal, -10)
-//                        .onTapGesture {
-//                            //메모가 없을 때 placeholder 역할
-//                            if self.noteContent == "메모를 작성해 주세요" {
-//                                self.noteContent = ""
-//                            }
-//                        }
-                    //키보드가 뜨면 placeholder 지우기
-                        .onAppear {
-                            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
-                                
-                                withAnimation {
-                                    if self.noteContent == "메모를 작성해 주세요" {
-                                        self.noteContent = ""
-                                    }
-                                }
-                            }
-                            
-                            //키보드를 내려 놓을 때 입력한 게 없으면 placeholder 뜨게 하기
-                            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
-                                
-                                withAnimation {
-                                    if self.noteContent == "" {
-                                        self.noteContent = "메모를 작성해 주세요"
-                                    }
-                                }
+                        .onTapGesture {
+                            //메모가 없을 때 placeholder 역할
+                            if self.noteContent == "메모를 작성해 주세요" {
+                                self.noteContent = ""
                             }
                         }
-
                 }
             }.navigationBarTitle("일정 추가", displayMode: .inline)
                 .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
-                .navigationBarItems(leading:
-                                        Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                    Text("취소")
-                }
-                    .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
-                                    trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                    Text("완료")
-                }
-                    .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
+                .navigationBarItems(
+                    leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}) { Text("취소") }.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
+                    trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}) { Text("완료")}.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
                 )
         }
     }
 }
 
+// 키보드 내리는 입력 완료 함수
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 
-//struct MainAddSchedule_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainAddSchedule()
-//    }
-//}
+struct MainAddSchedule_Previews: PreviewProvider {
+        static var previews: some View {
+            MainAddSchedule()
+    }
+}
 
 //struct TextView: UIViewRepresentable {
 //    var placeholder: String

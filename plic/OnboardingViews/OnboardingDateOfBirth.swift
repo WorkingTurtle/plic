@@ -15,12 +15,12 @@ struct OnboardingDateOfBirth: View {
     let subtitleText: String = "커플 달력에 표시될 생일 날짜입니다"
     let buttonText: String = "다음 단계"
     //날짜 포맷 함수
-    static let dateformat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko")
-        formatter.dateFormat = "YYYY년 M월 d일"
-        return formatter
-    }()
+//    static let dateformat: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "ko")
+//        formatter.dateFormat = "YYYY년 M월 d일"
+//        return formatter
+//    }()
     
     var body: some View {
         

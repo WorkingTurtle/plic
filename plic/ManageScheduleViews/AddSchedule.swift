@@ -87,7 +87,7 @@ struct AddSchedule: View {
                 
                 Section(header: Text("노트 작성하기").padding(.leading, -20)) {
                     // 작성된 노트가 보이게끔 해야함(새로운 페이지 X, Textfield)
-                    TextField("메모를 작성해 주세요", text: $noteContent)
+                    TextField("메모를 작성해주세요", text: $noteContent)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
                         .disableAutocorrection(true)
                         .padding(.bottom, 210)
