@@ -65,6 +65,7 @@ struct AddSchedule: View {
                 Section {
                     Toggle("하루 종일", isOn: $allDayToggle)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .toggleStyle(SwitchToggleStyle(tint: Color("plicPink")))
                     // toggle을 눌렀을 때, 날짜만 설정할 수 있도록 if문
                     if allDayToggle {
                         // 전 날을 체크할 수 없도록 in: Date 사용
