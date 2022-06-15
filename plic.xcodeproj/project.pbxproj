@@ -21,6 +21,7 @@
 		7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */; };
 		8B21FCCB285A102B008B6EC4 /* OnboardingStartShareUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */; };
 		8B21FCCD285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */; };
+		8B21FCD3285A36CD008B6EC4 /* CloudSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */; };
 		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */; };
 		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
@@ -66,6 +67,7 @@
 		7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileView.swift; sourceTree = "<group>"; };
 		8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartShareUser.swift; sourceTree = "<group>"; };
 		8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleSubtitleTextOnly.swift; sourceTree = "<group>"; };
+		8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSharingViewController.swift; sourceTree = "<group>"; };
 		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRequestNotificationPermission.swift; sourceTree = "<group>"; };
 		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				F972C28B2859B8DD00E00039 /* CKConstant.swift */,
 				F972C28D2859BF6700E00039 /* CloudKitManager.swift */,
 				F972C2932859C16600E00039 /* CoupleViewModel.swift */,
+				8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */,
 				F972C2842859B13500E00039 /* Model */,
 				8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */,
 			);
@@ -386,6 +389,7 @@
 				5D13ACAE285767C400F45814 /* RecycleDatePicker.swift in Sources */,
 				D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */,
 				5D1D25EB285370C000C2D7FF /* DetailViewTime.swift in Sources */,
+				8B21FCD3285A36CD008B6EC4 /* CloudSharingViewController.swift in Sources */,
 				F972C2942859C16600E00039 /* CoupleViewModel.swift in Sources */,
 				F972C28E2859BF6700E00039 /* CloudKitManager.swift in Sources */,
 				8B21FCCB285A102B008B6EC4 /* OnboardingStartShareUser.swift in Sources */,

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct OnboardingDateOfBirth: View {
     @State private var isButtonClicked = false
     @State var dateOfBirth = Date()
@@ -23,7 +22,6 @@ struct OnboardingDateOfBirth: View {
     }()
     
     var body: some View {
-        
         ZStack{
             Image("onboardingBackgroundImage2")
                 .resizable()

@@ -15,6 +15,5 @@ struct RecycleSubtitleTextOnly: View {
             .foregroundColor(Color("plicGrey"))
             .lineLimit(nil)
             .multilineTextAlignment(.leading)
-            .padding(.leading, 20)
     }
 }
