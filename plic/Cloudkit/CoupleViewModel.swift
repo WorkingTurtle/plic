@@ -13,7 +13,7 @@ protocol CoupleViewModelDelegate: AnyObject {
     func showSharingController(_ controller: UICloudSharingController)
 }
 
-class CoupleViewModel {
+class CoupleViewModel: ObservableObject {
     
     // MARK: - Property
     
