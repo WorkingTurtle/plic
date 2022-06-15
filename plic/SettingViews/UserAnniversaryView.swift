@@ -22,7 +22,6 @@ struct UserAnniversaryView: View {
     ]
     
     var body: some View {
-        NavigationView{
             VStack{
                 ForEach(anniversaryList, id: \.self) { item in
                     VStack{
@@ -48,7 +47,8 @@ struct UserAnniversaryView: View {
                 Spacer()
             }
             .navigationBarTitle(Text("기념일"), displayMode: .inline)
-        }
+            .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+            .padding(.top, 30)
     }
 }
 

@@ -72,9 +72,11 @@ struct AddSchedule: View {
                     // 전 날을 체크할 수 없도록 in: Date 사용
                     DatePicker("시작", selection: $timeStart, in: Date()...)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .accentColor(Color("plicPink"))
                     // 시작 날짜보다 이전의 날짜를 선택하지 못하게끔 in: timeStart... 사용
                     DatePicker("종료", selection: $timeEnd, in: timeStart...)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .accentColor(Color("plicPink"))
                 }
                 
                 Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
