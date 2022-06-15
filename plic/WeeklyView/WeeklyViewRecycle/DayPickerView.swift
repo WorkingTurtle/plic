@@ -8,23 +8,108 @@
 import SwiftUI
 
 struct DayPickerView: View {
+    @EnvironmentObject var currentDate: DateData
+    @State var currentDay: Int = 0
+    
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: "chevron.left")
-                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                    .foregroundColor(Color("plicPink"))
-                DayPicksView(letter: "월", whatDate: "7")
-                DayPicksView(letter: "화", whatDate: "8")
-                DayPickView(letter: "수", whatDate: "9")
-                DayPicksView(letter: "목", whatDate: "10")
-                DayPicksView(letter: "금", whatDate: "11")
-                Image(systemName: "chevron.right")
-                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                    .foregroundColor(Color("plicPink"))
+                Button(action:
+                    {
+                        withAnimation{
+                            currentDay -= 5
+                            
+                        }
+                    }
+                ){
+                    Image(systemName: "chevron.left")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                        .foregroundColor(Color("plicPink"))
+                }
+                Button(action:
+                    {
+                        withAnimation{
+                            currentDay -= 2
+                            
+                        }
+                    }
+                ){
+                    DayPicksView(letter: "월", whatDate: "7")
+                }
+                Button(action:
+                    {
+                        withAnimation{
+                            currentDay -= 1
+                            
+                        }
+                    }
+                ){
+                    DayPicksView(letter: "화", whatDate: "8")
+                }
+                DayPickView(letter: extraData(currentDate.currentDate)[1], whatDate: extraData(currentDate.currentDate)[0])
+                Button(action:
+                    {
+                        withAnimation{
+                            currentDay += 1
+                            
+                        }
+                    }
+                ){
+                    DayPicksView(letter: "목", whatDate: "10")
+                }
+                Button(action:
+                    {
+                        withAnimation{
+                            currentDay += 2
+                            
+                        }
+                    }
+                ){
+                    DayPicksView(letter: "금", whatDate: "11")
+                }
+                Button(action:
+                    {
+                        withAnimation{
+                            currentDay += 5
+                            
+                        }
+                    }
+                ){
+                    Image(systemName: "chevron.right")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                        .foregroundColor(Color("plicPink"))
+                }
+                
             }
+        }.onChange(of: currentDay){ newValue in
+            currentDate.currentDate = getCurrentDay()
         }
         
+    }
+    func extraData(_ currentDate: Date) -> [String]{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d EEEEE"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date.components(separatedBy: " ")
+    }
+    
+    func getCurrentDay() -> Date {
+        let calendar = Calendar.current
+        
+        
+        guard let currentDay = calendar.date(byAdding: .day, value: self.currentDay, to: Date())
+        else{
+            return Date()
+        }
+        
+        return currentDay
+    }
+    func isSameDay(date1: Date, date2: Date) -> Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
     }
 }
 

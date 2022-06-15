@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
-
+import Foundation
 
 @main
 struct plicApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject private var dateData = DateData()
     
     var body: some Scene {
         WindowGroup {
             TapBarMainView(tabbarIndex: 0)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(dateData)
+
         }
     }
 }

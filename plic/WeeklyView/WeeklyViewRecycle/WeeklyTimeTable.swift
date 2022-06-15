@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WeeklyTimeTable: View {
+    @EnvironmentObject var currentDate: DateData
     var month: String = "6"
     var day: String = "23"
     let firstNick: String = "디기"
@@ -17,7 +18,7 @@ struct WeeklyTimeTable: View {
         
             VStack{
                 HStack{
-                    WeeklyTimeTableTitleView(month: month, day: day)
+                    WeeklyTimeTableTitleView(month: extraData(currentDate.currentDate)[1], day: extraData(currentDate.currentDate)[0])
                 }
                 .padding([.leading,.trailing], 5)
                 .padding([.leading,.trailing], 20)
@@ -47,6 +48,14 @@ struct WeeklyTimeTable: View {
         }
             
         
+    }
+    func extraData(_ currentDate: Date) -> [String]{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date.components(separatedBy: " ")
     }
 }
 

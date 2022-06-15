@@ -41,6 +41,7 @@
 		D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A292854FE0000D2CECF /* DayPickerView.swift */; };
 		D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */; };
 		D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C042858B4B3003C7574 /* TimeTableView.swift */; };
+		D5D42C07285A2F2B003C7574 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C06285A2F2B003C7574 /* DateData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		D5D42BFF28585B37003C7574 /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
 		D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTimeTable.swift; sourceTree = "<group>"; };
 		D5D42C042858B4B3003C7574 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
+		D5D42C06285A2F2B003C7574 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 				D54307F42850EA7300CFF605 /* plic.xcdatamodeld */,
 				D54307EF2850EA7300CFF605 /* Preview Content */,
 				8B7DA00928570D6E00AB62D1 /* Cloudkit */,
+				D5D42C06285A2F2B003C7574 /* DateData.swift */,
 			);
 			path = plic;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
 				7EFD74112859B77D00489220 /* UserAnniversaryAddView.swift in Sources */,
+				D5D42C07285A2F2B003C7574 /* DateData.swift in Sources */,
 				D5279A5928574ECC00D2CECF /* MainView.swift in Sources */,
 				5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
