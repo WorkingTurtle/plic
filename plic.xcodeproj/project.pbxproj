@@ -346,7 +346,6 @@
 				5D13ACA828572FE500F45814 /* RecycleTitleText.swift in Sources */,
 				5D13ACA42856428400F45814 /* OnboardingUsernameView.swift in Sources */,
 				D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */,
-				5D13ACAA285733AA00F45814 /* RecycleNextButton.swift in Sources */,
 				D5279A5B28576C8900D2CECF /* MainTimeTableView.swift in Sources */,
 				D5279A4B28565C1800D2CECF /* TapBarMainView.swift in Sources */,
 				7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */,
