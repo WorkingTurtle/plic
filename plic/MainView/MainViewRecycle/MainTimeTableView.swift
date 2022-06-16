@@ -21,7 +21,7 @@ struct MainTimeTableView: View {
             .padding(.bottom, 15)
             HStack{
                 TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
-            }.padding([.leading,.trailing], 60)
+            }.padding([.leading,.trailing], 90)
             HStack{
                 TimeTableMiniView()
             }
@@ -76,54 +76,69 @@ struct TimeTableNameView: View {
 }
 
 struct TimeTableMiniView : View {
-    let firstTime: String = "09:00"
-    let secondTime: String = "10:00"
-    let thirdTime: String = "11:00"
-    let fourthTime: String = "12:00"
-
+    let Time: [String] = ["09:00", "10:00", "11:00", "12:00"]
+    let Times: [DumyTime] =
+    [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
+     DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
+     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
+     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 2)]
     
     var body: some View {
-        VStack{
-            Text(firstTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
-            Spacer()
-            Text(secondTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
-            Spacer()
-            Text(thirdTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
-            Spacer()
-            Text(fourthTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
+        ZStack{
+            HStack{
+                VStack{
+                    ForEach(Time, id: \.self){ item in
+                        
+                        Text(item)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                            .foregroundColor(Color("plicTime"))
+                            .frame(height: 10)
+                            .padding(.bottom, 25)
+                            
+                    }
+                }
+                Spacer()
+                VStack{
+                    ForEach(Time, id: \.self){ item in
+                        
+                        Line()
+                                   .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
+                                   .frame(height: 10)
+                                   .foregroundColor(Color("plicLine"))
+                                   .padding(.bottom, 25)
+                    }
+                }.padding(.top, 11)
+            }
+            
+            ForEach(Times, id: \.self){ value in
+                VStack{
+                    if(value.who == 0){
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                            .padding(.top, CGFloat((value.startTime - 9) * 43))
+                            .offset(x: -60)
+                    }
+                    else if(value.who == 1){
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                            .offset(x: 15)
+                            .padding(.top, CGFloat((value.startTime - 9) * 43))
+                    }
+                    else
+                    {
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                            .offset(x: 90)
+                            .padding(.top, CGFloat((value.startTime - 9) * 43))
+                    }
+                    Spacer()
+                }.padding(.top, 10)
+                
+                
+//                    .padding(.top, CGFloat((value.startTime - 6) * 30) )
+//                Spacer()
+            }
+
         }
-        Spacer()
-        VStack{
-                Line()
-                           .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                           .frame(height: 1)
-                           .foregroundColor(Color("plicLine"))
-                           .padding(.top, 8)
-            Spacer()
-                Line()
-                           .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                           .frame(height: 1)
-                           .foregroundColor(Color("plicLine"))
-            Spacer()
-                Line()
-                           .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                           .frame(height: 1)
-                           .foregroundColor(Color("plicLine"))
-            Spacer()
-                Line()
-                       .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                       .frame(height: 1)
-                       .foregroundColor(Color("plicLine"))
-                       .padding(.bottom, 8)
-        }
+        
+        
     }
 }
 

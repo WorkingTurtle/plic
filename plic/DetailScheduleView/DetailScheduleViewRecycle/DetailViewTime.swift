@@ -15,7 +15,6 @@ struct DetailViewTime: View {
     var endDate: String = "2022.06.04"
     @State var isMorning: Bool = true
 
-    
     var body: some View {
         
         //시간 UI Layout 

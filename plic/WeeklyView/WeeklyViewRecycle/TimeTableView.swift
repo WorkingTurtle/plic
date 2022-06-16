@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimeTableView: View {
     let letter: String
-    let num: Int
+    let num: Float
     let width: CGFloat = 60.0
     let coupleWidth: CGFloat = 210.0
     var height: CGFloat = 43.0
@@ -18,10 +18,15 @@ struct TimeTableView: View {
     var body: some View {
         if(who == 0){
             VStack{
-                Text(letter)
-                    .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                    .foregroundColor(Color("plicTimeyellow"))
-                    .padding(.top, 5)
+                HStack{
+                    Text(letter)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                        .foregroundColor(Color("plicTimeyellow"))
+                        .padding(.top, 5)
+                        .padding(.leading, 5)
+                    Spacer()
+                }
+                
                 Spacer()
             }
             .frame(width: width, height: height * CGFloat(num))
@@ -29,10 +34,15 @@ struct TimeTableView: View {
             .cornerRadius(3)
         }else if(who == 1){
             VStack{
-                Text(letter)
-                    .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                    .foregroundColor(Color("plicPink"))
-                    .padding(.top, 5)
+                HStack{
+                    Text(letter)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                        .foregroundColor(Color("plicPink"))
+                        .padding(.top, 5)
+                        .padding(.leading, 5)
+                    Spacer()
+                }
+                
                 Spacer()
             }
             .frame(width: coupleWidth, height: height * CGFloat(num))
@@ -40,10 +50,15 @@ struct TimeTableView: View {
             .cornerRadius(3)
         }else if(who == 2){
             VStack{
-                Text(letter)
-                    .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                    .foregroundColor(Color("plicNavy"))
-                    .padding(.top, 5)
+                HStack{
+                    Text(letter)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                        .foregroundColor(Color("plicNavy"))
+                        .padding(.top, 5)
+                        .padding(.leading, 5)
+                    Spacer()
+                }
+                
                 Spacer()
             }
             .frame(width: width, height: height * CGFloat(num))
