@@ -76,38 +76,49 @@ struct TimeTableNameView: View {
 }
 
 struct TimeTableMiniView : View {
-    let Time: [String] = ["09:00", "10:00", "11:00", "12:00"]
-    let Times: [DumyTime] =
+  let Times: [DumyTime] =
     [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
      DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
      DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
      DumyTime(startTime: 11, endTime: 12, name: "점심", who: 2)]
+    var currentTimeArr: [Int] = [0, 1, 2, 3]
+    
+    static let HourDateformat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        return formatter
+    }()
+    
     
     var body: some View {
         ZStack{
             HStack{
                 VStack{
-                    ForEach(Time, id: \.self){ item in
-                        
-                        Text(item)
-                            .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                            .foregroundColor(Color("plicTime"))
-                            .frame(height: 10)
-                            .padding(.bottom, 25)
-                            
-                    }
+
+                //    ForEach를 써서 (x * 60초 * 60초)를 사용. x를 i라 생각하고 사용
+                //    자동으로 배열에 담아주는 ForEach문 생성
+                
+                ForEach(currentTimeArr, id: \.self) { x in
+                    let timeTableSinceNow = Date(timeIntervalSinceNow: TimeInterval(x * 60 * 60))
+                    Text("\(timeTableSinceNow, formatter: TimeTableMiniView.HourDateformat):00")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                        .foregroundColor(Color("plicTime"))
+                        .frame(height: 10)
+                        .padding(.bottom, 25)
                 }
-                Spacer()
-                VStack{
-                    ForEach(Time, id: \.self){ item in
-                        
-                        Line()
-                                   .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                                   .frame(height: 10)
-                                   .foregroundColor(Color("plicLine"))
-                                   .padding(.bottom, 25)
-                    }
-                }.padding(.top, 11)
+            }
+            
+            Spacer()
+            
+            VStack{
+                ForEach(currentTimeArr, id: \.self){ item in
+                    Line()
+                        .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
+                        .frame(height: 10)
+                        .foregroundColor(Color("plicLine"))
+                        .padding(.bottom, 25)
+                }
+            }.padding(.top, 11)
             }
             
             ForEach(Times, id: \.self){ value in
