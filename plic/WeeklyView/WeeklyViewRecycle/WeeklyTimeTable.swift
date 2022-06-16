@@ -51,7 +51,7 @@ struct WeeklyTimeTable: View {
     }
     func extraData(_ currentDate: Date) -> [String]{
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MM"
+        formatter.dateFormat = "dd M"
         
         let date = formatter.string(from: currentDate)
         
