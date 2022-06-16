@@ -162,7 +162,6 @@ class CoupleViewModel {
                     NSLog("Owner upload root couple error: \(error.localizedDescription)")
                 case .success():
                     print("Owner upload root couple successfully")
-                    self.isSharedSuccess = true
                     self.root = root
                     self.share = share
                 }
