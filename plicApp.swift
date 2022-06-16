@@ -18,7 +18,6 @@ struct plicApp: App {
             TapBarMainView(tabbarIndex: 0)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(dateData)
-
         }
     }
 }
