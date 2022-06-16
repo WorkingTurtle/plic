@@ -11,6 +11,7 @@ struct WeeklyView: View {
     
     
     var body: some View {
+        
         VStack{
             HStack{
                 DayPickerView()

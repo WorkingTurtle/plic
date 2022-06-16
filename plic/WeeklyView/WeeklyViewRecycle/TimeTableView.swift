@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimeTableView: View {
     let letter: String
-    let num: Float
+    @State var num: Float
     let width: CGFloat = 60.0
     let coupleWidth: CGFloat = 210.0
     var height: CGFloat = 43.0
@@ -58,16 +58,28 @@ struct TimeTableView: View {
                         .padding(.leading, 5)
                     Spacer()
                 }
-                
+
                 Spacer()
+
             }
             .frame(width: width, height: height * CGFloat(num))
             .background(Color("plicTimeblue"))
             .cornerRadius(3)
-        }
+            
+            
             
             
         }
+    }
 }
 
 
+//func overFour(num: Float) -> Int {
+//    @Binding num: Float
+//    var a = Int(num)
+//
+//    if a > 4 {
+//        a == 4
+//        return a
+//    }
+//}
