@@ -113,7 +113,7 @@ struct OnboardingStartShareUser: View {
             Button(action: {
                 
             }) {
-                Text("PLIC 시작하기")
+                Text("Plic 시작하기")
                     .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
                     .foregroundColor(Color("plicPink"))
                     .frame(minWidth: 0, maxWidth: .infinity)
