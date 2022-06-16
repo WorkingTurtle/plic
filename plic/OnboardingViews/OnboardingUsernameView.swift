@@ -24,6 +24,7 @@ struct OnboardingUsernameView: View {
     }
     
     var body: some View {
+        // TODO: NavigationView 제거
         NavigationView{
             ZStack{
                 Image("onboardingBackgroundImage2")

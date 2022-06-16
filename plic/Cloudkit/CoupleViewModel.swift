@@ -177,5 +177,4 @@ class CoupleViewModel {
     func stopShare() {
         share = nil
     }
-    
 }
