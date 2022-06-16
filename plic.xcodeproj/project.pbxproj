@@ -18,6 +18,8 @@
 		5D1D25F12854BDC100C2D7FF /* UserAnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */; };
 		5D27077128536322006F6480 /* DetailScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D27077028536322006F6480 /* DetailScheduleView.swift */; };
 		5D34BF712858C4EA00F8DAFC /* MainAddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D34BF702858C4EA00F8DAFC /* MainAddSchedule.swift */; };
+		5D34BF75285B598300F8DAFC /* MiniTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D34BF74285B598300F8DAFC /* MiniTimeTableView.swift */; };
+		5D34BF77285B780600F8DAFC /* DetailTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D34BF76285B780600F8DAFC /* DetailTimeTableView.swift */; };
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */; };
 		7EFD74112859B77D00489220 /* UserAnniversaryAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD74102859B77D00489220 /* UserAnniversaryAddView.swift */; };
@@ -56,6 +58,8 @@
 		5D1D25F02854BDC100C2D7FF /* UserAnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryView.swift; sourceTree = "<group>"; };
 		5D27077028536322006F6480 /* DetailScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleView.swift; sourceTree = "<group>"; };
 		5D34BF702858C4EA00F8DAFC /* MainAddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAddSchedule.swift; sourceTree = "<group>"; };
+		5D34BF74285B598300F8DAFC /* MiniTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniTimeTableView.swift; sourceTree = "<group>"; };
+		5D34BF76285B780600F8DAFC /* DetailTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTimeTableView.swift; sourceTree = "<group>"; };
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileView.swift; sourceTree = "<group>"; };
 		7EFD74102859B77D00489220 /* UserAnniversaryAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryAddView.swift; sourceTree = "<group>"; };
@@ -188,8 +192,10 @@
 		D5279A542857253600D2CECF /* DetailScheduleViewRecycle */ = {
 			isa = PBXGroup;
 			children = (
+				5D34BF74285B598300F8DAFC /* MiniTimeTableView.swift */,
 				5D1D25EC285441EA00C2D7FF /* DetailViewMemo.swift */,
 				5D1D25EA285370C000C2D7FF /* DetailViewTime.swift */,
+				5D34BF76285B780600F8DAFC /* DetailTimeTableView.swift */,
 			);
 			path = DetailScheduleViewRecycle;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */,
+				5D34BF77285B780600F8DAFC /* DetailTimeTableView.swift in Sources */,
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
@@ -349,6 +356,7 @@
 				D5D42C07285A2F2B003C7574 /* DateData.swift in Sources */,
 				D5279A5928574ECC00D2CECF /* MainView.swift in Sources */,
 				5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */,
+				5D34BF75285B598300F8DAFC /* MiniTimeTableView.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
 				8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */,
 				B3CEDF232857293D005E8EA3 /* EditingPlanView.swift in Sources */,

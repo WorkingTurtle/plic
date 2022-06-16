@@ -11,6 +11,7 @@ struct WeeklyView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
+        
         VStack{
             Button(action: {presentationMode.wrappedValue.dismiss()}) {
                 HStack{

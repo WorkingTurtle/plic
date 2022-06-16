@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DetailViewTime: View {
     
-    var startTime: String = "11:00"
-    var endTime: String = "18:00"
+    var startTime: String
+    var endTime: String 
     var startDate: String = "2022.06.03"
     var endDate: String = "2022.06.04"
     @State var isMorning: Bool = true
@@ -19,6 +19,9 @@ struct DetailViewTime: View {
         
         //시간 UI Layout 
         VStack{
+            Divider()
+                .padding(.horizontal, 20)
+                .padding(.bottom, 12)
             HStack{
                 Image(systemName: "calendar")
                     .foregroundColor(Color("plicPink"))
@@ -69,17 +72,17 @@ struct DetailViewTime: View {
             
             Divider()
                 .padding(.horizontal, 20)
-                .padding(.top, 14)
+                .padding(.top, 12)
         }
     }
 }
 
 
-struct DetailViewTime_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailViewTime()
-    }
-}
+//struct DetailViewTime_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailViewTime()
+//    }
+//}
 
 
 func isAMPM(_ morning: Bool) -> String {
