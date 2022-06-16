@@ -29,7 +29,9 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-      
+        if !CloudKitManager.isCoupleZoneReady {
+            CloudKitManager.setupCoupleZone()
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

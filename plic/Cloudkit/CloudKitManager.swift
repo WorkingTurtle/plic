@@ -8,7 +8,7 @@
 import CloudKit
 
 class CloudKitManager {
-
+    
     static let privateDB = CKContainer.default().privateCloudDatabase
     static let sharedDB = CKContainer.default().sharedCloudDatabase
     
@@ -29,6 +29,9 @@ class CloudKitManager {
             case .success():
                 UserDefaults.standard.set(true, forKey: CKConstant.isCoupleZoneReady)
             }
+//            viewModel.fetchSchedules {
+//                print("Fetch Success!")
+//            }
         }
         
         CloudKitManager.privateDB.add(zoneOperation)

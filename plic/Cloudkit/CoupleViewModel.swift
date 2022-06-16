@@ -13,7 +13,7 @@ protocol CoupleViewModelDelegate: AnyObject {
     func showSharingController(_ controller: UICloudSharingController)
 }
 
-class CoupleViewModel {
+final class CoupleViewModel: ObservableObject {
     
     // MARK: - Property
     
@@ -32,6 +32,8 @@ class CoupleViewModel {
     let sharedDB = CloudKitManager.sharedDB
     var sharedZone: CKRecordZone?
     
+    @Published var isReady = false
+    
     /* Example
      Owner Zone: <CKRecordZoneID: 0x2816a0e60; ownerName=__defaultOwner__, zoneName=CoupleZone>
      
@@ -43,6 +45,7 @@ class CoupleViewModel {
         let shareQuery = CKQuery(recordType: CKConstant.RecordType.CloudKitShare, predicate: predicate)
         
         privateDB.perform(shareQuery, inZoneWith: privateZone.zoneID) { records, error in
+            print("🐶 \(records)")
             if let record = records?.first as? CKShare {
                 self.share = record
             }
@@ -73,6 +76,7 @@ class CoupleViewModel {
         privateDB.perform(coupleQuery, inZoneWith: privateZone.zoneID) { records, error in
             if let record = records?.first {
                 self.root = record
+                self.isReady = true
             }
         }
         
@@ -99,6 +103,7 @@ class CoupleViewModel {
             self.sharedDB.perform(coupleQuery, inZoneWith: zone.zoneID) { records, error in
                 if let record = records?.first {
                     self.root = record
+                    self.isReady = true
                 }
             }
         }

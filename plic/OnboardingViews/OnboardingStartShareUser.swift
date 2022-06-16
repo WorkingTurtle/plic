@@ -12,19 +12,19 @@ import CloudKit
 // 메시지를 보냈을 때 사용자가 추가된 경우를 저장하는 state 변수를 만들 수 있나? -> 이거 하면 <링크 보내기> 버튼 disable 가능
 
 struct OnboardingStartShareUser: View {
-    var viewModel: CoupleViewModel?
+    @EnvironmentObject var viewModel: CoupleViewModel
     
     @State private var isSharing = false
     @State private var isSendingButtonClicked = false
     
     @State private var controller: UICloudSharingController?
+    @State private var isPartner = false
     
-    init(){
-        viewModel = CoupleViewModel()
-        viewModel?.fetchSchedules {
-            print("Successfully Fetched!")
-        }
-    }
+//    init(){
+//         viewModel.fetchSchedules {
+//             print("Successfully Fetched!")
+//        }
+//    }
     
     func getView() -> ProxyCloudSharingView? {
         if controller != nil {
@@ -59,7 +59,7 @@ struct OnboardingStartShareUser: View {
                 
                 Button(action: {
                     Task {
-                        controller = await viewModel?.addShare()
+                        controller = await viewModel.addShare()
                         print(controller?.share)
                         isSharing = true
                     }
@@ -85,25 +85,54 @@ struct OnboardingStartShareUser: View {
                     RecycleSubtitleTextOnly(subtitleText: "1. PLIC 어플리케이션을 먼저 시작한 사용자가 상대 연인에게 링크\n    를 보내주어야 합니다.")
                     Spacer().frame(height: 5)
                     RecycleSubtitleTextOnly(subtitleText: "2. 링크를 받은 상대 연인이 위 링크를 통해 어플리케이션을 실행시\n    키면 연결이 정상적으로 동작합니다.")
+                    
+                    Button(action: {
+                        print(viewModel.isReady)
+                        print(viewModel.root)
+                        print(viewModel.share)
+                    }){
+                        Text("Test")
+                    }
                 }
                 
                 Spacer().frame(height: 135)
-
-                Button(action: {
-                    
-                }) {
-                    Text("PLIC 시작하기")
-                        .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
-                        .foregroundColor(Color("plicPink"))
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding(.vertical, 18)
-                        .background(RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(.white))
-                        .padding(.horizontal, 20)
-                }
-                .opacity(isSendingButtonClicked == true ? 1.0 : 0)
-                .padding(.bottom, 62)
+                
+                self.startButton()
             }
+            .onAppear() {
+                viewModel.fetchSchedules {
+                    print("Successfully Fetched!")
+               }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func startButton() -> some View {
+        if viewModel.isReady && viewModel.share?.participants.count == 2 || viewModel.root != nil {
+            Button(action: {
+                
+            }) {
+                Text("PLIC 시작하기")
+                    .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
+                    .foregroundColor(Color("plicPink"))
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding(.vertical, 18)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(.white))
+                    .padding(.horizontal, 20)
+            }
+    //                .opacity(isSendingButtonClicked == true ? 1.0 : 0)
+            .padding(.bottom, 62)
+        }
+        else {
+            Button(action: {
+                
+            }) {
+                Text("")
+                    
+            }.padding(.bottom, 116)
+            
         }
     }
 }
