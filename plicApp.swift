@@ -11,17 +11,14 @@ import SwiftUI
 @main
 struct plicApp: App {
     @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
-    @StateObject private var coupleViewModel = CoupleViewModel()
-    
+
     let persistenceController = PersistenceController.shared
-    
     
     var body: some Scene {
         WindowGroup {
 //            TapBarMainView(tabbarIndex: 0)
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             OnboardingStartShareUser()
-                .environmentObject(coupleViewModel)
         }
     }
 }
