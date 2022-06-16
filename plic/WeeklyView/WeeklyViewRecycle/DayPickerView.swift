@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DayPickerView: View {
     @EnvironmentObject var currentDate: DateData
+    @State var weeksDate: [Date] = [Date(), Date(), Date(), Date()]
     @State var currentDay: Int = 0
     
     var body: some View {
@@ -34,7 +35,7 @@ struct DayPickerView: View {
                         }
                     }
                 ){
-                    DayPicksView(letter: "월", whatDate: "7")
+                    DayPicksView(letter: extraData(weeksDate[0])[1], whatDate: extraData(weeksDate[0])[0])
                 }
                 Button(action:
                     {
@@ -44,7 +45,7 @@ struct DayPickerView: View {
                         }
                     }
                 ){
-                    DayPicksView(letter: "화", whatDate: "8")
+                    DayPicksView(letter: extraData(weeksDate[1])[1], whatDate: extraData(weeksDate[1])[0])
                 }
                 DayPickView(letter: extraData(currentDate.currentDate)[1], whatDate: extraData(currentDate.currentDate)[0])
                 Button(action:
@@ -55,7 +56,7 @@ struct DayPickerView: View {
                         }
                     }
                 ){
-                    DayPicksView(letter: "목", whatDate: "10")
+                    DayPicksView(letter: extraData(weeksDate[2])[1], whatDate: extraData(weeksDate[2])[0])
                 }
                 Button(action:
                     {
@@ -65,7 +66,7 @@ struct DayPickerView: View {
                         }
                     }
                 ){
-                    DayPicksView(letter: "금", whatDate: "11")
+                    DayPicksView(letter: extraData(weeksDate[3])[1], whatDate: extraData(weeksDate[3])[0])
                 }
                 Button(action:
                     {
@@ -83,7 +84,24 @@ struct DayPickerView: View {
             }
         }.onChange(of: currentDay){ newValue in
             currentDate.currentDate = getCurrentDay()
+            weeksDate[0] = getFirstDay(getCurrentDay(), -2)
+            weeksDate[1] = getFirstDay(getCurrentDay(), -1)
+            weeksDate[2] = getFirstDay(getCurrentDay(), 1)
+            weeksDate[3] = getFirstDay(getCurrentDay(), 2)
         }
+//        .onChange(of: currentDate.currentDate){ newValue in
+//            weeksDate[0] = getFirstDay(currentDate.currentDate, -2)
+//            weeksDate[1] = getFirstDay(currentDate.currentDate, -1)
+//            weeksDate[2] = getFirstDay(currentDate.currentDate, 1)
+//            weeksDate[3] = getFirstDay(currentDate.currentDate, 2)
+//        }
+//        .onAppear(){
+//            weeksDate[0] = getFirstDay(currentDate.currentDate, -2)
+//            weeksDate[1] = getFirstDay(currentDate.currentDate, -1)
+//            weeksDate[2] = getFirstDay(currentDate.currentDate, 1)
+//            weeksDate[3] = getFirstDay(currentDate.currentDate, 2)
+//        }
+        
         
     }
     func extraData(_ currentDate: Date) -> [String]{
@@ -100,6 +118,29 @@ struct DayPickerView: View {
         
         
         guard let currentDay = calendar.date(byAdding: .day, value: self.currentDay, to: Date())
+        else{
+            return Date()
+        }
+        
+        return currentDay
+    }
+    
+    func getDay(_ currentDate: Date) -> Date {
+        let calendar = Calendar.current
+        
+        
+        guard let currentDay = calendar.date(byAdding: .day, value: self.currentDay, to: Date())
+        else{
+            return Date()
+        }
+        
+        return currentDay
+    }
+    func getFirstDay(_ currentDate: Date, _ num: Int) -> Date {
+        let calendar = Calendar.current
+        
+        
+        guard let currentDay = calendar.date(byAdding: .day, value: num, to: Date())
         else{
             return Date()
         }
