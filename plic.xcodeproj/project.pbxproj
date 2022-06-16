@@ -21,9 +21,13 @@
 		7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1BE285472930008FB44 /* AddSchedule.swift */; };
 		7EF8F1CB285732F90008FB44 /* SettingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */; };
 		7EFD74112859B77D00489220 /* UserAnniversaryAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFD74102859B77D00489220 /* UserAnniversaryAddView.swift */; };
+<<<<<<< Updated upstream
 		8B21FCCB285A102B008B6EC4 /* OnboardingStartShareUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */; };
 		8B21FCCD285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */; };
 		8B21FCD3285A36CD008B6EC4 /* CloudSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */; };
+=======
+		8B21FCD7285B2B5D008B6EC4 /* UserSettingNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCD6285B2B5D008B6EC4 /* UserSettingNotificationView.swift */; };
+>>>>>>> Stashed changes
 		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */; };
 		B3C093092855DF2900C53793 /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C093082855DF2900C53793 /* UserSettingView.swift */; };
@@ -69,9 +73,13 @@
 		7EF8F1BE285472930008FB44 /* AddSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSchedule.swift; sourceTree = "<group>"; };
 		7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileView.swift; sourceTree = "<group>"; };
 		7EFD74102859B77D00489220 /* UserAnniversaryAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnniversaryAddView.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartShareUser.swift; sourceTree = "<group>"; };
 		8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleSubtitleTextOnly.swift; sourceTree = "<group>"; };
 		8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSharingViewController.swift; sourceTree = "<group>"; };
+=======
+		8B21FCD6285B2B5D008B6EC4 /* UserSettingNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingNotificationView.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRequestNotificationPermission.swift; sourceTree = "<group>"; };
 		B3C093082855DF2900C53793 /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 				7EFD74102859B77D00489220 /* UserAnniversaryAddView.swift */,
 				7EF8F1CA285732F90008FB44 /* SettingProfileView.swift */,
 				B3CEDF222857293D005E8EA3 /* EditingPlanView.swift */,
+				8B21FCD6285B2B5D008B6EC4 /* UserSettingNotificationView.swift */,
 			);
 			path = SettingViews;
 			sourceTree = "<group>";
@@ -390,6 +399,7 @@
 				D5279A5928574ECC00D2CECF /* MainView.swift in Sources */,
 				F972C2922859C0BB00E00039 /* SceneDelegate.swift in Sources */,
 				5D13ACB02857694A00F45814 /* OnboardingFirstDayWeMet.swift in Sources */,
+				8B21FCD7285B2B5D008B6EC4 /* UserSettingNotificationView.swift in Sources */,
 				5D1D25ED285441EA00C2D7FF /* DetailViewMemo.swift in Sources */,
 				F972C2882859B16A00E00039 /* Couple.swift in Sources */,
 				8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */,
