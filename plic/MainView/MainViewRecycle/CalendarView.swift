@@ -10,12 +10,13 @@ import SwiftUI
 struct CalendarView: View {
     @State var year = [Int](2022..<2100)
     @State var month = [Int](0..<13)
-    @State var currentDate = Date()
+    @EnvironmentObject var currentDate: DateData
     @State var currentMonth: Int = 0
     @State var currentYear: Int = 0
     @State var check: Bool = true
     @State var selection = Date()
     @State private var showAddScheduleModal = false
+
     
     
     let dayoftheWeek : [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
@@ -36,7 +37,7 @@ struct CalendarView: View {
                     check.toggle()
                 }){
                     HStack{
-                        Text("\(extraData(currentDate)[1])년 \(extraData(currentDate)[0])월")
+                        Text("\(extraData(currentDate.currentDate)[1])년 \(extraData(currentDate.currentDate)[0])월")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                             .foregroundColor(Color("plicPink"))
 //                        Image(systemName: "chevron.right")
@@ -101,10 +102,10 @@ struct CalendarView: View {
                 HStack{
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(extractDate()){ value in
-                            DayView(value: value, currentDate: currentDate, firstCheck: false, secondCheck: true, thirdCheck: true)
+                            DayView(value: value, currentDate: currentDate.currentDate, firstCheck: false, secondCheck: true, thirdCheck: true)
                                 
                                 .onTapGesture {
-                                    currentDate = value.date
+                                    currentDate.currentDate = value.date
                                 }
                         }
                     }
@@ -139,13 +140,13 @@ struct CalendarView: View {
             
         }
         .onChange(of: currentMonth){ newValue in
-           currentDate = getCurrentMonth()
+            currentDate.currentDate = getCurrentMonth()
         }
 //        .onChange(of: currentYear){ newValue in
 //           currentDate = getCurrentYear()
 //        }
         .onChange(of: selection){ newValue in
-            currentDate = selection
+            currentDate.currentDate = selection
 
         }
     }

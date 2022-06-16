@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTimeTableView: View {
+    @EnvironmentObject var currentDate: DateData
+    @State var currentMonth: Int = 0
     var month: String = "6"
     var day: String = "23"
     let firstNick: String = "디기"
@@ -16,7 +18,7 @@ struct MainTimeTableView: View {
     var body: some View {
         VStack{
             HStack{
-                MainTimeTableTitleView(month: month, day: day)
+                MainTimeTableTitleView(month: extraData(currentDate.currentDate)[1], day: extraData(currentDate.currentDate)[0])
             }
             .padding(.bottom, 15)
             HStack{
@@ -28,6 +30,15 @@ struct MainTimeTableView: View {
         }
         .padding([.leading,.trailing], 20)
         .frame(height: 230)
+    }
+    
+    func extraData(_ currentDate: Date) -> [String]{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date.components(separatedBy: " ")
     }
 }
 
@@ -47,9 +58,11 @@ struct MainTimeTableTitleView: View {
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                 .foregroundColor(Color("plicBlack"))
             Spacer()
+            NavigationLink(destination: WeeklyView(), label: {
             Image(systemName: "chevron.right")
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                 .foregroundColor(Color("plicGrey"))
+            })
         }
     }
 }

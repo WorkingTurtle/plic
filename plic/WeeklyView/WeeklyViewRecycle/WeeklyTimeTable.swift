@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct WeeklyTimeTable: View {
-    var month: String = "6"
-    var day: String = "23"
+    @EnvironmentObject var currentDate: DateData
+//    var month: String = "6"
+//    var day: String = "23"
     let firstNick: String = "디기"
     let secondNick: String = "벳져"
     
@@ -17,7 +18,7 @@ struct WeeklyTimeTable: View {
         
             VStack{
                 HStack{
-                    WeeklyTimeTableTitleView(month: month, day: day)
+                    WeeklyTimeTableTitleView(month: extraData(currentDate.currentDate)[1], day: extraData(currentDate.currentDate)[0])
                 }
                 .padding([.leading,.trailing], 5)
                 .padding([.leading,.trailing], 20)
@@ -47,6 +48,14 @@ struct WeeklyTimeTable: View {
         }
             
         
+    }
+    func extraData(_ currentDate: Date) -> [String]{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date.components(separatedBy: " ")
     }
 }
 
@@ -84,10 +93,10 @@ struct DumyTime: Hashable{
 struct TimeTableWeeklyView : View {
     let Time: [String] = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
     let Times: [DumyTime] =
-    [DumyTime(startTime: 15.5, endTime: 24, name: "친구 약속", who: 2),
-     DumyTime(startTime: 8, endTime: 11, name: "데이트", who: 1),
-     DumyTime(startTime: 12, endTime: 13, name: "점심", who: 0),
-     DumyTime(startTime: 12, endTime: 13, name: "점심", who: 2)]
+    [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
+     DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
+     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
+     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 2)]
                              
     
     var body: some View {
