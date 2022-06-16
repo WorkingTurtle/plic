@@ -84,23 +84,24 @@ struct DayPickerView: View {
             }
         }.onChange(of: currentDay){ newValue in
             currentDate.currentDate = getCurrentDay()
-            weeksDate[0] = getFirstDay(getCurrentDay(), -2)
-            weeksDate[1] = getFirstDay(getCurrentDay(), -1)
-            weeksDate[2] = getFirstDay(getCurrentDay(), 1)
-            weeksDate[3] = getFirstDay(getCurrentDay(), 2)
+            weeksDate[0] = getDay(-2 + currentDay)
+            weeksDate[1] = getDay(-1 + currentDay)
+            weeksDate[2] = getDay(1 + currentDay)
+            weeksDate[3] = getDay(2 + currentDay)
         }
 //        .onChange(of: currentDate.currentDate){ newValue in
-//            weeksDate[0] = getFirstDay(currentDate.currentDate, -2)
-//            weeksDate[1] = getFirstDay(currentDate.currentDate, -1)
-//            weeksDate[2] = getFirstDay(currentDate.currentDate, 1)
-//            weeksDate[3] = getFirstDay(currentDate.currentDate, 2)
+//            weeksDate[0] = getDay(-2)
+//            weeksDate[1] = getCurrentDay()
+//            weeksDate[2] = getFirstDay(getCurrentDay(), 1)
+//            weeksDate[3] = getFirstDay(getCurrentDay(), 2)
+//            print(weeksDate)
 //        }
-//        .onAppear(){
-//            weeksDate[0] = getFirstDay(currentDate.currentDate, -2)
-//            weeksDate[1] = getFirstDay(currentDate.currentDate, -1)
-//            weeksDate[2] = getFirstDay(currentDate.currentDate, 1)
-//            weeksDate[3] = getFirstDay(currentDate.currentDate, 2)
-//        }
+        .onAppear(){
+            weeksDate[0] = getFirstDay(currentDate.currentDate, -2)
+            weeksDate[1] = getFirstDay(currentDate.currentDate, -1)
+            weeksDate[2] = getFirstDay(currentDate.currentDate, 1)
+            weeksDate[3] = getFirstDay(currentDate.currentDate, 2)
+        }
         
         
     }
@@ -125,11 +126,11 @@ struct DayPickerView: View {
         return currentDay
     }
     
-    func getDay(_ currentDate: Date) -> Date {
+    func getDay(_ num: Int) -> Date {
         let calendar = Calendar.current
         
         
-        guard let currentDay = calendar.date(byAdding: .day, value: self.currentDay, to: Date())
+        guard let currentDay = calendar.date(byAdding: .day, value: num, to: Date())
         else{
             return Date()
         }
@@ -145,6 +146,7 @@ struct DayPickerView: View {
             return Date()
         }
         
+        print("CurrentDay \(currentDay)")
         return currentDay
     }
     func isSameDay(date1: Date, date2: Date) -> Bool{
