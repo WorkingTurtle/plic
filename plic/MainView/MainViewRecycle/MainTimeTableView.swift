@@ -21,7 +21,7 @@ struct MainTimeTableView: View {
             .padding(.bottom, 15)
             HStack{
                 TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
-            }.padding([.leading,.trailing], 60)
+            }.padding([.leading,.trailing], 90)
             HStack{
                 TimeTableMiniView()
             }
@@ -76,54 +76,45 @@ struct TimeTableNameView: View {
 }
 
 struct TimeTableMiniView : View {
-    let firstTime: String = "09:00"
-    let secondTime: String = "10:00"
-    let thirdTime: String = "11:00"
-    let fourthTime: String = "12:00"
-
+    var currentTimeArr: [Int] = [0, 1, 2, 3]
+    
+    static let HourDateformat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        return formatter
+    }()
     
     var body: some View {
-        VStack{
-            Text(firstTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
+        HStack{
+            VStack{
+
+                //    ForEach를 써서 (x * 60초 * 60초)를 사용. x를 i라 생각하고 사용
+                //    자동으로 배열에 담아주는 ForEach문 생성
+                
+                ForEach(currentTimeArr, id: \.self) { x in
+                    let timeTableSinceNow = Date(timeIntervalSinceNow: TimeInterval(x * 60 * 60))
+                    Text("\(timeTableSinceNow, formatter: TimeTableMiniView.HourDateformat):00")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                        .foregroundColor(Color("plicTime"))
+                        .frame(height: 10)
+                        .padding(.bottom, 25)
+                }
+            }
+            
             Spacer()
-            Text(secondTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
-            Spacer()
-            Text(thirdTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
-            Spacer()
-            Text(fourthTime)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                .foregroundColor(Color("plicTime"))
+            
+            VStack{
+                ForEach(currentTimeArr, id: \.self){ item in
+                    Line()
+                        .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
+                        .frame(height: 10)
+                        .foregroundColor(Color("plicLine"))
+                        .padding(.bottom, 25)
+                }
+            }.padding(.top, 11)
         }
-        Spacer()
-        VStack{
-                Line()
-                           .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                           .frame(height: 1)
-                           .foregroundColor(Color("plicLine"))
-                           .padding(.top, 8)
-            Spacer()
-                Line()
-                           .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                           .frame(height: 1)
-                           .foregroundColor(Color("plicLine"))
-            Spacer()
-                Line()
-                           .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                           .frame(height: 1)
-                           .foregroundColor(Color("plicLine"))
-            Spacer()
-                Line()
-                       .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                       .frame(height: 1)
-                       .foregroundColor(Color("plicLine"))
-                       .padding(.bottom, 8)
-        }
+        
+        
     }
 }
 
