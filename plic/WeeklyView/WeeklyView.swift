@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct WeeklyView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack{
+            Button(action: {presentationMode.wrappedValue.dismiss()}) {
+                HStack{
+                    Image(systemName: "chevron.left")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                        .foregroundColor(Color("plicPink"))
+                    Text("Plic 캘린더")
+                    Spacer()
+                }.padding(.leading, 20)
+            }
             HStack{
                 DayPickerView()
             }
             HStack{
                 WeeklyTimeTable()
             }    
-        }
+        }.navigationBarHidden(true)
     }
 }
 
