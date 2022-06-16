@@ -40,6 +40,7 @@ struct MainAddSchedule: View {
                 Section {
                     Toggle("하루 종일", isOn: $allDayToggle)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
+                        .toggleStyle(SwitchToggleStyle(tint: Color("plicPink")))
                     
                     DatePicker("시작", selection: $timeStart, in: Date()...)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
