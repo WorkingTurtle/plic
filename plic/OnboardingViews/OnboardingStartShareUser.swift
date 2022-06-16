@@ -101,7 +101,7 @@ struct OnboardingStartShareUser: View {
                             .foregroundColor(.white))
                         .padding(.horizontal, 20)
                 }
-                .opacity(isSendingButtonClicked ? 1.0 : 0)
+                .opacity(viewModel?.isSharedSuccess == true ? 1.0 : 0)
                 .padding(.bottom, 62)
             }
         }
