@@ -96,7 +96,7 @@ struct DumyTime: Hashable{
     let startTime: Float
     let endTime: Float
     let name: String
-    let who: Int
+    var who: Int
 }
 
 
