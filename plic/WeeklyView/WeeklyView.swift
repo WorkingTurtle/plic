@@ -20,22 +20,23 @@ struct WeeklyView: View {
     var body: some View {
         
         VStack{
-            Button(action: {presentationMode.wrappedValue.dismiss()}) {
-                HStack{
-                    Image(systemName: "chevron.left")
-                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                        .foregroundColor(Color("plicPink"))
-                    Text("Plic 캘린더")
-                    Spacer()
-                }.padding(.leading, 20)
-            }
+//            Button(action: {presentationMode.wrappedValue.dismiss()}) {
+//                HStack{
+//                    Image(systemName: "chevron.left")
+//                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+//                        .foregroundColor(Color("plicPink"))
+//                    Text("Plic 캘린더")
+//                    Spacer()
+//                }.padding(.leading, 20)
+//            }
             HStack{
                 DayPickerView()
             }
             HStack{
                 WeeklyTimeTable(Times: Times)
             }    
-        }.navigationBarHidden(true)
+        }.navigationTitle("오늘의 일정")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
