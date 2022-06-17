@@ -14,7 +14,7 @@ struct DayPickerView: View {
     
     var body: some View {
         VStack{
-            HStack{
+            HStack(spacing: 12){
                 Button(action:
                     {
                         withAnimation{
