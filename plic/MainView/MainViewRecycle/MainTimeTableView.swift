@@ -135,27 +135,27 @@ struct TimeTableMiniView : View {
             
             ForEach(coupleViewModel.schedules, id: \.self){ item in
                 if (compareDate(currentDate.currentDate) == compareDate(item.startDate)){
-                VStack{
-                    if(scheduleAdaptor(schedules: item) == 2){
-                        TimeTableView(schedule: item)
-                        //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                                                        .offset(x: -60, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
-                    }
-                    else if(scheduleAdaptor(schedules: item) == 1){
-                        TimeTableView(schedule: item)
-                            .offset(x: 15, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
-                            //                                .offset(x: 15)
+                    VStack{
+                        if(scheduleAdaptor(schedules: item) == 2){
+                            TimeTableView(schedule: item)
                             //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                    }
-                    else
-                    {
-                        TimeTableView(schedule: item)
-                            .offset(x: 90, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
-                        //                                .offset(x: 90)
-                        //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                    }
-                    Spacer()
-                }.padding(.top, 10)
+                                                            .offset(x: -60, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
+                        }
+                        else if(scheduleAdaptor(schedules: item) == 1){
+                            TimeTableView(schedule: item)
+                                .offset(x: 15, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
+                                //                                .offset(x: 15)
+                                //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                        }
+                        else
+                        {
+                            TimeTableView(schedule: item)
+                                .offset(x: 90, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
+                            //                                .offset(x: 90)
+                            //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                        }
+                        Spacer()
+                    }.padding(.top, 10)
                 }
                 
                 

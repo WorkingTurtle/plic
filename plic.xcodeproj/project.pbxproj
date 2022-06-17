@@ -44,6 +44,7 @@
 		D54307F62850EA7300CFF605 /* plic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D54307F42850EA7300CFF605 /* plic.xcdatamodeld */; };
 		D54307FF2850ECF300CFF605 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54307FE2850ECF300CFF605 /* CloudKit.framework */; };
 		D543080128530B7700CFF605 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = D543080028530B7700CFF605 /* assets */; };
+		D54CBB4C285CD4D700B86433 /* EditSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54CBB4B285CD4D700B86433 /* EditSchedule.swift */; };
 		D5D42C0028585B37003C7574 /* WeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42BFF28585B37003C7574 /* WeeklyView.swift */; };
 		D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A292854FE0000D2CECF /* DayPickerView.swift */; };
 		D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */; };
@@ -101,6 +102,7 @@
 		D54307FE2850ECF300CFF605 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D543080028530B7700CFF605 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		D543080228530CA700CFF605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D54CBB4B285CD4D700B86433 /* EditSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSchedule.swift; sourceTree = "<group>"; };
 		D5D42BFF28585B37003C7574 /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
 		D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTimeTable.swift; sourceTree = "<group>"; };
 		D5D42C042858B4B3003C7574 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7EF8F1BE285472930008FB44 /* AddSchedule.swift */,
+				D54CBB4B285CD4D700B86433 /* EditSchedule.swift */,
 			);
 			path = ManageScheduleViews;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				5D34BF77285B780600F8DAFC /* DetailTimeTableView.swift in Sources */,
 				D500A6FB285489AD005A90AD /* CalendarView.swift in Sources */,
 				7EF8F1BF285472940008FB44 /* AddSchedule.swift in Sources */,
+				D54CBB4C285CD4D700B86433 /* EditSchedule.swift in Sources */,
 				F972C28C2859B8DD00E00039 /* CKConstant.swift in Sources */,
 				D54307F32850EA7300CFF605 /* Persistence.swift in Sources */,
 				D5D42C0028585B37003C7574 /* WeeklyView.swift in Sources */,

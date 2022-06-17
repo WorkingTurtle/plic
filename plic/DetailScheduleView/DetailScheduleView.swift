@@ -34,7 +34,7 @@ struct DetailScheduleView: View {
             }.frame(height: 200)
                 .padding(.horizontal, 20)
             HStack{
-                DetailViewTime(startTime: "\(schedule.startDate)", endTime: "\(schedule.endDate)")
+                DetailViewTime(startTime: dateToString(schedule.startDate), endTime: dateToString(schedule.endDate))
             }
             HStack{
                 DetailViewMemo()
@@ -44,7 +44,7 @@ struct DetailScheduleView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: NavigationLink(destination:
                                                         AddSchedule()
-//                                                        EditSchedule()
+//                                                     EditSchedule(schedule: schedule)
                                                      , label: {
             Text("Edit")
                 .foregroundColor(Color("plicPink"))
@@ -66,6 +66,14 @@ struct DetailScheduleView: View {
         }
         
         return whoesSchedule
+    }
+    func dateToString(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+
+            let date = formatter.string(from: date)
+            
+            return date
     }
     
 }
