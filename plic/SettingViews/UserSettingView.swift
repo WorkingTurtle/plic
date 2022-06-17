@@ -47,7 +47,7 @@ struct UserSettingView: View {
                         NavigationLink(destination: UserAnniversaryView(), label: {
                             SettingListView(letter : letterArr[0])
                         })
-                        NavigationLink(destination: UserAnniversaryView(), label: {
+                        NavigationLink(destination: UserSettingNotificationView(), label: {
                             SettingListView(letter : letterArr[1])
                         })
                         NavigationLink(destination: UserAnniversaryView(), label: {
@@ -63,6 +63,7 @@ struct UserSettingView: View {
                 }
             }.ignoresSafeArea()
         }
+        .accentColor(Color("plicPink"))
     }
 }
 
