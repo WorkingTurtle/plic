@@ -21,30 +21,16 @@ struct MainTimeTableView: View {
                 MainTimeTableTitleView(month: extraData(currentDate.currentDate)[1], day: extraData(currentDate.currentDate)[0])
             }
             .padding(.bottom, 15)
-            VStack{
-                HStack{
-                    TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
-                }.padding([.leading,.trailing], 105)
-                    .padding(.top, 50)
-                HStack{
-                    TimeTableWeeklyView()
-                }.padding([.leading,.trailing], 20)
-                    .padding(.top, 0)
-            }
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(color: Color.gray, radius: 2)
-            .padding(.top, 20)
-            .padding([.leading,.trailing], 20)
-//            HStack{
-//                TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
-//            }.padding([.leading,.trailing], 90)
-//            HStack{
+            HStack{
+                TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
+            }.padding([.leading,.trailing], 90)
+            HStack{
 //                TimeTableMiniView()
-//            }
+                TimeTableWeeklyView()
+            }
         }
         .padding([.leading,.trailing], 30)
-        .frame(height: 230)
+//        .frame(height: 230)
     }
     
     func extraData(_ currentDate: Date) -> [String]{
