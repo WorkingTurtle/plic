@@ -91,6 +91,7 @@ struct TimeTableNameView: View {
 struct TimeTableMiniView : View {
     var currentTimeArr: [Int] = [0, 1, 2, 3]
     @EnvironmentObject var coupleViewModel: CoupleViewModel
+    @EnvironmentObject var currentDate: DateData
     
 
     
@@ -133,6 +134,7 @@ struct TimeTableMiniView : View {
             }
             
             ForEach(coupleViewModel.schedules, id: \.self){ item in
+                if( currentDate.currentDate == item.startDate){
                 VStack{
                     if(scheduleAdaptor(schedules: item) == 2){
                         TimeTableView(schedule: item)
@@ -154,6 +156,7 @@ struct TimeTableMiniView : View {
                     }
                     Spacer()
                 }.padding(.top, 10)
+                }
                 
                 
 //                    .padding(.top, CGFloat((value.startTime - 6) * 30) )

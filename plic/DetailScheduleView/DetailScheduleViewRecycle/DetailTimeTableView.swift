@@ -16,6 +16,7 @@ struct DetailTimeTableView: View {
     
     
     
+    
     var body: some View {
         if(scheduleAdaptor(schedules: schedule) == 2){
             VStack{

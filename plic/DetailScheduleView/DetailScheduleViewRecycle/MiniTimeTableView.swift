@@ -11,6 +11,7 @@ import SwiftUI
 struct MiniTimeTableView: View {
     let schedule: Schedule
     @EnvironmentObject var coupleViewModel: CoupleViewModel
+    @EnvironmentObject var currentDate: DateData
                                          
     var currentTimeArr: [Int] = [0, 1, 2, 3]
     

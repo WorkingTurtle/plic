@@ -95,6 +95,7 @@ struct WeeklyTimeTableTitleView: View {
 struct TimeTableWeeklyView : View {
     let Time: [String] = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
     @EnvironmentObject var coupleViewModel: CoupleViewModel
+    @EnvironmentObject var currentDate: DateData
 
     
                              
@@ -129,6 +130,7 @@ struct TimeTableWeeklyView : View {
                 
             }
             ForEach(coupleViewModel.schedules, id: \.self){ item in
+                if( currentDate.currentDate == item.startDate){
                 VStack{
                     if(scheduleAdaptor(schedules: item) == 2){
                         TimeTableView(schedule: item)
@@ -141,7 +143,7 @@ struct TimeTableWeeklyView : View {
                             //                                .offset(x: 15)
                             //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
-                    else
+                    else 
                     {
                         TimeTableView(schedule: item)
                             .offset(x: 90, y: CGFloat((dateToFloat(item.startDate) - 6) * 43))
@@ -150,6 +152,7 @@ struct TimeTableWeeklyView : View {
                     }
                     Spacer()
                 }.padding(.top, 10)
+                }
 
             }
         }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimeTableView: View {
     @EnvironmentObject var coupleViewModel: CoupleViewModel
+    @EnvironmentObject var currentDate: DateData
     let width: CGFloat = 60.0
     let coupleWidth: CGFloat = 210.0
     var height: CGFloat = 43.0
