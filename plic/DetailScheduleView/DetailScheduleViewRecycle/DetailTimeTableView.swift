@@ -15,6 +15,8 @@ struct DetailTimeTableView: View {
     var height: CGFloat = 43.0
     let who: Int
     
+    
+    
     var body: some View {
         if(who == 0){
             VStack{

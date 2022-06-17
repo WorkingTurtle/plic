@@ -140,18 +140,18 @@ struct TimeTableWeeklyView : View {
             ForEach(Times, id: \.self){ value in
                 VStack{
                     if(value.who == 0){
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
                             .padding(.top, CGFloat((value.startTime - 6) * 43))
                             .offset(x: -60)
                     }
                     else if(value.who == 1){
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
                             .offset(x: 15)
                             .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
                     else
                     {
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
                             .offset(x: 90)
                             .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
