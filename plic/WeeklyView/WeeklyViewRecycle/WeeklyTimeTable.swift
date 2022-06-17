@@ -86,7 +86,7 @@ struct WeeklyTimeTableTitleView: View {
                     .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
                     .foregroundColor(Color("plicGrey"))
             }.sheet(isPresented: self.$showAddScheduleModal){
-                MainAddSchedule()
+                AddSchedule()
             }
         }
     }
