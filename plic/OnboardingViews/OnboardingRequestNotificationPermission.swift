@@ -25,7 +25,6 @@ class OnboardingRequestNotificationPermissionViewModel: ObservableObject {
 
 struct OnboardingRequestNotificationPermission: View {
     @StateObject var vm = OnboardingRequestNotificationPermissionViewModel()
-    @State private var isRequestDone = false
     
     var body: some View {
         ZStack{
@@ -35,12 +34,20 @@ struct OnboardingRequestNotificationPermission: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .ignoresSafeArea(.all)
             
-            NavigationLink(destination: OnboardingUsernameView(), isActive: $isRequestDone) { EmptyView() }
-                .disabled(true)
+            VStack{
+                Spacer()
+                
+                Image("plicLogoExample")
+                    .resizable()
+                    .frame(width: 290, height: 118)
+                    .padding(.top, 70)
+                    .padding(.bottom, 116)
+                
+                Spacer()
+            }
         }
         .onAppear{
             self.vm.requestNotificationPermission()
-            isRequestDone = true
         }
     }
 }

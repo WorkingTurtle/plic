@@ -9,10 +9,10 @@ import SwiftUI
 import CloudKit
 
 class CoupleRecordNorificationViewModel: ObservableObject {
-
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
+    
     func subscribeToNotification() {
         let predicate = NSPredicate(format: "\(CKConstant.Field.isCoupleSchedule) == %@",  NSNumber(value: true))
-        // TODO: subscriptionID: root?.recordID.recordName
         let subscription = CKQuerySubscription(recordType: CKConstant.RecordType.Schedule, predicate: predicate,  subscriptionID: "imsiID", options: .firesOnRecordCreation)
         
         let notification = CKSubscription.NotificationInfo()
@@ -31,10 +31,38 @@ class CoupleRecordNorificationViewModel: ObservableObject {
             }
             
         }
+        
+        let predicate2 = NSPredicate(format: "\(CKConstant.Field.isCoupleSchedule) == %@",  NSNumber(value: true))
+        let subscription2 = CKQuerySubscription(recordType: CKConstant.RecordType.Schedule, predicate: predicate2,  subscriptionID: "imsiID2", options: .firesOnRecordCreation)
+        
+        let notification2 = CKSubscription.NotificationInfo()
+        
+        notification2.title = "Plic Calendar"
+        notification2.alertBody = "함께하는 일정이 등록되었습니다"
+        notification2.soundName = "default"
+        
+        subscription2.notificationInfo = notification2
+        
+        CKContainer.default().sharedCloudDatabase.save(subscription2) { returnedSubscription, returnedError in
+            if let error = returnedError {
+                print(error)
+            } else {
+                print("Successfully subscribed to notification!")
+            }
+            
+        }
     }
     
     func unsubscribeToNotification() {
         CKContainer.default().privateCloudDatabase.delete(withSubscriptionID: "imsiID") { returnedID, returnedError in
+            if let error = returnedError {
+                print(error)
+            } else {
+                print("Successfully unscribed!")
+            }
+        }
+        
+        CKContainer.default().sharedCloudDatabase.delete(withSubscriptionID: "imsiID2") { returnedID, returnedError in
             if let error = returnedError {
                 print(error)
             } else {

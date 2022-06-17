@@ -42,7 +42,7 @@ struct OnboardingStartView: View {
     @State private var titleText = "iCloud 연결 확인하기"
     @State private var isCloudStatusClicked = false
     @State private var nextView = false
-    
+        
     var body: some View {
         NavigationView{
             ZStack{

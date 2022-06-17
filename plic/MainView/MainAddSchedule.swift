@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct MainAddSchedule: View {
-
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var scheduleName: String = ""
     @State var allDayToggle: Bool = false
@@ -97,10 +97,19 @@ struct MainAddSchedule: View {
                 .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
                 .navigationBarItems(
                     leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}) { Text("취소") }.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
-                    trailing: Button(action: {self.presentationMode.wrappedValue.dismiss()}) { Text("완료")}.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
+                    trailing: Button(action: {
+                        addSchedule()
+                        self.presentationMode.wrappedValue.dismiss()
+                        
+                    }) { Text("완료")}.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
                 )
         }
     }
+    // CloudKit에 일정 등록
+        private func addSchedule() {
+            let schedule = Schedule(title: scheduleName, description: noteContent, startDate: timeStart, endDate: timeEnd, isAllDaySchedule: allDayToggle, isCoupleSchedule: whoSchedule == "함께", isSpecialDay: false)
+            coupleViewModel.addSchedule(schedule)
+        }
 }
 
 // 키보드 내리는 입력 완료 함수

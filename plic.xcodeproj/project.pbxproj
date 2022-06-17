@@ -26,6 +26,7 @@
 		8B21FCCB285A102B008B6EC4 /* OnboardingStartShareUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */; };
 		8B21FCCD285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */; };
 		8B21FCD3285A36CD008B6EC4 /* CloudSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */; };
+		8B3E6393285C7B5700725F90 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E6392285C7B5700725F90 /* SplashView.swift */; };
 		8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */; };
 		8B7DA00F2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */; };
 		8BC36E68285B78E00044D64C /* UserSettingNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC36E67285B78DF0044D64C /* UserSettingNotificationView.swift */; };
@@ -47,6 +48,7 @@
 		D5D42C0128586D56003C7574 /* DayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5279A292854FE0000D2CECF /* DayPickerView.swift */; };
 		D5D42C0328587022003C7574 /* WeeklyTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */; };
 		D5D42C052858B4B3003C7574 /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C042858B4B3003C7574 /* TimeTableView.swift */; };
+		D5D42C07285A2F2B003C7574 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C06285A2F2B003C7574 /* DateData.swift */; };
 		F972C2862859B15100E00039 /* RecordProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2852859B15100E00039 /* RecordProtocol.swift */; };
 		F972C2882859B16A00E00039 /* Couple.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2872859B16A00E00039 /* Couple.swift */; };
 		F972C28A2859B19400E00039 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2892859B19400E00039 /* Schedule.swift */; };
@@ -55,7 +57,6 @@
 		F972C2902859C09D00E00039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C28F2859C09D00E00039 /* AppDelegate.swift */; };
 		F972C2922859C0BB00E00039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2912859C0BB00E00039 /* SceneDelegate.swift */; };
 		F972C2942859C16600E00039 /* CoupleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F972C2932859C16600E00039 /* CoupleViewModel.swift */; };
-		D5D42C07285A2F2B003C7574 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D42C06285A2F2B003C7574 /* DateData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		8B21FCCA285A102B008B6EC4 /* OnboardingStartShareUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartShareUser.swift; sourceTree = "<group>"; };
 		8B21FCCC285A1D6A008B6EC4 /* RecycleSubtitleTextOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleSubtitleTextOnly.swift; sourceTree = "<group>"; };
 		8B21FCD2285A36CD008B6EC4 /* CloudSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSharingViewController.swift; sourceTree = "<group>"; };
+		8B3E6392285C7B5700725F90 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		8B7DA00A28570D8F00AB62D1 /* CloudkitUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitUtility.swift; sourceTree = "<group>"; };
 		8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRequestNotificationPermission.swift; sourceTree = "<group>"; };
 		8BC36E67285B78DF0044D64C /* UserSettingNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingNotificationView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		D5D42BFF28585B37003C7574 /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
 		D5D42C0228587022003C7574 /* WeeklyTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTimeTable.swift; sourceTree = "<group>"; };
 		D5D42C042858B4B3003C7574 /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
+		D5D42C06285A2F2B003C7574 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
 		F972C2852859B15100E00039 /* RecordProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocol.swift; sourceTree = "<group>"; };
 		F972C2872859B16A00E00039 /* Couple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Couple.swift; sourceTree = "<group>"; };
 		F972C2892859B19400E00039 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -110,7 +113,6 @@
 		F972C28F2859C09D00E00039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F972C2912859C0BB00E00039 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F972C2932859C16600E00039 /* CoupleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupleViewModel.swift; sourceTree = "<group>"; };
-		D5D42C06285A2F2B003C7574 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				D5279A4D2857239900D2CECF /* OnboardingRecycle */,
 				5D13ACA128563D2F00F45814 /* OnboardingStartView.swift */,
+				8B3E6392285C7B5700725F90 /* SplashView.swift */,
 				8B7DA00E2857686A00AB62D1 /* OnboardingRequestNotificationPermission.swift */,
 				5D13ACA32856428400F45814 /* OnboardingUsernameView.swift */,
 				5D13ACAB28574E6F00F45814 /* OnboardingDateOfBirth.swift */,
@@ -399,6 +402,7 @@
 				5D13ACAC28574E6F00F45814 /* OnboardingDateOfBirth.swift in Sources */,
 				D54307EC2850EA7100CFF605 /* ContentView.swift in Sources */,
 				8BC36E68285B78E00044D64C /* UserSettingNotificationView.swift in Sources */,
+				8B3E6393285C7B5700725F90 /* SplashView.swift in Sources */,
 				8B7DA00B28570D8F00AB62D1 /* CloudkitUtility.swift in Sources */,
 				7EFD74112859B77D00489220 /* UserAnniversaryAddView.swift in Sources */,
 				D5D42C07285A2F2B003C7574 /* DateData.swift in Sources */,

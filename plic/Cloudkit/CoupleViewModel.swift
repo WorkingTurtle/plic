@@ -16,6 +16,7 @@ protocol CoupleViewModelDelegate: AnyObject {
 final class CoupleViewModel: ObservableObject {
     
     // MARK: - Property
+    @Published var loadCnt = 0
     
     weak var delegate: CoupleViewModelDelegate?
     
@@ -75,6 +76,7 @@ final class CoupleViewModel: ObservableObject {
         
         // Fetch owner's root album in his private database
         privateDB.perform(coupleQuery, inZoneWith: privateZone.zoneID) { records, error in
+            self.loadCnt += 1
             if let record = records?.first {
                 self.root = record
                 self.isReady = true
@@ -83,8 +85,10 @@ final class CoupleViewModel: ObservableObject {
         
         // Fetch shared zones in participant's shared database
         sharedDB.fetchAllRecordZones { zones, error in
+            self.loadCnt += 1
+
             guard let zone = zones?.first else { return }
-                
+
             // If shared zone exists, the current user is a participant
             self.sharedZone = zone
             self.isOwner = false
