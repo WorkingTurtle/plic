@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DetailScheduleView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
     var testSchedule: DumyTime
     
     var body: some View {
@@ -37,6 +39,15 @@ struct DetailScheduleView: View {
                 DetailViewMemo()
             }
         }
+        .navigationTitle("상세 정보")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: NavigationLink(destination:
+                                                        AddSchedule()
+//                                                        EditSchedule()
+                                                     , label: {
+            Text("Edit")
+                .foregroundColor(Color("plicPink"))
+        }))
         .accentColor(Color("plicPink"))
     }
 }
