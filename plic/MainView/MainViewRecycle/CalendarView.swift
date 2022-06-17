@@ -276,7 +276,7 @@ struct DayView: View {
                     
                     HStack(spacing: 2){
                         ForEach(coupleViewModel.schedules, id: \.self){ item in
-                            if( value.date == item.startDate){
+                            if( compareDate(value.date) == compareDate(item.startDate)){
                                 if(scheduleAdaptor(schedules: item) == 2){
                                     Circle()
                                         .fill(Color("plicCirclepink"))
@@ -384,6 +384,15 @@ struct DayView: View {
         formatter.dateFormat = "y-M-d"
         
         let date = formatter.date(from: Str)
+        
+        return date
+    }
+    
+    func compareDate(_ currentDate: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM dd"
+        
+        let date = formatter.string(from: currentDate)
         
         return date
     }

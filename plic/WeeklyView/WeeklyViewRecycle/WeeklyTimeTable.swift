@@ -130,7 +130,7 @@ struct TimeTableWeeklyView : View {
                 
             }
             ForEach(coupleViewModel.schedules, id: \.self){ item in
-                if( currentDate.currentDate == item.startDate){
+                if( compareDate(currentDate.currentDate) == compareDate(item.startDate)){
                 VStack{
                     if(scheduleAdaptor(schedules: item) == 2){
                         TimeTableView(schedule: item)
@@ -182,6 +182,14 @@ struct TimeTableWeeklyView : View {
             let min = formatter.string(from: date)
             
             return (hour as NSString).floatValue + (min as NSString).floatValue / 60.0
+    }
+    func compareDate(_ currentDate: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM dd"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date
     }
 }
 

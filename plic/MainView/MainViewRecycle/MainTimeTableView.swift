@@ -134,7 +134,7 @@ struct TimeTableMiniView : View {
             }
             
             ForEach(coupleViewModel.schedules, id: \.self){ item in
-                if( currentDate.currentDate == item.startDate){
+                if (compareDate(currentDate.currentDate) == compareDate(item.startDate)){
                 VStack{
                     if(scheduleAdaptor(schedules: item) == 2){
                         TimeTableView(schedule: item)
@@ -166,6 +166,15 @@ struct TimeTableMiniView : View {
         }
         
         
+    }
+    
+    func compareDate(_ currentDate: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM dd"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date
     }
     
     func scheduleAdaptor(schedules: Schedule) -> Int {
