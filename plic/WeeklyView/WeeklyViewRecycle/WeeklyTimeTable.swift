@@ -14,6 +14,7 @@ struct WeeklyTimeTable: View {
 //    var day: String = "23"
     let firstNick: String = "디기"
     let secondNick: String = "벳져"
+
     
     var body: some View {
         
@@ -69,6 +70,8 @@ struct WeeklyTimeTable: View {
 struct WeeklyTimeTableTitleView: View {
     let month: String
     let day: String
+    @State private var showAddScheduleModal = false
+
     
     var body: some View {
         HStack{
@@ -76,9 +79,15 @@ struct WeeklyTimeTableTitleView: View {
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 20))
                 .foregroundColor(Color("plicBlack"))
             Spacer()
-            Image(systemName: "plus")
-                .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
-                .foregroundColor(Color("plicGrey"))
+            Button(action: {
+                self.showAddScheduleModal = true
+            }){
+                Image(systemName: "plus")
+                    .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
+                    .foregroundColor(Color("plicGrey"))
+            }.sheet(isPresented: self.$showAddScheduleModal){
+                MainAddSchedule()
+            }
         }
     }
 }
@@ -126,37 +135,28 @@ struct TimeTableWeeklyView : View {
                 
             }
             ForEach(Times, id: \.self){ value in
-                NavigationLink(destination: DetailScheduleView(testSchedule: value)){
-                    VStack{
-                        if(value.who == 0){
-                            TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
-                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                                .offset(x: -60)
-                        }
-                        else if(value.who == 1){
-                            TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
-                                .offset(x: 15)
-                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                        }
-                        else
-                        {
-                            TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
-                                .offset(x: 90)
-                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                        }
-                        Spacer()
-                    }.padding(.top, 10)
-                    
-                }
-                
-                
-                
-//                    .padding(.top, CGFloat((value.startTime - 6) * 30) )
-//                Spacer()
+                VStack{
+                    if(value.who == 0){
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
+                            .padding(.top, CGFloat((value.startTime - 6) * 43))
+                            .offset(x: -60)
+                    }
+                    else if(value.who == 1){
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
+                            .offset(x: 15)
+                            .padding(.top, CGFloat((value.startTime - 6) * 43))
+                    }
+                    else
+                    {
+                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
+                            .offset(x: 90)
+                            .padding(.top, CGFloat((value.startTime - 6) * 43))
+                    }
+                    Spacer()
+                }.padding(.top, 10)
+
             }
         }
-        
-        
     }
 }
 
