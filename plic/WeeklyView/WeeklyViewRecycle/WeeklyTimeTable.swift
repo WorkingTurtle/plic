@@ -13,6 +13,7 @@ struct WeeklyTimeTable: View {
 //    var day: String = "23"
     let firstNick: String = "디기"
     let secondNick: String = "벳져"
+
     
     var body: some View {
         
@@ -68,6 +69,8 @@ struct WeeklyTimeTable_Previews: PreviewProvider {
 struct WeeklyTimeTableTitleView: View {
     let month: String
     let day: String
+    @State private var showAddScheduleModal = false
+
     
     var body: some View {
         HStack{
@@ -75,9 +78,15 @@ struct WeeklyTimeTableTitleView: View {
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 20))
                 .foregroundColor(Color("plicBlack"))
             Spacer()
-            Image(systemName: "plus")
-                .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
-                .foregroundColor(Color("plicGrey"))
+            Button(action: {
+                self.showAddScheduleModal = true
+            }){
+                Image(systemName: "plus")
+                    .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
+                    .foregroundColor(Color("plicGrey"))
+            }.sheet(isPresented: self.$showAddScheduleModal){
+                MainAddSchedule()
+            }
         }
     }
 }
