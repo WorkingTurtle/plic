@@ -89,7 +89,7 @@ struct CalendarView: View {
                     MainAddSchedule()
                 }
             }
-            .padding([.leading, .trailing], 20)
+            .padding(.horizontal, 25)
             .padding(.bottom, 15)
             if(check){
                 HStack{

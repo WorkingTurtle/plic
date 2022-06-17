@@ -28,7 +28,7 @@ struct MainTimeTableView: View {
                 TimeTableMiniView()
             }
         }
-        .padding([.leading,.trailing], 20)
+        .padding([.leading,.trailing], 30)
         .frame(height: 230)
     }
     
