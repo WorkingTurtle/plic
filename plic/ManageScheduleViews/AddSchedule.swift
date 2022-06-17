@@ -26,7 +26,7 @@ struct TextFieldClearButton: ViewModifier {
 }
 
 struct AddSchedule: View {
-    
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     // NavigationBar의 버튼을 눌렀을 때, Modal View가 닫히게끔
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     // 제목 변경
@@ -121,19 +121,23 @@ struct AddSchedule: View {
                         }
                 }
             }
-            .navigationBarTitle("일정 추가", displayMode: .inline).font(.custom("SpoqaHanSansNeo-Bold", size: 17))
-            .navigationBarItems(leading:
-                                    Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                Image(systemName: "chevron.left")
-            }
-                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
-                                trailing: Button(action: {/* 일정 저장*/}) {
-                Text("완료")
-            }
-                .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
-            )
+            .navigationBarTitle("일정 추가", displayMode: .inline)
+                .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                .navigationBarItems(
+                    leading: Button(action: {self.presentationMode.wrappedValue.dismiss()}) { Text("취소") }.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
+                    trailing: Button(action: {
+                        addSchedule()
+                        self.presentationMode.wrappedValue.dismiss()
+                        
+                    }) { Text("완료")}.font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
+                )
         }
     }
+    // CloudKit에 일정 등록
+        private func addSchedule() {
+            let schedule = Schedule(title: scheduleName, description: noteContent, startDate: timeStart, endDate: timeEnd, isAllDaySchedule: allDayToggle, isCoupleSchedule: whoSchedule == "함께", isSpecialDay: false)
+            coupleViewModel.addSchedule(schedule)
+        }
 }
 
 struct AddSchedule_Previews: PreviewProvider {
