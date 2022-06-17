@@ -9,6 +9,9 @@ import SwiftUI
 
 struct UserSettingView: View {
     let letterArr: [String] = ["기념일", "알림 설정", "캘린더 연동", "커플 연결", "로그아웃"]
+    let myNickName: String = "디기"
+    let opponentNickName: String = "뱃저"
+    let firstDay: String = "123"
     
     var body: some View {
         NavigationView{
@@ -23,10 +26,10 @@ struct UserSettingView: View {
                         Spacer()
                         NavigationLink(destination: SettingProfileView(), label: {
                             VStack(alignment:.leading){
-                                Text("뱃저♥디기")
+                                Text("\(myNickName)♥\(opponentNickName)")
                                     .font(.custom("SpoqaHanSansNeo-Bold", size: 24))
                                     .foregroundColor(Color("plicPink"))
-                                Text("123일째 연애중")
+                                Text("\(firstDay)째 연애중")
                                     .font(.custom("SpoqaHanSansNeo-Regular", size: 13))
                                     .foregroundColor(Color("plicPink"))
                             }

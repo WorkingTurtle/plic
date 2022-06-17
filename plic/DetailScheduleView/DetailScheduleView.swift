@@ -8,20 +8,37 @@
 import SwiftUI
 
 struct DetailScheduleView: View {
-    
-    @Binding var scheduleName: String
-    @Binding var allDayToggle: Bool
-    @Binding var timeStart: Date
-    @Binding var timeEnd: Date
-    @Binding var noteContent: String
-    @Binding var whoSchedule: String
+    let testSchedule: DumyTime
+//
+//    @Binding var scheduleName: String
+////    @Binding var allDayToggle: Bool
+//    @Binding var timeStart: Date
+//    @Binding var timeEnd: Date
+////    @Binding var noteContent: String
+//    @Binding var whoSchedule: String
     
     
     var body: some View {
-        NavigationView{
-            Text("뷰 들어갈 곳")
+        
+        NavigationView{            
+            VStack{
+                VStack{
+                    MiniTimeTableView(testSchedule: testSchedule)
+                }.frame(height: 200)
+                    .padding(.horizontal, 20)
+                HStack{
+                    DetailViewTime(startTime: "\(testSchedule.startTime)", endTime: "\(testSchedule.endTime)")
+                }
+                HStack{
+                    DetailViewMemo()
+                }
+                
+                
+                
+            }
+            
             //네비게이션 설정 (임의로 ContentView)
-                .navigationBarTitle("세부 일정", displayMode: .inline)
+                .navigationBarTitle("상세 정보", displayMode: .inline)
                 .navigationBarItems(
                     leading: NavigationLink(destination: ContentView(), label: {
                         Image(systemName: "chevron.left")

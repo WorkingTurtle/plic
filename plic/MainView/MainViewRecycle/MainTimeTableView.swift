@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTimeTableView: View {
+    @EnvironmentObject var currentDate: DateData
+    @State var currentMonth: Int = 0
     var month: String = "6"
     var day: String = "23"
     let firstNick: String = "디기"
@@ -16,7 +18,7 @@ struct MainTimeTableView: View {
     var body: some View {
         VStack{
             HStack{
-                MainTimeTableTitleView(month: month, day: day)
+                MainTimeTableTitleView(month: extraData(currentDate.currentDate)[1], day: extraData(currentDate.currentDate)[0])
             }
             .padding(.bottom, 15)
             HStack{
@@ -28,6 +30,15 @@ struct MainTimeTableView: View {
         }
         .padding([.leading,.trailing], 20)
         .frame(height: 230)
+    }
+    
+    func extraData(_ currentDate: Date) -> [String]{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd M"
+        
+        let date = formatter.string(from: currentDate)
+        
+        return date.components(separatedBy: " ")
     }
 }
 
@@ -47,9 +58,11 @@ struct MainTimeTableTitleView: View {
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                 .foregroundColor(Color("plicBlack"))
             Spacer()
+            NavigationLink(destination: WeeklyView(), label: {
             Image(systemName: "chevron.right")
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                 .foregroundColor(Color("plicGrey"))
+            })
         }
     }
 }
@@ -76,36 +89,49 @@ struct TimeTableNameView: View {
 }
 
 struct TimeTableMiniView : View {
-    let Time: [String] = ["09:00", "10:00", "11:00", "12:00"]
-    let Times: [DumyTime] =
+  let Times: [DumyTime] =
     [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
      DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
      DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
      DumyTime(startTime: 11, endTime: 12, name: "점심", who: 2)]
+    var currentTimeArr: [Int] = [0, 1, 2, 3]
+    
+
+    
+    static let HourDateformat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        return formatter
+    }()
+    
     
     var body: some View {
         ZStack{
             HStack{
                 VStack{
-                    ForEach(Time, id: \.self){ item in
-                        
-                        Text(item)
+                    
+                    //    ForEach를 써서 (x * 60초 * 60초)를 사용. x를 i라 생각하고 사용
+                    //    자동으로 배열에 담아주는 ForEach문 생성
+                    
+                    ForEach(currentTimeArr, id: \.self) { x in
+                        let timeTableSinceNow = Date(timeIntervalSinceNow: TimeInterval(x * 60 * 60))
+                        Text("\(timeTableSinceNow, formatter: TimeTableMiniView.HourDateformat):00")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
                             .foregroundColor(Color("plicTime"))
                             .frame(height: 10)
                             .padding(.bottom, 25)
-                            
                     }
                 }
+                
                 Spacer()
+                
                 VStack{
-                    ForEach(Time, id: \.self){ item in
-                        
+                    ForEach(currentTimeArr, id: \.self){ item in
                         Line()
-                                   .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
-                                   .frame(height: 10)
-                                   .foregroundColor(Color("plicLine"))
-                                   .padding(.bottom, 25)
+                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
+                            .frame(height: 10)
+                            .foregroundColor(Color("plicLine"))
+                            .padding(.bottom, 25)
                     }
                 }.padding(.top, 11)
             }
