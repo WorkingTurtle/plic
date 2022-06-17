@@ -65,10 +65,6 @@ struct TimeTableView: View {
             .frame(width: width, height: height * CGFloat(num))
             .background(Color("plicTimeblue"))
             .cornerRadius(3)
-            
-            
-            
-            
         }
     }
 }

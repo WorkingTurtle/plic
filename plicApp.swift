@@ -11,6 +11,7 @@ import Foundation
 @main
 struct plicApp: App {
     let persistenceController = PersistenceController.shared
+    
     @StateObject private var dateData = DateData()
     
     var body: some Scene {

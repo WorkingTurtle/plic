@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeeklyTimeTable: View {
     @EnvironmentObject var currentDate: DateData
+    let Times: [DumyTime]
 //    var month: String = "6"
 //    var day: String = "23"
     let firstNick: String = "디기"
@@ -33,7 +34,7 @@ struct WeeklyTimeTable: View {
                         }.padding([.leading,.trailing], 105)
                             .padding(.top, 50)
                         HStack{
-                            TimeTableWeeklyView()
+                            TimeTableWeeklyView(Times: Times)
                         }.padding([.leading,.trailing], 20)
                             .padding(.top, 0)
                     }
@@ -59,11 +60,11 @@ struct WeeklyTimeTable: View {
     }
 }
 
-struct WeeklyTimeTable_Previews: PreviewProvider {
-    static var previews: some View {
-        WeeklyTimeTable()
-    }
-}
+//struct WeeklyTimeTable_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WeeklyTimeTable()
+//    }
+//}
 
 struct WeeklyTimeTableTitleView: View {
     let month: String
@@ -92,11 +93,7 @@ struct DumyTime: Hashable{
 
 struct TimeTableWeeklyView : View {
     let Time: [String] = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
-    let Times: [DumyTime] =
-    [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
-     DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
-     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
-     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 2)]
+    let Times: [DumyTime] 
                              
     
     var body: some View {
@@ -129,25 +126,29 @@ struct TimeTableWeeklyView : View {
                 
             }
             ForEach(Times, id: \.self){ value in
-                VStack{
-                    if(value.who == 0){
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
-                            .padding(.top, CGFloat((value.startTime - 6) * 43))
-                            .offset(x: -60)
-                    }
-                    else if(value.who == 1){
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
-                            .offset(x: 15)
-                            .padding(.top, CGFloat((value.startTime - 6) * 43))
-                    }
-                    else
-                    {
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
-                            .offset(x: 90)
-                            .padding(.top, CGFloat((value.startTime - 6) * 43))
-                    }
-                    Spacer()
-                }.padding(.top, 10)
+                NavigationLink(destination: DetailScheduleView(testSchedule: value)){
+                    VStack{
+                        if(value.who == 0){
+                            TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                                .offset(x: -60)
+                        }
+                        else if(value.who == 1){
+                            TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                                .offset(x: 15)
+                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                        }
+                        else
+                        {
+                            TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who)
+                                .offset(x: 90)
+                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                        }
+                        Spacer()
+                    }.padding(.top, 10)
+                    
+                }
+                
                 
                 
 //                    .padding(.top, CGFloat((value.startTime - 6) * 30) )
