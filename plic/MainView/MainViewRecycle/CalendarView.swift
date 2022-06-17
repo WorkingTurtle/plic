@@ -242,6 +242,8 @@ struct DayView: View {
     
     let dateFormatter = DateFormatter()
     
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
+    
     let value: DateValue
     let currentDate: Date
     var firstCheck: Bool = false
@@ -273,19 +275,19 @@ struct DayView: View {
                     
                     
                     HStack(spacing: 2){
-                        ForEach(DateDummy, id: \.self){ item in
-                            if( value.date == stringToDate(Str: item.startDay) ){
-                                if(item.firstCheck){
+                        ForEach(coupleViewModel.schedules, id: \.self){ item in
+                            if( value.date == item.startDate){
+                                if(scheduleAdaptor(schedules: item) == 2){
                                     Circle()
                                         .fill(Color("plicCirclepink"))
                                         .frame(width: 6, height: 6)
                                 }
-                                if(item.secondCheck){
+                                if(scheduleAdaptor(schedules: item) == 1){
                                     Circle()
                                         .fill(Color("plicCircleyellow"))
                                         .frame(width: 6, height: 6)
                                 }
-                                if(item.thirdCheck){
+                                if(scheduleAdaptor(schedules: item) == 0){
                                     Circle()
                                         .fill(Color("plicCirclesky"))
                                         .frame(width: 6, height: 6)
@@ -345,6 +347,23 @@ struct DayView: View {
             }
             
         }.frame(width: 30, height: 40)
+    }
+    
+    func scheduleAdaptor(schedules: Schedule) -> Int {
+        
+        var whoesSchedule: Int = -1
+        
+        if schedules.isCoupleSchedule {
+            whoesSchedule = 2
+        } else {
+            if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
+                whoesSchedule = 1
+            } else {
+                whoesSchedule = 0
+            }
+        }
+        
+        return whoesSchedule
     }
     
     func isSameDay(date1: Date, date2: Date) -> Bool{
