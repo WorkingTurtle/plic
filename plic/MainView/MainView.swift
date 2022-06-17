@@ -25,6 +25,7 @@ struct MainView: View {
                             VStack{
                                 HStack{
                                     CalendarView()
+                                        .padding(.horizontal, 8)
                                 }
                                     .padding(.bottom,20)
                                 Divider()

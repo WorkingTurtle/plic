@@ -28,7 +28,7 @@ struct MainTimeTableView: View {
                 TimeTableMiniView()
             }
         }
-        .padding([.leading,.trailing], 20)
+        .padding([.leading,.trailing], 30)
         .frame(height: 230)
     }
     
@@ -106,7 +106,7 @@ struct TimeTableMiniView : View {
     
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .top){
             HStack{
                 VStack{
                     
@@ -140,19 +140,21 @@ struct TimeTableMiniView : View {
                 VStack{
                     if(value.who == 0){
                         TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
-                            .padding(.top, CGFloat((value.startTime - 9) * 43))
-                            .offset(x: -60)
+                        //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                                                        .offset(x: -60, y: CGFloat((value.startTime - 9) * 43))
                     }
                     else if(value.who == 1){
                         TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
-                            .offset(x: 15)
-                            .padding(.top, CGFloat((value.startTime - 9) * 43))
+                            .offset(x: 15, y: CGFloat((value.startTime - 9) * 43))
+                            //                                .offset(x: 15)
+                            //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
                     else
                     {
                         TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
-                            .offset(x: 90)
-                            .padding(.top, CGFloat((value.startTime - 9) * 43))
+                            .offset(x: 90, y: CGFloat((value.startTime - 9) * 43))
+                        //                                .offset(x: 90)
+                        //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
                     Spacer()
                 }.padding(.top, 10)

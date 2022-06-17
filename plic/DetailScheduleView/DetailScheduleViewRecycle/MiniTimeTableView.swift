@@ -14,7 +14,7 @@ struct MiniTimeTableView: View {
     var currentTimeArr: [Int] = [0, 1, 2, 3]
     
     var body: some View {
-        ZStack{
+        ZStack(alignment: .top){
             HStack{
                 VStack{
                     ForEach(currentTimeArr, id: \.self) { x in
@@ -42,19 +42,19 @@ struct MiniTimeTableView: View {
                 VStack{
                     if(testSchedule.who == 0){
                         DetailTimeTableView(letter: testSchedule.name, num: testSchedule.endTime - testSchedule.startTime, who: testSchedule.who)
-                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
-                            .offset(x: -60)
+//                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
+                            .offset(x: -60, y: 0)
                     }
                     else if(testSchedule.who == 1){
                         DetailTimeTableView(letter: testSchedule.name, num: testSchedule.endTime - testSchedule.startTime, who: testSchedule.who)
-                            .offset(x: 15)
-                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
+                            .offset(x: 15, y: 0)
+//                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
                     }
                     else
                     {
                         DetailTimeTableView(letter: testSchedule.name, num: testSchedule.endTime - testSchedule.startTime, who: testSchedule.who)
-                            .offset(x: 90)
-                            .padding(.top, CGFloat((testSchedule.startTime - 1.3) * 43))
+                            .offset(x: 90, y: 0)
+//                            .padding(.top, CGFloat((testSchedule.startTime - 1.3) * 43))
                     }
                     Spacer()
                 }.padding(.top, 10)

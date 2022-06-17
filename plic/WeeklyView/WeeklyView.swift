@@ -10,7 +10,7 @@ import SwiftUI
 struct WeeklyView: View {
     @Environment(\.presentationMode) var presentationMode
     let Times: [DumyTime] =
-    [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
+    [DumyTime(startTime: 9, endTime: 14, name: "친구 약속", who: 2),
      DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
      DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
      DumyTime(startTime: 6, endTime: 8, name: "아침", who: 0),
@@ -20,22 +20,23 @@ struct WeeklyView: View {
     var body: some View {
         
         VStack{
-            Button(action: {presentationMode.wrappedValue.dismiss()}) {
-                HStack{
-                    Image(systemName: "chevron.left")
-                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                        .foregroundColor(Color("plicPink"))
-                    Text("Plic 캘린더")
-                    Spacer()
-                }.padding(.leading, 20)
-            }
+//            Button(action: {presentationMode.wrappedValue.dismiss()}) {
+//                HStack{
+//                    Image(systemName: "chevron.left")
+//                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+//                        .foregroundColor(Color("plicPink"))
+//                    Text("Plic 캘린더")
+//                    Spacer()
+//                }.padding(.leading, 20)
+//            }
             HStack{
                 DayPickerView()
             }
             HStack{
                 WeeklyTimeTable(Times: Times)
             }    
-        }.navigationBarHidden(true)
+        }.navigationTitle("오늘의 일정")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
