@@ -49,23 +49,6 @@ struct DetailTimeTableView: View {
             .background(Color("plicTimepink"))
             .cornerRadius(3)
         }else if(who == 2){
-//            VStack{
-//                HStack{
-//                    Text(letter)
-//                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-//                        .foregroundColor(Color("plicNavy"))
-//                        .padding(.top, 5)
-//                        .padding(.leading, 5)
-//                    Spacer()
-//                }
-//
-//                Spacer()
-//
-//            }
-//            .frame(width: width, height: height * CGFloat(num))
-//            .background(Color("plicTimeblue"))
-//            .cornerRadius(3)
-            
             if num < 4 {
                 VStack{
                     HStack{
@@ -101,8 +84,6 @@ struct DetailTimeTableView: View {
                 .background(Color("plicTimeblue"))
                 .cornerRadius(3)
             }
-            
-            
         }
     }
 }

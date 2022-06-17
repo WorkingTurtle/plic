@@ -157,14 +157,8 @@ struct TimeTableWeeklyView : View {
                     }
                     Spacer()
                 }.padding(.top, 10)
-                
-                
-//                    .padding(.top, CGFloat((value.startTime - 6) * 30) )
-//                Spacer()
             }
         }
-        
-        
     }
 }
 

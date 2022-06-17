@@ -20,39 +20,34 @@ struct DetailScheduleView: View {
     
     var body: some View {
         
-        NavigationView{            
+        VStack{
             VStack{
-                VStack{
-                    MiniTimeTableView(testSchedule: testSchedule)
-                }.frame(height: 200)
-                    .padding(.horizontal, 20)
-                HStack{
-                    DetailViewTime(startTime: "\(testSchedule.startTime)", endTime: "\(testSchedule.endTime)")
-                }
-                HStack{
-                    DetailViewMemo()
-                }
-                
-                
-                
+                MiniTimeTableView(testSchedule: testSchedule)
+            }.frame(height: 200)
+                .padding(.horizontal, 20)
+            HStack{
+                DetailViewTime(startTime: "\(testSchedule.startTime)", endTime: "\(testSchedule.endTime)")
             }
-            
-            //네비게이션 설정 (임의로 ContentView)
-                .navigationBarTitle("상세 정보", displayMode: .inline)
-                .navigationBarItems(
-                    leading: NavigationLink(destination: ContentView(), label: {
-                        Image(systemName: "chevron.left")
-                        Text("오늘의 일정")
-                            .font(Font.custom("SpoqaHanSansNeo-Regular", size: 16))
-                            .offset(x: -5)
-                    }),
-                    trailing: NavigationLink(destination: ContentView(), label: {
-                        Text("Edit")
-                            .font(Font.custom("SpoqaHanSansNeo-Regular", size: 16))
-                    })
-                )
-                .accentColor(Color("plicPink"))
+            HStack{
+                DetailViewMemo()
+            }
         }
+        
+        //네비게이션 설정 (임의로 ContentView)
+//        .navigationBarTitle("상세 정보", displayMode: .inline)
+//        .navigationBarItems(
+//            leading: NavigationLink(destination: ContentView(), label: {
+//                Image(systemName: "chevron.left")
+//                Text("오늘의 일정")
+//                    .font(Font.custom("SpoqaHanSansNeo-Regular", size: 16))
+//                    .offset(x: -5)
+//            }),
+//            trailing: NavigationLink(destination: ContentView(), label: {
+//                Text("Edit")
+//                    .font(Font.custom("SpoqaHanSansNeo-Regular", size: 16))
+//            })
+//        )
+        .accentColor(Color("plicPink"))
     }
 }
 
