@@ -24,7 +24,7 @@ struct Schedule {
 
 extension Schedule: Hashable, Record {
     
-    init(title: String, description: String?, startDate: Date, endDate: Date, isAllDaySchedule: Bool, isCoupleSchedule: Bool, isSpecialDay: Bool, record: CKRecord) {
+    init(title: String, description: String?, startDate: Date, endDate: Date, isAllDaySchedule: Bool, isCoupleSchedule: Bool, isSpecialDay: Bool) {
         self.uuid = UUID().uuidString
         self.createdAt = Date()
         self.updatedAt = Date()

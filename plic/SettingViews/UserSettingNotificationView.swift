@@ -9,10 +9,10 @@ import SwiftUI
 import CloudKit
 
 class CoupleRecordNorificationViewModel: ObservableObject {
-
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
+    
     func subscribeToNotification() {
         let predicate = NSPredicate(format: "\(CKConstant.Field.isCoupleSchedule) == %@",  NSNumber(value: true))
-        // TODO: subscriptionID: root?.recordID.recordName
         let subscription = CKQuerySubscription(recordType: CKConstant.RecordType.Schedule, predicate: predicate,  subscriptionID: "imsiID", options: .firesOnRecordCreation)
         
         let notification = CKSubscription.NotificationInfo()

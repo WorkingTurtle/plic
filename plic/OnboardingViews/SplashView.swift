@@ -10,6 +10,7 @@ import SwiftUI
 struct SplashView: View {
     @EnvironmentObject var coupleViewModel: CoupleViewModel
     @StateObject private var dateData = DateData()
+    @State private var isRequestDone = false
     
     let persistenceController = PersistenceController.shared
     
@@ -17,29 +18,12 @@ struct SplashView: View {
     @ViewBuilder
     var body: some View {
         if coupleViewModel.loadCnt < 2 {
-            ZStack{
-                Image("onboardingBackgroundImage")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .ignoresSafeArea(.all)
-                
-                VStack{
-                    Spacer()
-                    
-                    Image("plicLogoExample")
-                        .resizable()
-                        .frame(width: 290, height: 118)
-                        .padding(.top, 70)
-                        .padding(.bottom, 116)
-                    
-                    Spacer()
+            OnboardingRequestNotificationPermission()
+                .onAppear() {
+                    coupleViewModel.fetchSchedules() {
+                    }
+                    isRequestDone = true
                 }
-            }
-            .onAppear() {
-                coupleViewModel.fetchSchedules() {
-                }
-            }
         } else {
             if coupleViewModel.isReady && coupleViewModel.share?.participants.count == 2 || coupleViewModel.root != nil {
                 TapBarMainView(tabbarIndex: 0)
