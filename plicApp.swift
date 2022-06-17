@@ -22,8 +22,10 @@ struct plicApp: App {
 //                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //                 .environmentObject(dateData)
 //            OnboardingStartShareUser()
-            OnboardingStartView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            OnboardingStartView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .environmentObject(coupleViewModel)
+            SplashView()
                 .environmentObject(coupleViewModel)
         }
     }
