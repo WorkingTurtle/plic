@@ -9,7 +9,8 @@ import SwiftUI
 
 
 struct MiniTimeTableView: View {
-    let testSchedule: DumyTime
+    let schedule: Schedule
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
                                          
     var currentTimeArr: [Int] = [0, 1, 2, 3]
     
@@ -18,7 +19,7 @@ struct MiniTimeTableView: View {
             HStack{
                 VStack{
                     ForEach(currentTimeArr, id: \.self) { x in
-                        Text("\(Int(testSchedule.startTime) + x):00")
+                        Text("\(Int(timeTostring(schedule.startDate))! + x):00")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
                             .foregroundColor(Color("plicTime"))
                             .frame(height: 10)
@@ -40,19 +41,19 @@ struct MiniTimeTableView: View {
             }
             
                 VStack{
-                    if(testSchedule.who == 0){
-                        DetailTimeTableView(letter: testSchedule.name, num: testSchedule.endTime - testSchedule.startTime, who: testSchedule.who)
+                    if(scheduleAdaptor(schedules: schedule) == 2){
+                        DetailTimeTableView(schedule: schedule)
 //                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
                             .offset(x: -60, y: 0)
                     }
-                    else if(testSchedule.who == 1){
-                        DetailTimeTableView(letter: testSchedule.name, num: testSchedule.endTime - testSchedule.startTime, who: testSchedule.who)
+                    else if(scheduleAdaptor(schedules: schedule) == 1){
+                        DetailTimeTableView(schedule: schedule)
                             .offset(x: 15, y: 0)
 //                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
                     }
                     else
                     {
-                        DetailTimeTableView(letter: testSchedule.name, num: testSchedule.endTime - testSchedule.startTime, who: testSchedule.who)
+                        DetailTimeTableView(schedule: schedule)
                             .offset(x: 90, y: 0)
 //                            .padding(.top, CGFloat((testSchedule.startTime - 1.3) * 43))
                     }
@@ -60,6 +61,29 @@ struct MiniTimeTableView: View {
                 }.padding(.top, 10)
 
         }
+    }
+    func scheduleAdaptor(schedules: Schedule) -> Int {
+        
+        var whoesSchedule: Int = -1
+        
+        if schedules.isCoupleSchedule {
+            whoesSchedule = 2
+        } else {
+            if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
+                whoesSchedule = 1
+            } else {
+                whoesSchedule = 0
+            }
+        }
+        
+        return whoesSchedule
+    }
+    func timeTostring(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH"
+            let hour = formatter.string(from: date)
+            
+            return hour
     }
 }
 

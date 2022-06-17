@@ -89,12 +89,8 @@ struct TimeTableNameView: View {
 }
 
 struct TimeTableMiniView : View {
-  let Times: [DumyTime] =
-    [DumyTime(startTime: 9, endTime: 10, name: "친구 약속", who: 2),
-     DumyTime(startTime: 10, endTime: 11, name: "데이트", who: 1),
-     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 0),
-     DumyTime(startTime: 11, endTime: 12, name: "점심", who: 2)]
     var currentTimeArr: [Int] = [0, 1, 2, 3]
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     
 
     
@@ -136,23 +132,23 @@ struct TimeTableMiniView : View {
                 }.padding(.top, 11)
             }
             
-            ForEach(Times, id: \.self){ value in
+            ForEach(coupleViewModel.schedules, id: \.self){ item in
                 VStack{
-                    if(value.who == 0){
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
+                    if(scheduleAdaptor(schedules: item) == 2){
+                        TimeTableView(schedule: item)
                         //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                                                        .offset(x: -60, y: CGFloat((value.startTime - 9) * 43))
+                                                        .offset(x: -60, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
                     }
-                    else if(value.who == 1){
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
-                            .offset(x: 15, y: CGFloat((value.startTime - 9) * 43))
+                    else if(scheduleAdaptor(schedules: item) == 1){
+                        TimeTableView(schedule: item)
+                            .offset(x: 15, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
                             //                                .offset(x: 15)
                             //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
                     else
                     {
-                        TimeTableView(letter: value.name, num: value.endTime - value.startTime, who: value.who, testSchedule: value)
-                            .offset(x: 90, y: CGFloat((value.startTime - 9) * 43))
+                        TimeTableView(schedule: item)
+                            .offset(x: 90, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
                         //                                .offset(x: 90)
                         //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
                     }
@@ -167,6 +163,33 @@ struct TimeTableMiniView : View {
         }
         
         
+    }
+    
+    func scheduleAdaptor(schedules: Schedule) -> Int {
+        
+        var whoesSchedule: Int = -1
+        
+        if schedules.isCoupleSchedule {
+            whoesSchedule = 2
+        } else {
+            if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
+                whoesSchedule = 1
+            } else {
+                whoesSchedule = 0
+            }
+        }
+        
+        return whoesSchedule
+    }
+    func dateToFloat(_ date: Date) -> Float {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH"
+            let hour = formatter.string(from: date)
+            
+            formatter.dateFormat = "mm"
+            let min = formatter.string(from: date)
+            
+            return (hour as NSString).floatValue + (min as NSString).floatValue / 60.0
     }
 }
 
