@@ -102,7 +102,7 @@ struct CalendarView: View {
                 HStack{
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(extractDate()){ value in
-                            DayView(value: value, currentDate: currentDate.currentDate, firstCheck: false, secondCheck: true, thirdCheck: true)
+                            DayView(value: value, currentDate: currentDate.currentDate)
                                 
                                 .onTapGesture {
                                     currentDate.currentDate = value.date
@@ -230,32 +230,71 @@ struct DayOfWeekView: View {
 }
 
 struct DayView: View {
+    let DateDummy: [ScheduleDummy] = [
+                                ScheduleDummy(startDay: "2022-06-24", endDay: "2022-01-24", firstCheck: true, secondCheck: false, thirdCheck: false),
+                                  ScheduleDummy(startDay: "2022-06-22", endDay: "2022-01-24", firstCheck: true, secondCheck: true, thirdCheck: true),
+                                  ScheduleDummy(startDay: "2022-07-24", endDay: "2022-01-24", firstCheck: true, secondCheck: false, thirdCheck: true),
+                                  ScheduleDummy(startDay: "2022-06-21", endDay: "2022-01-24", firstCheck: true, secondCheck: true, thirdCheck: true),
+                                  ScheduleDummy(startDay: "2022-06-13", endDay: "2022-01-24", firstCheck: false, secondCheck: false, thirdCheck: true),
+                                ScheduleDummy(startDay: "2022-06-20", endDay: "2022-01-24", firstCheck: true, secondCheck: false, thirdCheck: false)
+    ]
+    
+    let dateFormatter = DateFormatter()
+    
     let value: DateValue
     let currentDate: Date
-    let firstCheck: Bool
-    let secondCheck: Bool
-    let thirdCheck: Bool
+    var firstCheck: Bool = false
+    var secondCheck: Bool = false
+    var thirdCheck: Bool = false
     
     var body: some View{
+        
         VStack(spacing: 5){
             if value.day != -1{
                 ZStack{
-                    Circle()
-                        .fill(isSameDay(date1: value.date, date2: currentDate) ? Color("plicPink") : Color("plicWhite"))
-                    HStack{
-                        Text("\(value.day)")
-                            .font(isSameDay(date1: value.date, date2: currentDate) ? Font.custom("SpoqaHanSansNeo-Bold",size: 16) : Font.custom("SpoqaHanSansNeo-Regular",size: 16) )
-                            .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? Color("plicWhite") : Color("plicDarkgrey"))
-//                            .background(
-//                                Capsule()
-//                                    .fill(Color("plicPink"))
-//                                    .padding(2)
-//                                    .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
-//                            )
+                    ZStack{
+                        Circle()
+                            .fill(isSameDay(date1: value.date, date2: currentDate) ? Color("plicPink") : Color("plicWhite"))
+                        HStack{
+                            
+                            Text("\(value.day)")
+                                .font(isSameDay(date1: value.date, date2: currentDate) ? Font.custom("SpoqaHanSansNeo-Bold",size: 16) : Font.custom("SpoqaHanSansNeo-Regular",size: 16) )
+                                .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? Color("plicWhite") : Color("plicDarkgrey"))
+    //                            .background(
+    //                                Capsule()
+    //                                    .fill(Color("plicPink"))
+    //                                    .padding(2)
+    //                                    .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
+    //                            )
+                        }
                     }
-                }
-                .frame(width: 32, height: 32)
-                HStack(spacing: 2){
+                    .frame(width: 32, height: 32)
+                    
+                    
+                    HStack(spacing: 2){
+                        ForEach(DateDummy, id: \.self){ item in
+                            if( value.date == stringToDate(Str: item.startDay) ){
+                                if(item.firstCheck){
+                                    Circle()
+                                        .fill(Color("plicCirclepink"))
+                                        .frame(width: 6, height: 6)
+                                }
+                                if(item.secondCheck){
+                                    Circle()
+                                        .fill(Color("plicCircleyellow"))
+                                        .frame(width: 6, height: 6)
+                                }
+                                if(item.thirdCheck){
+                                    Circle()
+                                        .fill(Color("plicCirclesky"))
+                                        .frame(width: 6, height: 6)
+
+                                }
+                                
+                            }
+                        }
+                    }.padding(.top, 42)
+                
                     if(firstCheck){
                         Circle()
                             .fill(Color("plicCirclepink"))
@@ -272,6 +311,35 @@ struct DayView: View {
                             .frame(width: 6, height: 6)
 
                     }
+                    
+//                    if(item.who == 0){
+                    //
+                    //                                    if(firstCheck == false){
+                    //                                        VStack{
+                    //                                            Circle()
+                    //                                                .fill(Color("plicCirclepink"))
+                    //                                                .frame(width: 6, height: 6)
+                    //                                            firstCheck.toggle()
+                    //                                        }
+                    //                                    }
+                    //    //
+                    //                                }else if(item.who == 1){
+                    //                                    if(secondCheck == false){
+                    //                                        Circle()
+                    //                                            .fill(Color("plicCircleyellow"))
+                    //                                            .frame(width: 6, height: 6)
+                    //
+                    //                                    }
+                    //    //                                secondCheck = true
+                    //                                }else if(item.who == 2){
+                    //                                    if(thirdCheck == false){
+                    //                                        Circle()
+                    //                                            .fill(Color("plicCirclesky"))
+                    //                                            .frame(width: 6, height: 6)
+                    //
+                    //                                    }
+                    //    //                                thirdCheck = true
+                    //                                }
                 }
             }
             
@@ -282,6 +350,22 @@ struct DayView: View {
         let calendar = Calendar.current
         
         return calendar.isDate(date1, inSameDayAs: date2)
+    }
+    
+    func isCheck(date1: Date, date2: Date) -> Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
+    }
+    
+    func stringToDate(Str: String) -> Date?{
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "y-M-d"
+        
+        let date = formatter.date(from: Str)
+        
+        return date
     }
 }
 
@@ -306,4 +390,13 @@ struct DateValue: Identifiable{
     var id = UUID().uuidString
     var day: Int
     var date: Date
+}
+
+
+struct ScheduleDummy: Hashable{
+    let startDay: String
+    let endDay: String
+    let firstCheck: Bool
+    let secondCheck: Bool
+    let thirdCheck: Bool
 }
