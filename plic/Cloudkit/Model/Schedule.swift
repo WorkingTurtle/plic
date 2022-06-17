@@ -20,6 +20,7 @@ struct Schedule {
     let isAllDaySchedule: Bool
     let isCoupleSchedule: Bool
     let isSpecialDay: Bool
+    let createdUserId: String?
 }
 
 extension Schedule: Hashable, Record {
@@ -36,6 +37,7 @@ extension Schedule: Hashable, Record {
         self.isAllDaySchedule = isAllDaySchedule
         self.isCoupleSchedule = isCoupleSchedule
         self.isSpecialDay = isSpecialDay
+        self.createdUserId = nil
     }
     
     init(record: CKRecord) {
@@ -50,6 +52,7 @@ extension Schedule: Hashable, Record {
         self.isAllDaySchedule = record.object(forKey: CKConstant.Field.isAllDaySchedule) as! Bool
         self.isCoupleSchedule = record.object(forKey: CKConstant.Field.isCoupleSchedule) as! Bool
         self.isSpecialDay = record.object(forKey: CKConstant.Field.isSpecialDay) as! Bool
+        self.createdUserId = record.creatorUserRecordID?.recordName
         
 //        guard let title = record[CKConstant.Field.title] as? String else { return nil }
 //        self.title = title
