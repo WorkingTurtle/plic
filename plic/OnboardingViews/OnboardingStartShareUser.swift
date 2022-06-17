@@ -20,6 +20,8 @@ struct OnboardingStartShareUser: View {
     @State private var controller: UICloudSharingController?
     @State private var isPartner = false
     
+    @State private var isStartButtonClicked = false
+    
 //    init(){
 //         viewModel.fetchSchedules {
 //             print("Successfully Fetched!")
@@ -44,7 +46,7 @@ struct OnboardingStartShareUser: View {
             
             VStack(alignment: .center){
                 
-                Spacer().frame(height: 228)
+                Spacer()
                 
                 Image("loveletter")
                     .resizable()
@@ -82,28 +84,23 @@ struct OnboardingStartShareUser: View {
                 VStack(alignment: .leading, spacing: 0){
                     RecycleSubtitleTextOnly(subtitleText: "주의사항")
                     Spacer().frame(height: 10)
-                    RecycleSubtitleTextOnly(subtitleText: "1. PLIC 어플리케이션을 먼저 시작한 사용자가 상대 연인에게 링크\n    를 보내주어야 합니다.")
+                    RecycleSubtitleTextOnly(subtitleText: "1. PLIC 어플리케이션을 먼저 시작한 사용자가 상대 연인에게 링크\n     를 보내주어야 합니다.")
                     Spacer().frame(height: 5)
                     RecycleSubtitleTextOnly(subtitleText: "2. 링크를 받은 상대 연인이 위 링크를 통해 어플리케이션을 실행시\n    키면 연결이 정상적으로 동작합니다.")
-                    
-                    Button(action: {
-                        print(viewModel.isReady)
-                        print(viewModel.root)
-                        print(viewModel.share)
-                    }){
-                        Text("Test")
-                    }
                 }
                 
-                Spacer().frame(height: 135)
+                Spacer()
                 
-                self.startButton()
+                NavigationLink(destination: TapBarMainView(tabbarIndex: 0), isActive: $isStartButtonClicked){ self.startButton() }
+
             }
             .onAppear() {
                 viewModel.fetchSchedules {
                     print("Successfully Fetched!")
                }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         }
     }
     
@@ -111,7 +108,8 @@ struct OnboardingStartShareUser: View {
     func startButton() -> some View {
         if viewModel.isReady && viewModel.share?.participants.count == 2 || viewModel.root != nil {
             Button(action: {
-                
+                print("buttonclick")
+                isStartButtonClicked = true
             }) {
                 Text("Plic 시작하기")
                     .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
@@ -122,17 +120,20 @@ struct OnboardingStartShareUser: View {
                         .foregroundColor(.white))
                     .padding(.horizontal, 20)
             }
-    //                .opacity(isSendingButtonClicked == true ? 1.0 : 0)
             .padding(.bottom, 62)
-        }
-        else {
-            Button(action: {
-                
-            }) {
-                Text("")
-                    
-            }.padding(.bottom, 116)
             
+        } else {
+            Button(action: {}) {
+                Text("Plic 시작하기")
+                    .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
+                    .foregroundColor(Color("plicLightgrey"))
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding(.vertical, 18)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(.white))
+                    .padding(.horizontal, 20)
+            }
+            .padding(.bottom, 62)
         }
     }
 }

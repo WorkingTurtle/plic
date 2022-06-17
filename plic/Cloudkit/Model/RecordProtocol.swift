@@ -15,6 +15,7 @@ protocol Record {
     
     init(record: CKRecord)
     
+    
     func getRecordID() -> CKRecord.ID
     func convertToCKRecord() -> CKRecord
     func mergeWithCKRecord(_ record: CKRecord) -> CKRecord

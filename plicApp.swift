@@ -18,7 +18,9 @@ struct plicApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TapBarMainView(tabbarIndex: 0)
+//            TapBarMainView(tabbarIndex: 0)
+//            OnboardingStartShareUser()
+            OnboardingStartView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(coupleViewModel)
         }

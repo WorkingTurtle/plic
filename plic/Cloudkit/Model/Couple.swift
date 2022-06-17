@@ -20,7 +20,8 @@ struct Couple {
     var partnerBirthDay: Date?
 }
 
-extension Couple: Record {
+extension Couple: Hashable, Record {
+    
     
     init() {
         self.uuid = UUID().uuidString

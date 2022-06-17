@@ -22,13 +22,13 @@ struct Schedule {
     let isSpecialDay: Bool
 }
 
-extension Schedule: Record {
+extension Schedule: Hashable, Record {
     
-    init(title: String, description: String?, startDate: Date, endDate: Date, isAllDaySchedule: Bool, isCoupleSchedule: Bool, isSpecialDay: Bool) {
+    init(title: String, description: String?, startDate: Date, endDate: Date, isAllDaySchedule: Bool, isCoupleSchedule: Bool, isSpecialDay: Bool, record: CKRecord) {
         self.uuid = UUID().uuidString
         self.createdAt = Date()
         self.updatedAt = Date()
-        
+
         self.title = title
         self.description = description
         self.startDate = startDate
@@ -42,6 +42,7 @@ extension Schedule: Record {
         self.uuid = record.recordID.recordName
         self.createdAt = record.creationDate!
         self.updatedAt = record.modificationDate!
+        
         self.title = record.object(forKey: CKConstant.Field.title) as! String
         self.description = record.object(forKey: CKConstant.Field.description) as! String?
         self.startDate = record.object(forKey: CKConstant.Field.startDate) as! Date
@@ -49,6 +50,21 @@ extension Schedule: Record {
         self.isAllDaySchedule = record.object(forKey: CKConstant.Field.isAllDaySchedule) as! Bool
         self.isCoupleSchedule = record.object(forKey: CKConstant.Field.isCoupleSchedule) as! Bool
         self.isSpecialDay = record.object(forKey: CKConstant.Field.isSpecialDay) as! Bool
+        
+//        guard let title = record[CKConstant.Field.title] as? String else { return nil }
+//        self.title = title
+//        guard let description = record[CKConstant.Field.description] as? String else { return nil }
+//        self.description = description
+//        guard let startDate = record[CKConstant.Field.startDate] as? Date else { return nil }
+//        self.startDate = startDate
+//        guard let endDate = record[CKConstant.Field.endDate] as? Date else { return nil }
+//        self.endDate = endDate
+//        guard let isAllDaySchedule = record[CKConstant.Field.isAllDaySchedule] as? Bool else { return nil }
+//        self.isAllDaySchedule = isAllDaySchedule
+//        guard let isCoupleSchedule = record[CKConstant.Field.isCoupleSchedule] as? Bool else { return nil }
+//        self.isCoupleSchedule = isCoupleSchedule
+//        guard let isSpecialDay = record[CKConstant.Field.isSpecialDay] as? Bool else { return nil }
+//        self.isSpecialDay = isSpecialDay
     }
     
     func getRecordID() -> CKRecord.ID {

@@ -21,9 +21,7 @@ final class CoupleViewModel: ObservableObject {
     
     var share: CKShare? // cloudkit.share
     var root: CKRecord? // Couple
-    
-    var schedules: [Schedule] = []
-    
+        
     var isOwner: Bool = true
     
     let privateDB = CloudKitManager.privateDB
@@ -33,6 +31,9 @@ final class CoupleViewModel: ObservableObject {
     var sharedZone: CKRecordZone?
     
     @Published var isReady = false
+    
+    @Published var schedules: [Schedule] = []
+    
     
     /* Example
      Owner Zone: <CKRecordZoneID: 0x2816a0e60; ownerName=__defaultOwner__, zoneName=CoupleZone>
