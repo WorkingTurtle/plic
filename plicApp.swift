@@ -19,15 +19,19 @@ struct plicApp: App {
     var body: some Scene {
         WindowGroup {
 
-          TapBarMainView(tabbarIndex: 0)
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(dateData)
+//          TapBarMainView(tabbarIndex: 0)
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .environmentObject(dateData)
 //            OnboardingStartShareUser()
 //            OnboardingStartView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //                .environmentObject(coupleViewModel)
 //             SplashView()
 //                 .environmentObject(coupleViewModel)
+            SplashView()
+               .environment(\.managedObjectContext, persistenceController.container.viewContext)
+               .environmentObject(dateData)
+               .environmentObject(coupleViewModel)
         }
     }
 }
