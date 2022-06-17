@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailScheduleView: View {
-    let testSchedule: DumyTime = DumyTime(startTime: 3, endTime: 5, name: "친구 약속", who: 2)
+    let testSchedule: DumyTime
 //
 //    @Binding var scheduleName: String
 ////    @Binding var allDayToggle: Bool
