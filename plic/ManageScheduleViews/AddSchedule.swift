@@ -50,6 +50,7 @@ struct AddSchedule: View {
         UISegmentedControl.appearance().backgroundColor = .white
     }
     
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     
     var body: some View {
         NavigationView {
@@ -127,12 +128,17 @@ struct AddSchedule: View {
                 Image(systemName: "chevron.left")
             }
                 .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
-                                trailing: Button(action: {/* 일정 저장*/}) {
+                                trailing: Button(action: {addSchedule()}) {
                 Text("완료")
             }
                 .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
             )
         }
+    }
+    
+    func addSchedule() {
+        let schedule = Schedule(title: scheduleName, description: noteContent, startDate: timeStart, endDate: timeEnd, isAllDaySchedule: allDayToggle, isCoupleSchedule: whoSchedule == "함께", isSpecialDay: false)
+        coupleViewModel.addSchedule(schedule)
     }
 }
 
