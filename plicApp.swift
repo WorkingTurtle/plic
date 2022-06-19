@@ -19,8 +19,8 @@ struct plicApp: App {
     var body: some Scene {
         WindowGroup {
 
-//          TapBarMainView(tabbarIndex: 0)
-            SplashView()
+
+           SplashView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(dateData)
                 .environmentObject(coupleViewModel)
@@ -37,10 +37,7 @@ struct plicApp: App {
 //               .environmentObject(coupleViewModel)
 //           SplashView()
 //               .environmentObject(coupleViewModel)
-//            SplashView()
-//               .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//               .environmentObject(dateData)
-//               .environmentObject(coupleViewModel)
+
         }
     }
 }

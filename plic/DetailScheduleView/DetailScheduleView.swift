@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailScheduleView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var showAddScheduleModal = false
     @EnvironmentObject var coupleViewModel: CoupleViewModel
     var schedule: Schedule
     
@@ -42,14 +43,17 @@ struct DetailScheduleView: View {
         }
         .navigationTitle("상세 정보")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(trailing: NavigationLink(destination:
-                                                        AddSchedule()
-//                                                     EditSchedule(schedule: schedule)
-                                                     , label: {
-            Text("Edit")
-                .foregroundColor(Color("plicPink"))
-        }))
+        .navigationBarItems(trailing: Button(action: {
+            self.showAddScheduleModal = true
+        }){
+            Image(systemName: "plus")
+                .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
+                .foregroundColor(Color("plicGrey"))
+        }.sheet(isPresented: self.$showAddScheduleModal){
+            AddSchedule()
+        })
         .accentColor(Color("plicPink"))
+                            
     }
     func scheduleAdaptor(schedules: Schedule) -> Int {
         

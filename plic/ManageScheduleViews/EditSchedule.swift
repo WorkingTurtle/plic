@@ -17,7 +17,9 @@
 //    // 제목 변경
 //
 //    // 일정 추가에서 하루 종일로 설정할 수 있게끔 toggle button 생성
-//
+//    @State var title: String = ""
+//    // 일정 추가에서 하루 종일로 설정할 수 있게끔 toggle button 생성
+//    @State var allDayToggle = false
 //    // 시작 날짜, 시간 설정
 //    @State var timeStart = Date()
 //    // 종료 날짜, 시간 설정
@@ -43,15 +45,15 @@
 //        NavigationView {
 //            Form {
 //                Section {
-//                    TextField("제목", text: $schedule.title)
+//                    TextField("제목", text: $title)
 //                        .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
 //                        .disableAutocorrection(true)
-//                        .modifier(TextFieldClearButton(scheduleNameText: $schedule.title))
+//                        .modifier(TextFieldClearButton(scheduleNameText: $title))
 //                        .multilineTextAlignment(.leading)
-//                }
+//                
 //
 //                Section {
-//                    Toggle("하루 종일", isOn: $schedule.isAllDaySchedule)
+//                    Toggle("하루 종일", isOn: $isAllDaySchedule)
 //                        .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
 //                        .toggleStyle(SwitchToggleStyle(tint: Color("plicPink")))
 //                    // toggle을 눌렀을 때, 날짜만 설정할 수 있도록 if문
@@ -122,5 +124,7 @@
 //            )
 //        }
 //    }
+//    }
 //}
+//    
 //
