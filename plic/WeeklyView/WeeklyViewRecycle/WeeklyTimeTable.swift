@@ -162,12 +162,12 @@ struct TimeTableWeeklyView : View {
         var whoesSchedule: Int = -1
         
         if schedules.isCoupleSchedule {
-            whoesSchedule = 2
+            whoesSchedule = 1
         } else {
             if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
-                whoesSchedule = 1
-            } else {
                 whoesSchedule = 0
+            } else {
+                whoesSchedule = 2
             }
         }
         
