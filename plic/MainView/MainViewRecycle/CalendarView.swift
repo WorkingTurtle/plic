@@ -139,6 +139,7 @@ struct CalendarView: View {
             
             
         }
+        
         .onChange(of: currentMonth){ newValue in
             currentDate.currentDate = getCurrentMonth()
         }
@@ -252,8 +253,27 @@ struct DayView: View {
                     ZStack{
                         Circle()
                             .fill(isSameDay(date1: value.date, date2: currentDate) ? Color("plicPink") : Color("plicWhite"))
-                        HStack{
+                            .frame(width: 32, height: 32)
+                        ForEach(coupleViewModel.schedules, id: \.self){ item in
+                            if(item.isSpecialDay && isSameDay(date1: value.date, date2: item.startDate)){
+                                ZStack{
+                                    Circle()
+                                        .fill(Color("plicAnniversary"))
+                                        .frame(width: 32, height: 32)
+                                    Image("anniversary_ex1_purple")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 40, height: 40)
+                                    
+                                }
+                                
+                                
+                            }
                             
+                                
+                        }
+                        
+                        HStack{
                             Text("\(value.day)")
                                 .font(isSameDay(date1: value.date, date2: currentDate) ? Font.custom("SpoqaHanSansNeo-Bold",size: 16) : Font.custom("SpoqaHanSansNeo-Regular",size: 16) )
                                 .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? Color("plicWhite") : Color("plicDarkgrey"))
@@ -289,8 +309,10 @@ struct DayView: View {
                                 }
                                 
                             }
+                            
                         }
                     }.padding(.top, 42)
+
                 
                     if(firstCheck){
                         Circle()
@@ -341,6 +363,7 @@ struct DayView: View {
             }
             
         }.frame(width: 30, height: 40)
+        
     }
     
     func scheduleAdaptor(schedules: Schedule) -> Int {

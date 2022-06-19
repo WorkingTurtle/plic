@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserAnniversaryAddView: View {
-    
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var scheduleName: String = ""
     @State var anniversaryDate = Date()
@@ -53,12 +53,21 @@ struct UserAnniversaryAddView: View {
                 Image(systemName: "chevron.left")
             }
                 .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink")),
-                                trailing: Button(action: {/* 일정 저장*/}) {
+                                trailing:
+                                    Button(action: {
+                addSchedule()
+                self.presentationMode.wrappedValue.dismiss()
+                
+            }) {
                 Text("완료")
             }
                 .font(.custom("SpoqaHanSansNeo-Regular", size: 17)).foregroundColor(Color("plicPink"))
             )
         }
+    }
+    private func addSchedule() {
+        let schedule = Schedule(title: scheduleName, description: noteContent, startDate: anniversaryDate, endDate: anniversaryDate, isAllDaySchedule: true, isCoupleSchedule: true, isSpecialDay: true)
+        coupleViewModel.addSchedule(schedule)
     }
 }
 
