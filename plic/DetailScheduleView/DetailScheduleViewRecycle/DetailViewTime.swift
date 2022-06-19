@@ -11,8 +11,8 @@ struct DetailViewTime: View {
     
     var startTime: String
     var endTime: String 
-    var startDate: String = "2022.06.03"
-    var endDate: String = "2022.06.04"
+    var startDate: String
+    var endDate: String 
     @State var isMorning: Bool = true
 
     var body: some View {
