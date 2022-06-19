@@ -22,7 +22,7 @@ final class CoupleViewModel: ObservableObject {
     
     var share: CKShare? // cloudkit.share
     var root: CKRecord? // Couple
-        
+    
     var isOwner: Bool = true
     
     let privateDB = CloudKitManager.privateDB
@@ -40,7 +40,7 @@ final class CoupleViewModel: ObservableObject {
      Owner Zone: <CKRecordZoneID: 0x2816a0e60; ownerName=__defaultOwner__, zoneName=CoupleZone>
      
      Participant Zone: <CKRecordZoneID: 0x280b991c0; ownerName=_a9bdc43038d1f1d3fee0b5b9e5c6010e, zoneName=CoupleZone>
-    */
+     */
     
     func fetchShare() {
         let predicate = NSPredicate(value: true)
@@ -86,9 +86,9 @@ final class CoupleViewModel: ObservableObject {
         // Fetch shared zones in participant's shared database
         sharedDB.fetchAllRecordZones { zones, error in
             self.loadCnt += 1
-
+            
             guard let zone = zones?.first else { return }
-
+            
             // If shared zone exists, the current user is a participant
             self.sharedZone = zone
             self.isOwner = false
@@ -162,6 +162,38 @@ final class CoupleViewModel: ObservableObject {
         }
     }
     
+    func addShare() -> UICloudSharingController {
+        let controller: UICloudSharingController
+        
+        if let shareRecord = share {
+            controller = UICloudSharingController(share: shareRecord, container: CKContainer.default())
+        } else {
+            let root = createCouple.convertToCKRecord()
+            let share = CKShare(rootRecord: root)
+            let operation = CKModifyRecordsOperation(recordsToSave: [share, root], recordIDsToDelete: nil)
+            
+            operation.modifyRecordsResultBlock = { result in
+                switch result {
+                case .failure(let error):
+                    NSLog("Owner upload root couple error: \(error.localizedDescription)")
+                case .success():
+                    print("Owner upload root couple successfully")
+                    self.root = root
+                    self.share = share
+                }
+            }
+            
+            self.privateDB.add(operation)
+            controller = UICloudSharingController(share: share, container: CKContainer.default())
+        }
+        
+        return controller
+    }
+    
+    func stopShare() {
+        share = nil
+    }
+    
     func updateCouple() {
         sharedDB.save(root!) {savedRecord, error in
             if let error = error {
@@ -176,66 +208,20 @@ final class CoupleViewModel: ObservableObject {
         }
     }
     
-    func addShare() -> UICloudSharingController {
-        let controller: UICloudSharingController
-        
-        if let shareRecord = share {
-            controller = UICloudSharingController(share: shareRecord, container: CKContainer.default())
-        } else {
-            let root = createCouple.convertToCKRecord()
-            let share = CKShare(rootRecord: root)
-            let operation = CKModifyRecordsOperation(recordsToSave: [share, root], recordIDsToDelete: nil)
-
-            operation.modifyRecordsResultBlock = { result in
-                switch result {
-                case .failure(let error):
-                    NSLog("Owner upload root couple error: \(error.localizedDescription)")
-                case .success():
-                    print("Owner upload root couple successfully")
-                    self.root = root
-                    self.share = share
-                }
-            }
-
-            self.privateDB.add(operation)
-            controller = UICloudSharingController(share: share, container: CKContainer.default())
-        }
-
-        return controller
-    }
-    
-    func stopShare() {
-        share = nil
-    }
-    
-    func updateCouple() {
-            sharedDB.save(root!) {savedRecord, error in
-                if let error = error {
-                    print("Participant upload plan error: \(error)")
-                }
-                if savedRecord != nil {
-                    print("Participant upload plan successfully")
-                    self.fetchSchedules() {
-                        print("fetch 성공!")
-                    }
-                }
-            }
-        }
-    
     func updatePrivateCouple() {
-            privateDB.save(root!) {savedRecord, error in
-                if let error = error {
-                    print("Participant upload plan error: \(error)")
-                }
-                if savedRecord != nil {
-                    print("Participant upload plan successfully")
-                    self.fetchSchedules() {
-                        print("fetch 성공!")
-                    }
+        privateDB.save(root!) {savedRecord, error in
+            if let error = error {
+                print("Participant upload plan error: \(error)")
+            }
+            if savedRecord != nil {
+                print("Participant upload plan successfully")
+                self.fetchSchedules() {
+                    print("fetch 성공!")
                 }
             }
         }
-
+    }
+    
     func setCoupleNickname(name: String) {
         // 처음 생성 (Owner)
         if root == nil {
@@ -246,7 +232,7 @@ final class CoupleViewModel: ObservableObject {
             root!.setValue(name, forKey: CKConstant.Field.nicknamePartner)
         }
     }
-
+    
     func setCoupleBirthDay(date: Date) {
         // 처음 생성 (Owner)
         if root == nil {

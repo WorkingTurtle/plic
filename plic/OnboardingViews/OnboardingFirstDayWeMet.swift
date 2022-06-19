@@ -39,7 +39,9 @@ struct OnboardingFirstDayWeMet: View {
                     
                     Button(action: {
                         if coupleViewModel.setCoupleFirstMeetingDay(date: firstDayWeMet) {
-                            coupleViewModel.updateCouple()
+                            if coupleViewModel.root != nil {
+                                self.coupleViewModel.updateCouple()
+                            }
                             isButtonClicked = true
                         } else {
                             isAlert = true
