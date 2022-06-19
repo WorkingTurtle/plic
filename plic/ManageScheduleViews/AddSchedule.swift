@@ -50,8 +50,6 @@ struct AddSchedule: View {
         UISegmentedControl.appearance().backgroundColor = .white
     }
     
-    @EnvironmentObject var coupleViewModel: CoupleViewModel
-    
     var body: some View {
         NavigationView {
             Form {
