@@ -34,7 +34,7 @@ final class CoupleViewModel: ObservableObject {
     @Published var isReady = false
     
     @Published var schedules: [Schedule] = []
-    
+    var createCouple = Couple()
     
     /* Example
      Owner Zone: <CKRecordZoneID: 0x2816a0e60; ownerName=__defaultOwner__, zoneName=CoupleZone>
@@ -47,7 +47,7 @@ final class CoupleViewModel: ObservableObject {
         let shareQuery = CKQuery(recordType: CKConstant.RecordType.CloudKitShare, predicate: predicate)
         
         privateDB.perform(shareQuery, inZoneWith: privateZone.zoneID) { records, error in
-            print("🐶 \(records)")
+            self.loadCnt += 1
             if let record = records?.first as? CKShare {
                 self.share = record
             }
@@ -156,13 +156,27 @@ final class CoupleViewModel: ObservableObject {
         }
     }
     
+    func updateCouple() {
+        sharedDB.save(root!) {savedRecord, error in
+            if let error = error {
+                print("Participant upload plan error: \(error)")
+            }
+            if savedRecord != nil {
+                print("Participant upload plan successfully")
+                self.fetchSchedules() {
+                    print("fetch 성공!")
+                }
+            }
+        }
+    }
+    
     func addShare() -> UICloudSharingController {
         let controller: UICloudSharingController
         
         if let shareRecord = share {
             controller = UICloudSharingController(share: shareRecord, container: CKContainer.default())
         } else {
-            let root = Couple().convertToCKRecord()
+            let root = createCouple.convertToCKRecord()
             let share = CKShare(rootRecord: root)
             let operation = CKModifyRecordsOperation(recordsToSave: [share, root], recordIDsToDelete: nil)
 
@@ -187,4 +201,46 @@ final class CoupleViewModel: ObservableObject {
     func stopShare() {
         share = nil
     }
+    
+    func setCoupleNickname(name: String) {
+        // 처음 생성 (Owner)
+        if root == nil {
+            createCouple.nicknameOwner = name
+        }
+        // 링크 수락한 경우 (Partenr)
+        else {
+            root!.setValue(name, forKey: CKConstant.Field.nicknamePartner)
+        }
+    }
+
+    func setCoupleBirthDay(date: Date) {
+        // 처음 생성 (Owner)
+        if root == nil {
+            createCouple.ownerBirthDay = date
+        }
+        // 링크 수락한 경우 (Partenr)
+        else {
+            root!.setValue(date, forKey: CKConstant.Field.partnerBirthDay)
+        }
+    }
+    
+    func setCoupleFirstMeetingDay(date: Date) -> Bool {
+        // 처음 생성 (Owner)
+        if root == nil {
+            createCouple.firstMeetingDate = date
+            return true
+        }
+        // 링크 수락한 경우 (Partenr)
+        else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYYMMDD"
+            
+            if (formatter.string(from: date) == formatter.string(from: root!.object(forKey: CKConstant.Field.firstMeetingDate) as! Date)) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
 }

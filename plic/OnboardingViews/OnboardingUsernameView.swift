@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingUsernameView: View {
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @State var userNickname: String = ""
     @State private var isButtonClicked = false
     let titleText: String = "사용할 이름 또는 애칭을 \n입력해 주세요"
@@ -57,6 +58,7 @@ struct OnboardingUsernameView: View {
                     .disabled(true)
                 
                 Button(action: {
+                    coupleViewModel.setCoupleNickname(name: userNickname)
                     isButtonClicked = true
                 }) {
                     Text("\(buttonText)")
