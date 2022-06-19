@@ -7,25 +7,17 @@
 
 import SwiftUI
 
-struct Anniversary: Hashable{
-    let dDay: Int
-    let date: String
-    var name: String
-}
+
 
 struct UserAnniversaryView: View {
-    
-    let anniversaryList: [Anniversary] = [
-        Anniversary(dDay: 3, date: "2022년 6월 5일", name: "서울 여행"),
-        Anniversary(dDay: 27, date: "2022년 6월 29일", name: "사귄지 150일"),
-        Anniversary(dDay: 28, date: "2022년 6월 30일", name: "OOO생일")
-    ]
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @State var isPresentedAddAnniversary: Bool = false
+    let dDay = Date()
     
     
     var body: some View {
             VStack{
-                ForEach(anniversaryList, id: \.self) { item in
+                ForEach(coupleViewModel.schedules, id: \.self) { item in
                     VStack{
                         HStack{
                             Text("D-\(item.dDay)")
@@ -34,10 +26,10 @@ struct UserAnniversaryView: View {
                                 .padding(.leading, 5)
                             Spacer()
                             VStack(alignment: .trailing){
-                                Text("\(item.date)")
+                                Text("\(item.startDate)")
                                     .font(Font.custom("SpoqaHanSansNeo-Regular", size: 13))
                                     .foregroundColor(Color("plicGrey"))
-                                Text("\(item.name)")
+                                Text("\(item.title)")
                                     .font(Font.custom("SpoqaHanSansNeo-Bold", size: 16))
                             }
                         }
@@ -59,6 +51,11 @@ struct UserAnniversaryView: View {
             }
             .padding(.top, 30)
     }
+//    
+//    func days(date: Date) -> _ Int {
+//        return Calendar.current.dateComponents([.day], from: date, to: dDay).day + 1
+//    }
+    
 }
 
 

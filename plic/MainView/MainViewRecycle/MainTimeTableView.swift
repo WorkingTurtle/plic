@@ -20,15 +20,23 @@ struct MainTimeTableView: View {
             HStack{
                 MainTimeTableTitleView(month: extraData(currentDate.currentDate)[1], day: extraData(currentDate.currentDate)[0])
             }
-            .padding(.bottom, 15)
+            .padding(.bottom, 10)
+            .padding([.leading,.trailing], 30)
+            .padding(.top, 25)
             HStack{
                 TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
             }.padding([.leading,.trailing], 90)
+                .padding(.leading, 20)
             HStack{
                 TimeTableMiniView()
-            }
+            }.padding([.leading,.trailing], 30)
         }
-        .padding([.leading,.trailing], 30)
+        
+        .background(Color.white)
+        .cornerRadius(0)
+        .shadow(color: Color("plicLightgrey"), radius: 5)
+        
+        
         .frame(height: 230)
     }
     

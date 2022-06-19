@@ -33,7 +33,7 @@ struct MainView: View {
 //                                    WeeklyTimeTable()
                                     MainTimeTableView()
                                 }
-                                    .padding(.top,20)
+//                                    .padding(.top,20)
                                 HStack{
                                    
                                 }.frame(height: 70)
