@@ -12,8 +12,8 @@ class CoupleRecordNorificationViewModel: ObservableObject {
     @EnvironmentObject var coupleViewModel: CoupleViewModel
     
     func subscribeToNotification() {
-        let predicate = NSPredicate(format: "\(CKConstant.Field.isCoupleSchedule) == %@",  NSNumber(value: true))
-        let subscription = CKQuerySubscription(recordType: CKConstant.RecordType.Schedule, predicate: predicate,  subscriptionID: "imsiID", options: .firesOnRecordCreation)
+//        let predicate = NSPredicate(format: "\(CKConstant.Field.isCoupleSchedule) == %@",  NSNumber(value: true))
+        let subscription = CKQuerySubscription(recordType: CKConstant.RecordType.Schedule, predicate: NSPredicate(value: true),  subscriptionID: "imsiID", options: .firesOnRecordCreation)
         
         let notification = CKSubscription.NotificationInfo()
         
@@ -29,28 +29,49 @@ class CoupleRecordNorificationViewModel: ObservableObject {
             } else {
                 print("Successfully subscribed to notification!")
             }
-            
         }
         
         let predicate2 = NSPredicate(format: "\(CKConstant.Field.isCoupleSchedule) == %@",  NSNumber(value: true))
         let subscription2 = CKQuerySubscription(recordType: CKConstant.RecordType.Schedule, predicate: predicate2,  subscriptionID: "imsiID2", options: .firesOnRecordCreation)
-        
         let notification2 = CKSubscription.NotificationInfo()
-        
+
+        let subscription3 = CKDatabaseSubscription(subscriptionID: "Bean")
+        subscription3.recordType = CKConstant.RecordType.Schedule
+
         notification2.title = "Plic Calendar"
         notification2.alertBody = "함께하는 일정이 등록되었습니다"
         notification2.soundName = "default"
-        
+
         subscription2.notificationInfo = notification2
-        
-        CKContainer.default().sharedCloudDatabase.save(subscription2) { returnedSubscription, returnedError in
+        subscription3.notificationInfo = notification2
+
+
+        CKContainer.default().sharedCloudDatabase.save(subscription3) { returnedSubscription, returnedError in
             if let error = returnedError {
                 print(error)
             } else {
-                print("Successfully subscribed to notification!")
+                print("Successfully subscribed to notification!2")
             }
-            
         }
+        
+        let subscription4 = CKDatabaseSubscription(subscriptionID: "wowowowow")
+
+        let notificationInfo4 = CKSubscription.NotificationInfo()
+        notificationInfo4.shouldSendContentAvailable = true
+        subscription4.notificationInfo = notificationInfo4
+
+        let operation = CKModifySubscriptionsOperation(subscriptionsToSave: [subscription4], subscriptionIDsToDelete: [])
+        operation.modifySubscriptionsCompletionBlock = { savedSubscriptions, deletedSubscriptionIDs, operationError in
+            if operationError != nil {
+                print(operationError)
+                return
+            } else {
+                print("🐧")
+            }
+        }
+
+        CKContainer.default().sharedCloudDatabase.add(operation)
+        
     }
     
     func unsubscribeToNotification() {
@@ -62,11 +83,11 @@ class CoupleRecordNorificationViewModel: ObservableObject {
             }
         }
         
-        CKContainer.default().sharedCloudDatabase.delete(withSubscriptionID: "imsiID2") { returnedID, returnedError in
+        CKContainer.default().sharedCloudDatabase.delete(withSubscriptionID: "imsiID3") { returnedID, returnedError in
             if let error = returnedError {
                 print(error)
             } else {
-                print("Successfully unscribed!")
+                print("Successfully unscribed!2")
             }
         }
     }
@@ -74,6 +95,7 @@ class CoupleRecordNorificationViewModel: ObservableObject {
 
 struct UserSettingNotificationView: View {
     @StateObject private var vm = CoupleRecordNorificationViewModel()
+    // TODO: 어플 시작했을 때 false로 저장되어있는데 이거 기존값 저장하도록 해야함
     @State private var isToggle = false
     @State private var isToggleOpposite = true
     
@@ -82,11 +104,12 @@ struct UserSettingNotificationView: View {
             Toggle("커플 일정 생성 시 알림", isOn: $isToggle)
                 .toggleStyle(SwitchToggleStyle(tint: Color("plicPink")))
                 .onChange(of: isToggle){ _ in
-                    isToggleOpposite.toggle()
-                    vm.subscribeToNotification()
-                }
-                .onChange(of: isToggleOpposite){ _ in
-                    vm.unsubscribeToNotification()
+                    if (isToggle) {
+                        vm.subscribeToNotification()
+                    } else  {
+                        vm.unsubscribeToNotification()
+
+                    }
                 }
                 .padding(.horizontal, 20)
             Spacer()

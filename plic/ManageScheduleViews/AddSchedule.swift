@@ -50,6 +50,7 @@ struct AddSchedule: View {
         UISegmentedControl.appearance().backgroundColor = .white
     }
     
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     
     var body: some View {
         NavigationView {
@@ -138,6 +139,7 @@ struct AddSchedule: View {
             let schedule = Schedule(title: scheduleName, description: noteContent, startDate: timeStart, endDate: timeEnd, isAllDaySchedule: allDayToggle, isCoupleSchedule: whoSchedule == "함께", isSpecialDay: false)
             coupleViewModel.addSchedule(schedule)
         }
+
 }
 
 struct AddSchedule_Previews: PreviewProvider {
