@@ -109,7 +109,7 @@
 //                        }
 //                }
 //            }
-//            .navigationBarTitle("일정 추가", displayMode: .inline).font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+//            .navigationBarTitle("일정 수정", displayMode: .inline).font(.custom("SpoqaHanSansNeo-Bold", size: 17))
 //            .navigationBarItems(leading:
 //                                    Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
 //                Image(systemName: "chevron.left")
