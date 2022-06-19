@@ -21,12 +21,7 @@ struct OnboardingStartShareUser: View {
     @State private var isPartner = false
     
     @State private var isStartButtonClicked = false
-    
-//    init(){
-//         viewModel.fetchSchedules {
-//             print("Successfully Fetched!")
-//        }
-//    }
+
     
     func getView() -> ProxyCloudSharingView? {
         if controller != nil {
@@ -62,7 +57,6 @@ struct OnboardingStartShareUser: View {
                 Button(action: {
                     Task {
                         controller = await viewModel.addShare()
-                        print(controller?.share)
                         isSharing = true
                     }
                     isSendingButtonClicked = true
@@ -106,7 +100,7 @@ struct OnboardingStartShareUser: View {
     
     @ViewBuilder
     func startButton() -> some View {
-        if viewModel.isReady && viewModel.share?.participants.count == 2 || viewModel.root != nil {
+        if viewModel.isReady && viewModel.share?.participants.count == 2 {
             Button(action: {
                 print("buttonclick")
                 isStartButtonClicked = true

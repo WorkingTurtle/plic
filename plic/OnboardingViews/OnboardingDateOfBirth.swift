@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingDateOfBirth: View {
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @State private var isButtonClicked = false
     @State var dateOfBirth = Date()
     let titleText: String = "본인의 생년월일을\n입력해 주세요"
@@ -44,6 +45,7 @@ struct OnboardingDateOfBirth: View {
                         .disabled(true)
                     
                     Button(action: {
+                        coupleViewModel.setCoupleBirthDay(date: dateOfBirth)
                         isButtonClicked.toggle()
                     }) {
                         Text("\(buttonText)")

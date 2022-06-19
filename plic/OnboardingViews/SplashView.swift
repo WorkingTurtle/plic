@@ -25,12 +25,22 @@ struct SplashView: View {
                     }
                 }
         } else {
-            if coupleViewModel.isReady && coupleViewModel.share?.participants.count == 2 || coupleViewModel.root != nil {
+//            if coupleViewModel.isReady && coupleViewModel.share?.participants.count == 2 || coupleViewModel.root != nil {
+            //&& coupleViewModel.share?.participants.count == 2
+            if coupleViewModel.isReady && coupleViewModel.root?.object(forKey: "nicknamePartner") != nil {
                 TapBarMainView(tabbarIndex: 0)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .environmentObject(dateData)
-            } else {
-                OnboardingStartView()
+            }
+            else if (coupleViewModel.isReady && coupleViewModel.share?.participants.count == 1 && coupleViewModel.root?.object(forKey: "nicknameOwner") != nil) {
+                OnboardingStartShareUser()
+            }
+            else {
+                OnboardingStartView().onAppear() {
+                    print(coupleViewModel.isReady)
+                    print(coupleViewModel.share?.participants.count)
+                    print("!!!!! \(coupleViewModel.root?.object(forKey: "nicknameOwner"))")
+                }
             }
         }
     }
