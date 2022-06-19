@@ -47,7 +47,6 @@ final class CoupleViewModel: ObservableObject {
         let shareQuery = CKQuery(recordType: CKConstant.RecordType.CloudKitShare, predicate: predicate)
         
         privateDB.perform(shareQuery, inZoneWith: privateZone.zoneID) { records, error in
-            print("🐶 \(records)")
             if let record = records?.first as? CKShare {
                 self.share = record
             }
@@ -111,6 +110,12 @@ final class CoupleViewModel: ObservableObject {
                     self.isReady = true
                 }
             }
+        }
+    }
+    
+    func deleteSchedule(schedule: Schedule) {
+        Task {
+            await try self.privateDB.deleteRecord(withID: schedule.getRecordID())
         }
     }
     
@@ -187,4 +192,32 @@ final class CoupleViewModel: ObservableObject {
     func stopShare() {
         share = nil
     }
+    
+    func updateCouple() {
+            sharedDB.save(root!) {savedRecord, error in
+                if let error = error {
+                    print("Participant upload plan error: \(error)")
+                }
+                if savedRecord != nil {
+                    print("Participant upload plan successfully")
+                    self.fetchSchedules() {
+                        print("fetch 성공!")
+                    }
+                }
+            }
+        }
+    
+    func updatePrivateCouple() {
+            privateDB.save(root!) {savedRecord, error in
+                if let error = error {
+                    print("Participant upload plan error: \(error)")
+                }
+                if savedRecord != nil {
+                    print("Participant upload plan successfully")
+                    self.fetchSchedules() {
+                        print("fetch 성공!")
+                    }
+                }
+            }
+        }
 }

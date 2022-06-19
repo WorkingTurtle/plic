@@ -12,9 +12,8 @@ struct WeeklyTimeTable: View {
     @EnvironmentObject var coupleViewModel: CoupleViewModel
 //    var month: String = "6"
 //    var day: String = "23"
-    let firstNick: String = "디기"
-    let secondNick: String = "벳져"
-
+    @State var firstNick: String = ""
+    @State var secondNick: String = ""
     
     var body: some View {
         
@@ -48,6 +47,10 @@ struct WeeklyTimeTable: View {
             }
             
         }
+            .onAppear() {
+                self.firstNick = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknamePartner) as! String
+                self.secondNick = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknameOwner) as! String
+            }
             
         
     }

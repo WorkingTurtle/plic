@@ -9,11 +9,12 @@ import SwiftUI
 
 struct MainTimeTableView: View {
     @EnvironmentObject var currentDate: DateData
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @State var currentMonth: Int = 0
     var month: String = "6"
     var day: String = "23"
-    let firstNick: String = "디기"
-    let secondNick: String = "벳져"
+    @State var firstNick: String = ""
+    @State var secondNick: String = ""
     
     var body: some View {
         VStack{
@@ -35,7 +36,10 @@ struct MainTimeTableView: View {
         .background(Color.white)
         .cornerRadius(0)
         .shadow(color: Color("plicLightgrey"), radius: 5)
-        
+        .onAppear() {
+            self.firstNick = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknamePartner) as! String
+            self.secondNick = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknameOwner) as! String
+        }
         
         .frame(height: 230)
     }

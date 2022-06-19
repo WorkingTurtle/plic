@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     var body: some View {
         NavigationView{
             ZStack{
                 ScrollView{
                     VStack(spacing: 0){
-                            Image("TabMain")
+                            Image("TabMain2")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -41,7 +41,12 @@ struct MainView: View {
                             }
                         }
                 }
-            }.ignoresSafeArea()
+            }
+            .ignoresSafeArea()
+            .onAppear(){
+                coupleViewModel.fetchSchedules() {
+                }
+            }
         }
         
         

@@ -20,7 +20,8 @@ struct UserAnniversaryView: View {
                 ForEach(coupleViewModel.schedules, id: \.self) { item in
                     VStack{
                         HStack{
-                            Text("D-\(item.dDay)")
+                            // Text("D-\(item.dDay)")
+                            Text("D-10")
                                 .font(Font.custom("SpoqaHanSansNeo-Bold", size: 30))
                                 .foregroundColor(Color("plicPink"))
                                 .padding(.leading, 5)

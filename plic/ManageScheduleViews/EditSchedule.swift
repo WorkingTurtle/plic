@@ -69,7 +69,7 @@ struct EditSchedule: View {
                 
                 Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
                     Picker(selection: $whoSchedule, label: Text("")){
-                        Text("사용자1").tag("사용자1")
+                        Text("니").tag("나")
                         Text("함께").tag("함께")
                     }.pickerStyle(SegmentedPickerStyle())
                 }
@@ -88,7 +88,7 @@ struct EditSchedule: View {
                     }
                     TextEditor(text: $noteContent)
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
-                        .foregroundColor((noteContent == "") ? Color("plicLightgrey") : .black )
+                        .foregroundColor((noteContent == "메모를 작성해 주세요") ? Color("plicLightgrey") : .black )
                         .frame(height: 250)
                         .disableAutocorrection(true)
                         .onTapGesture {
@@ -114,7 +114,7 @@ struct EditSchedule: View {
             if(schedule.isCoupleSchedule){
                 self.whoSchedule = "함께"
                 }else{
-                    self.whoSchedule = "사용자1"
+                    self.whoSchedule = "나"
             }
             self.noteContent = schedule.description!
         }

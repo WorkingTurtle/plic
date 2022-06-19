@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct UserSettingView: View {
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     let letterArr: [String] = ["기념일", "알림 설정", "캘린더 연동", "커플 연결", "로그아웃"]
-    let myNickName: String = "디기"
-    let opponentNickName: String = "뱃저"
+    @State var myNickName: String = ""
+    @State var opponentNickName: String = ""
     let firstDay: String = "123"
     
     var body: some View {
         NavigationView{
             ScrollView {
                 VStack(spacing:30){
-                    Image("TabMain").frame(width: .infinity)
+                    Image("TabMain2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .ignoresSafeArea(.all)
+                        .frame(height: 160)
+                        .padding(0)
                     
                     HStack {
                         Circle()
@@ -26,7 +33,7 @@ struct UserSettingView: View {
                         Spacer()
                         NavigationLink(destination: SettingProfileView(), label: {
                             VStack(alignment:.leading){
-                                Text("\(myNickName)♥\(opponentNickName)")
+                                Text("\(myNickName) ♥ \(opponentNickName)")
                                     .font(.custom("SpoqaHanSansNeo-Bold", size: 24))
                                     .foregroundColor(Color("plicPink"))
                                 Text("\(firstDay)째 연애중")
@@ -61,7 +68,14 @@ struct UserSettingView: View {
                         })
                     }
                 }
+                .onAppear() {
+                    self.myNickName = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknamePartner) as! String
+                    self.opponentNickName = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknameOwner) as! String
+                }
+                
             }.ignoresSafeArea()
+        
+                
         }
         .accentColor(Color("plicPink"))
     }
