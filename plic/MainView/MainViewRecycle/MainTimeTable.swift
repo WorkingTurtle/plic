@@ -52,7 +52,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(currentTime) + 3-dateToFloat(currentTime)))
+                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(currentTime) + 3-dateToFloat(currentTime)))
                         .background(Color("plicTimepink"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 0){
@@ -104,7 +104,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(currentTime)))
+                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(currentTime)))
                         .background(Color("plicTimepink"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 0){
@@ -159,7 +159,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(currentTime) + 3 - dateToFloat(schedule.startDate)))
+                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(currentTime) + 3 - dateToFloat(schedule.startDate)))
                         .background(Color("plicTimepink"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 0){
@@ -211,7 +211,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(schedule.startDate)))
+                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(schedule.startDate)))
                         .background(Color("plicTimepink"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 0){
