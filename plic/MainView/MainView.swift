@@ -30,6 +30,7 @@ struct MainView: View {
                                     .padding(.bottom,20)
                                 Divider()
                                 HStack{
+//                                    WeeklyTimeTable()
                                     MainTimeTableView()
                                 }
                                     .padding(.top,20)

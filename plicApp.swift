@@ -29,9 +29,18 @@ struct plicApp: App {
 //            OnboardingStartShareUser()
 //            OnboardingStartView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .environmentObject(dateData)
 //                .environmentObject(coupleViewModel)
-//             SplashView()
-//                 .environmentObject(coupleViewModel)
+//           OnboardingStartShareUser()
+//           OnboardingStartView()
+//               .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//               .environmentObject(coupleViewModel)
+//           SplashView()
+//               .environmentObject(coupleViewModel)
+            SplashView()
+               .environment(\.managedObjectContext, persistenceController.container.viewContext)
+               .environmentObject(dateData)
+               .environmentObject(coupleViewModel)
         }
     }
 }

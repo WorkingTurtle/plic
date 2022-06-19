@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct TimeTableView: View {
-    let letter: String
-    @State var num: Float
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
+    @EnvironmentObject var currentDate: DateData
     let width: CGFloat = 60.0
     let coupleWidth: CGFloat = 210.0
     var height: CGFloat = 43.0
-    let who: Int
-    let testSchedule: DumyTime
+    let schedule: Schedule
     
     var body: some View {
-        NavigationLink(destination: DetailScheduleView(testSchedule: testSchedule)){
-            if(who == 0){
+        NavigationLink(destination: DetailScheduleView(schedule: schedule)){
+            if(scheduleAdaptor(schedules: schedule) == 2){
                 VStack{
                     HStack{
-                        Text(letter)
+                        Text(schedule.title)
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
                             .foregroundColor(Color("plicTimeyellow"))
                             .padding(.top, 5)
@@ -31,13 +30,13 @@ struct TimeTableView: View {
                     
                     Spacer()
                 }
-                .frame(width: width, height: height * CGFloat(num))
+                .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicYellow"))
                 .cornerRadius(3)
-            }else if(who == 1){
+            }else if(scheduleAdaptor(schedules: schedule) == 1){
                 VStack{
                     HStack{
-                        Text(letter)
+                        Text(schedule.title)
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
                             .foregroundColor(Color("plicPink"))
                             .padding(.top, 5)
@@ -47,13 +46,13 @@ struct TimeTableView: View {
                     
                     Spacer()
                 }
-                .frame(width: coupleWidth, height: height * CGFloat(num))
+                .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicTimepink"))
                 .cornerRadius(3)
-            }else if(who == 2){
+            }else if(scheduleAdaptor(schedules: schedule) == 0){
                 VStack{
                     HStack{
-                        Text(letter)
+                        Text(schedule.title)
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
                             .foregroundColor(Color("plicNavy"))
                             .padding(.top, 5)
@@ -64,12 +63,39 @@ struct TimeTableView: View {
                     Spacer()
 
                 }
-                .frame(width: width, height: height * CGFloat(num))
+                .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicTimeblue"))
                 .cornerRadius(3)
             }
         }
     }
+    func scheduleAdaptor(schedules: Schedule) -> Int {
+        
+        var whoesSchedule: Int = -1
+        
+        if schedules.isCoupleSchedule {
+            whoesSchedule = 2
+        } else {
+            if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
+                whoesSchedule = 1
+            } else {
+                whoesSchedule = 0
+            }
+        }
+        
+        return whoesSchedule
+    }
+    func dateToFloat(_ date: Date) -> Float {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH"
+            let hour = formatter.string(from: date)
+            
+            formatter.dateFormat = "mm"
+            let min = formatter.string(from: date)
+            
+            return (hour as NSString).floatValue + (min as NSString).floatValue / 60.0
+    }
+            
 }
 
 

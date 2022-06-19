@@ -210,6 +210,7 @@ struct CalendarView: View {
         
         return days
     }
+    
 }
 
 struct CalendarView_Previews: PreviewProvider {
@@ -231,14 +232,7 @@ struct DayOfWeekView: View {
 }
 
 struct DayView: View {
-    let DateDummy: [ScheduleDummy] = [
-                                ScheduleDummy(startDay: "2022-06-24", endDay: "2022-01-24", firstCheck: true, secondCheck: false, thirdCheck: false),
-                                  ScheduleDummy(startDay: "2022-06-22", endDay: "2022-01-24", firstCheck: true, secondCheck: true, thirdCheck: true),
-                                  ScheduleDummy(startDay: "2022-07-24", endDay: "2022-01-24", firstCheck: true, secondCheck: false, thirdCheck: true),
-                                  ScheduleDummy(startDay: "2022-06-21", endDay: "2022-01-24", firstCheck: true, secondCheck: true, thirdCheck: true),
-                                  ScheduleDummy(startDay: "2022-06-13", endDay: "2022-01-24", firstCheck: false, secondCheck: false, thirdCheck: true),
-                                ScheduleDummy(startDay: "2022-06-20", endDay: "2022-01-24", firstCheck: true, secondCheck: false, thirdCheck: false)
-    ]
+
     
     let dateFormatter = DateFormatter()
     
@@ -276,7 +270,7 @@ struct DayView: View {
                     
                     HStack(spacing: 2){
                         ForEach(coupleViewModel.schedules, id: \.self){ item in
-                            if( value.date == item.startDate){
+                            if( compareDate(value.date) == compareDate(item.startDate)){
                                 if(scheduleAdaptor(schedules: item) == 2){
                                     Circle()
                                         .fill(Color("plicCirclepink"))
@@ -384,6 +378,15 @@ struct DayView: View {
         formatter.dateFormat = "y-M-d"
         
         let date = formatter.date(from: Str)
+        
+        return date
+    }
+    
+    func compareDate(_ currentDate: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM dd"
+        
+        let date = formatter.string(from: currentDate)
         
         return date
     }

@@ -10,30 +10,31 @@ import SwiftUI
 struct DetailScheduleView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    var testSchedule: DumyTime
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
+    var schedule: Schedule
     
     var body: some View {
         VStack{
             VStack{
                 HStack(spacing: 0){
-                    Text("\(testSchedule.name)")
+                    Text("\(schedule.title)")
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
                     Spacer()
-                    Text("\(OwnerOfSchedule(num: testSchedule.who))")
-                        .foregroundColor(Color(TextColor(num: testSchedule.who)))
+                    Text("\(OwnerOfSchedule(num: scheduleAdaptor(schedules: schedule)))")
+                        .foregroundColor(Color(TextColor(num: scheduleAdaptor(schedules: schedule))))
                         .font(.custom("SpoqaHanSansNeo-Regular", size: 17))
                         .padding(.vertical, 4)
                         .padding(.horizontal, 9)
-                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color(BoxColor(num: testSchedule.who))))
+                        .background(RoundedRectangle(cornerRadius: 5).foregroundColor(Color(BoxColor(num: scheduleAdaptor(schedules: schedule)))))
                 }
                 .padding(.bottom, 14)
                 
                 Divider()
-                MiniTimeTableView(testSchedule: testSchedule)
+                MiniTimeTableView(schedule: schedule)
             }.frame(height: 200)
                 .padding(.horizontal, 20)
             HStack{
-                DetailViewTime(startTime: "\(testSchedule.startTime)", endTime: "\(testSchedule.endTime)")
+                DetailViewTime(startTime: dateToString(schedule.startDate), endTime: dateToString(schedule.endDate))
             }
             HStack{
                 DetailViewMemo()
@@ -43,13 +44,38 @@ struct DetailScheduleView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: NavigationLink(destination:
                                                         AddSchedule()
-//                                                        EditSchedule()
+//                                                     EditSchedule(schedule: schedule)
                                                      , label: {
             Text("Edit")
                 .foregroundColor(Color("plicPink"))
         }))
         .accentColor(Color("plicPink"))
     }
+    func scheduleAdaptor(schedules: Schedule) -> Int {
+        
+        var whoesSchedule: Int = -1
+        
+        if schedules.isCoupleSchedule {
+            whoesSchedule = 2
+        } else {
+            if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
+                whoesSchedule = 1
+            } else {
+                whoesSchedule = 0
+            }
+        }
+        
+        return whoesSchedule
+    }
+    func dateToString(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+
+            let date = formatter.string(from: date)
+            
+            return date
+    }
+    
 }
 
 //struct DetailScheduleView_Previews: PreviewProvider {
