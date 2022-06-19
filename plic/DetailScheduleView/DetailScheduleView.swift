@@ -38,7 +38,7 @@ struct DetailScheduleView: View {
                 DetailViewTime(startTime: dateToString(schedule.startDate), endTime: dateToString(schedule.endDate))
             }
             HStack{
-                DetailViewMemo()
+                DetailViewMemo(schedule: schedule)
             }
         }
         .navigationTitle("상세 정보")
@@ -46,13 +46,20 @@ struct DetailScheduleView: View {
         .navigationBarItems(trailing: Button(action: {
             self.showAddScheduleModal = true
         }){
-            Image(systemName: "plus")
-                .font(.custom("SpoqaHanSansNeo-Medium",size: 22))
-                .foregroundColor(Color("plicGrey"))
+            Text("Edit")
+                .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
+                .foregroundColor(Color("plicPink"))
         }.sheet(isPresented: self.$showAddScheduleModal){
-            AddSchedule()
+            EditSchedule(schedule: schedule)
         })
         .accentColor(Color("plicPink"))
+//        let schedule: Schedule = Schedule(title: "", description: "", startDate: Date(), endDate: Date(), isAllDaySchedule: false, isCoupleSchedule: false, isSpecialDay: false)
+//        @State var scheduleName: String = ""
+//        @State var allDayToggle: Bool = false
+//        @State var timeStart = Date()
+//        @State var timeEnd = Date()
+//        @State var noteContent: String = "메모를 작성해 주세요"
+//        @State var whoSchedule = "함께"
                             
     }
     func scheduleAdaptor(schedules: Schedule) -> Int {
@@ -92,11 +99,11 @@ struct DetailScheduleView: View {
 func OwnerOfSchedule(num: Int) -> String {
     var owner: String = ""
     
-    if num == 0 {
+    if num == 2 {
         owner = "디기"
     } else if num == 1 {
         owner = "함께"
-    } else if num == 2{
+    } else if num == 0{
         owner = "뱃저"
     }
     return owner
@@ -105,11 +112,11 @@ func OwnerOfSchedule(num: Int) -> String {
 func BoxColor(num: Int) -> String {
     var colorBox: String = ""
     
-    if num == 0 {
+    if num == 2 {
         colorBox = "plicYellow"
     } else if num == 1 {
         colorBox = "plicPeach"
-    } else if num == 2{
+    } else if num == 0{
         colorBox = "plicSky"
     }
     return colorBox
@@ -118,11 +125,11 @@ func BoxColor(num: Int) -> String {
 func TextColor(num: Int) -> String {
     var textColor: String = ""
     
-    if num == 0 {
+    if num == 2 {
         textColor = "plicTimeyellow"
     } else if num == 1 {
         textColor = "plicPink"
-    } else if num == 2{
+    } else if num == 0{
         textColor = "plicNavy"
     }
     return textColor

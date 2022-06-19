@@ -92,6 +92,7 @@ struct TimeTableMiniView : View {
     var currentTimeArr: [Int] = [0, 1, 2, 3]
     @EnvironmentObject var coupleViewModel: CoupleViewModel
     @EnvironmentObject var currentDate: DateData
+    var currentTime: Date = Date()
     
 
     
@@ -134,28 +135,31 @@ struct TimeTableMiniView : View {
             }
             
             ForEach(coupleViewModel.schedules, id: \.self){ item in
-                if (compareDate(currentDate.currentDate) == compareDate(item.startDate)){
-                    VStack{
-                        if(scheduleAdaptor(schedules: item) == 2){
-                            TimeTableView(schedule: item)
-                            //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                                                            .offset(x: -60, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
-                        }
-                        else if(scheduleAdaptor(schedules: item) == 1){
-                            TimeTableView(schedule: item)
-                                .offset(x: 15, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
-                                //                                .offset(x: 15)
+                if (compareDate(currentDate.currentDate) == compareDate(item.startDate) && dateToFloat(item.endDate) >= dateToFloat(currentTime)){
+//                    if(dateToFloat(item.endDate) >= dateToFloat(currentTime)){
+                        VStack{
+                            if(scheduleAdaptor(schedules: item) == 2){
+                                TimeTableView(schedule: item)
                                 //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                        }
-                        else
-                        {
-                            TimeTableView(schedule: item)
-                                .offset(x: 90, y: CGFloat((dateToFloat(item.startDate) - 9) * 43))
-                            //                                .offset(x: 90)
-                            //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
-                        }
-                        Spacer()
-                    }.padding(.top, 10)
+                                                                .offset(x: -60, y: CGFloat((dateToFloat(item.startDate) - dateToTime(currentTime)) * 43))
+                            }
+                            else if(scheduleAdaptor(schedules: item) == 1){
+                                TimeTableView(schedule: item)
+                                    .offset(x: 15, y: CGFloat((dateToFloat(item.startDate) - dateToTime(currentTime)) * 43))
+                                    //                                .offset(x: 15)
+                                    //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                            }
+                            else
+                            {
+                                TimeTableView(schedule: item)
+                                    .offset(x: 90, y: CGFloat((dateToFloat(item.startDate) - dateToTime(currentTime)) * 43))
+                                //                                .offset(x: 90)
+                                //                                .padding(.top, CGFloat((value.startTime - 6) * 43))
+                            }
+                            Spacer()
+                        }.padding(.top, 10)
+
+//                    }
                 }
                 
                 
@@ -203,6 +207,22 @@ struct TimeTableMiniView : View {
             
             return (hour as NSString).floatValue + (min as NSString).floatValue / 60.0
     }
+    func dateToTime(_ date: Date) -> Float {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH"
+            let hour = formatter.string(from: date)
+            
+            
+            
+            return (hour as NSString).floatValue
+    }
+//    func dateToInt(_ date: Date) -> String {
+//            let formatter = DateFormatter()
+//            formatter.dateFormat = "HH"
+//            let hour = formatter.string(from: date)
+//
+//        return hour
+//    }
 }
 
 struct Line: Shape {

@@ -10,11 +10,13 @@ import SwiftUI
 
 // 작성된 메모 확인란
 struct DetailViewMemo: View {
+    let schedule: Schedule
     @State var memoText: String?
     @State private var isShowingDialog: Bool = false
     
         //Alert가 기본 틴트 컬러를 빨간색으로 가지게 하기 위한 코드
-    init() {
+    init(schedule: Schedule) {
+        self.schedule = schedule
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemRed
     }
     
@@ -35,9 +37,9 @@ struct DetailViewMemo: View {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 350, height: 146)
                     .foregroundColor(Color("plicLightestgrey"))
-                Text("\(memoText ?? "비어 있는 메모")")
+                Text("\(schedule.description ?? "비어 있는 메모")")
                     .font(.custom("SpoqaHanSansNeo-Regular",size: 14))
-                    .foregroundColor((memoText != nil) ? .black : .gray)
+                    .foregroundColor((schedule.description != nil) ? .black : .gray)
                     .padding(12)
             }
             
@@ -63,9 +65,4 @@ struct DetailViewMemo: View {
     }
 }
 
-struct DetailViewMemo_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailViewMemo()
-    }
-}
 

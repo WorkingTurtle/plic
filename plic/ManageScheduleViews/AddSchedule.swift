@@ -38,7 +38,7 @@ struct AddSchedule: View {
     // 종료 날짜, 시간 설정
     @State var timeEnd = Date()
     // 노트 작성 내용
-    @State var noteContent: String = ""
+    @State var noteContent: String = "메모를 작성해 주세요"
     // 사용자 선택에 관한 설정(함께, 사용자 둘), 선택할 때 tag값을 줌
     @State var whoSchedule = "함께"
 
