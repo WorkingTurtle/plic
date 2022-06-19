@@ -25,8 +25,6 @@ struct SplashView: View {
                     }
                 }
         } else {
-//            if coupleViewModel.isReady && coupleViewModel.share?.participants.count == 2 || coupleViewModel.root != nil {
-            //&& coupleViewModel.share?.participants.count == 2
             if coupleViewModel.isReady && coupleViewModel.root?.object(forKey: "nicknamePartner") != nil {
                 TapBarMainView(tabbarIndex: 0)
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
@@ -36,11 +34,7 @@ struct SplashView: View {
                 OnboardingStartShareUser()
             }
             else {
-                OnboardingStartView().onAppear() {
-                    print(coupleViewModel.isReady)
-                    print(coupleViewModel.share?.participants.count)
-                    print("!!!!! \(coupleViewModel.root?.object(forKey: "nicknameOwner"))")
-                }
+                OnboardingStartView()
             }
         }
     }
