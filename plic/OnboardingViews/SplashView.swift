@@ -17,12 +17,12 @@ struct SplashView: View {
 
     @ViewBuilder
     var body: some View {
-        if coupleViewModel.loadCnt < 2 {
+        if coupleViewModel.loadCnt < 2 && !isRequestDone {
             OnboardingRequestNotificationPermission()
                 .onAppear() {
                     coupleViewModel.fetchSchedules() {
+                        isRequestDone = true
                     }
-                    isRequestDone = true
                 }
         } else {
             if coupleViewModel.isReady && coupleViewModel.share?.participants.count == 2 || coupleViewModel.root != nil {

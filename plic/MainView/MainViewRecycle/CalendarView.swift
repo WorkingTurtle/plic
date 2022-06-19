@@ -271,12 +271,12 @@ struct DayView: View {
                     HStack(spacing: 2){
                         ForEach(coupleViewModel.schedules, id: \.self){ item in
                             if( compareDate(value.date) == compareDate(item.startDate)){
-                                if(scheduleAdaptor(schedules: item) == 2){
+                                if(scheduleAdaptor(schedules: item) == 1){
                                     Circle()
                                         .fill(Color("plicCirclepink"))
                                         .frame(width: 6, height: 6)
                                 }
-                                if(scheduleAdaptor(schedules: item) == 1){
+                                if(scheduleAdaptor(schedules: item) == 2){
                                     Circle()
                                         .fill(Color("plicCircleyellow"))
                                         .frame(width: 6, height: 6)
@@ -348,12 +348,12 @@ struct DayView: View {
         var whoesSchedule: Int = -1
         
         if schedules.isCoupleSchedule {
-            whoesSchedule = 2
+            whoesSchedule = 1
         } else {
             if (schedules.createdUserId == coupleViewModel.root?.creatorUserRecordID?.recordName) {
-                whoesSchedule = 1
-            } else {
                 whoesSchedule = 0
+            } else {
+                whoesSchedule = 2
             }
         }
         
