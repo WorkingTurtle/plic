@@ -107,11 +107,11 @@ func OwnerOfSchedule(num: Int) -> String {
     var owner: String = ""
     
     if num == 2 {
-        owner = "디기"
+        owner = "Jun"
     } else if num == 1 {
         owner = "함께"
     } else if num == 0{
-        owner = "뱃저"
+        owner = "Bean"
     }
     return owner
 }
