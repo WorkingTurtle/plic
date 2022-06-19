@@ -18,26 +18,28 @@ struct UserAnniversaryView: View {
     var body: some View {
             VStack{
                 ForEach(coupleViewModel.schedules, id: \.self) { item in
-                    VStack{
-                        HStack{
-                            // Text("D-\(item.dDay)")
-                            Text("D-10")
-                                .font(Font.custom("SpoqaHanSansNeo-Bold", size: 30))
-                                .foregroundColor(Color("plicPink"))
-                                .padding(.leading, 5)
-                            Spacer()
-                            VStack(alignment: .trailing){
-                                Text("\(item.startDate)")
-                                    .font(Font.custom("SpoqaHanSansNeo-Regular", size: 13))
-                                    .foregroundColor(Color("plicGrey"))
-                                Text("\(item.title)")
-                                    .font(Font.custom("SpoqaHanSansNeo-Bold", size: 16))
+                    if(item.isSpecialDay){
+                        VStack{
+                            HStack{
+                                Text("D-\(dDaycal(item.startDate) ?? 0)")
+                                    .font(Font.custom("SpoqaHanSansNeo-Bold", size: 30))
+                                    .foregroundColor(Color("plicPink"))
+                                    .padding(.leading, 5)
+                                Spacer()
+                                VStack(alignment: .trailing){
+                                    Text("\(dateToString(item.startDate))")
+                                        .font(Font.custom("SpoqaHanSansNeo-Regular", size: 13))
+                                        .foregroundColor(Color("plicGrey"))
+                                    Text("\(item.title)")
+                                        .font(Font.custom("SpoqaHanSansNeo-Bold", size: 16))
+                                }
                             }
-                        }
-                        .padding(.horizontal, 20)
-                        Divider()
                             .padding(.horizontal, 20)
+                            Divider()
+                                .padding(.horizontal, 20)
+                        }
                     }
+                    
                 }
                 Spacer()
             }
@@ -52,18 +54,18 @@ struct UserAnniversaryView: View {
             }
             .padding(.top, 30)
     }
-//    
-//    func days(date: Date) -> _ Int {
-//        return Calendar.current.dateComponents([.day], from: date, to: dDay).day + 1
-//    }
     
-}
-
-
-
-struct UserAnniversaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserAnniversaryView()
+    func dDaycal(_ date: Date) -> Int{
+        return (Calendar.current.dateComponents([.day], from: dDay, to: date).day!) + 1
+    }
+    
+    func dateToString(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYY년 M월 d일"
+            let date = formatter.string(from: date)
+            
+            return date
     }
 }
+
 

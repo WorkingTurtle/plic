@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct OnboardingFirstDayWeMet: View {
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     @State private var isButtonClicked = false
     @State var firstDayWeMet = Date()
     let titleText: String = "처음 사귀게 된 \n기념일은 언제인가요?"
     let subtitleText: String = "기념일 날짜를 세고 위젯에 표시합니다"
     let buttonText: String = "다음단계"
+    @State var isAlert = false
     
     var body: some View {
         ZStack{
@@ -36,7 +38,12 @@ struct OnboardingFirstDayWeMet: View {
                         .disabled(true)
                     
                     Button(action: {
-                        isButtonClicked = true
+                        if coupleViewModel.setCoupleFirstMeetingDay(date: firstDayWeMet) {
+                            coupleViewModel.updateCouple()
+                            isButtonClicked = true
+                        } else {
+                            isAlert = true
+                        }
                     }) {
                         Text("\(buttonText)")
                             .font(Font.custom("SpoqaHanSansNeo-Bold", size: 18))
@@ -66,6 +73,9 @@ struct OnboardingFirstDayWeMet: View {
                 }
                 .padding(.bottom, 31)
             }
+        }
+        .alert(isPresented: $isAlert) {
+            Alert(title: Text("😡"), message: Text("첫날인데 기억 못하니...?"), dismissButton: .default(Text("혼나기")))
         }
         .navigationBarHidden(true)
     }

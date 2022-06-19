@@ -35,7 +35,7 @@ struct DetailScheduleView: View {
             }.frame(height: 200)
                 .padding(.horizontal, 20)
             HStack{
-                DetailViewTime(startTime: dateToString(schedule.startDate), endTime: dateToString(schedule.endDate))
+                DetailViewTime(startTime: dateToTime(schedule.startDate), endTime: dateToTime(schedule.endDate), startDate: dateToDate(schedule.startDate), endDate: dateToDate(schedule.endDate))
             }
             HStack{
                 DetailViewMemo(schedule: schedule)
@@ -78,7 +78,7 @@ struct DetailScheduleView: View {
         
         return whoesSchedule
     }
-    func dateToString(_ date: Date) -> String {
+    func dateToTime(_ date: Date) -> String {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH:mm"
 
@@ -86,7 +86,14 @@ struct DetailScheduleView: View {
             
             return date
     }
-    
+    func dateToDate(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYY.MM.dd"
+
+            let date = formatter.string(from: date)
+            
+            return date
+    }
 }
 
 //struct DetailScheduleView_Previews: PreviewProvider {
