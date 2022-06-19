@@ -25,12 +25,11 @@ struct MainTimeTableView: View {
                 TimeTableNameView(firstNick: firstNick, secondNick: secondNick)
             }.padding([.leading,.trailing], 90)
             HStack{
-//                TimeTableMiniView()
-                TimeTableWeeklyView()
+                TimeTableMiniView()
             }
         }
         .padding([.leading,.trailing], 30)
-//        .frame(height: 230)
+        .frame(height: 230)
     }
     
     func extraData(_ currentDate: Date) -> [String]{
