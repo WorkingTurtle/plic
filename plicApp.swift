@@ -19,9 +19,13 @@ struct plicApp: App {
     var body: some Scene {
         WindowGroup {
 
-          TapBarMainView(tabbarIndex: 0)
+//          TapBarMainView(tabbarIndex: 0)
+            SplashView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(dateData)
+                .environmentObject(coupleViewModel)
+
+//            UserSettingNotificationView()
 //            OnboardingStartShareUser()
 //            OnboardingStartView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
