@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingProfileView: View {
-    
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
     // 뒤로 나가기
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     // 본인의 애칭 수정
@@ -76,6 +76,11 @@ struct SettingProfileView: View {
             
             Button(action: {
                 /* 내용 저장하고 이전 페이지로 이동 */
+                coupleViewModel.root!.setValue(myNickName, forKey: CKConstant.Field.nicknameOwner)
+                coupleViewModel.root!.setValue(opponentNickName, forKey: CKConstant.Field.nicknamePartner)
+                coupleViewModel.updateCouple()
+                coupleViewModel.updatePrivateCouple()
+                presentationMode.wrappedValue.dismiss()
             }) {
                 Text("완료")
                     .font(.custom("SpoqaHanSansNeo-Bold", size: 18))
@@ -90,6 +95,10 @@ struct SettingProfileView: View {
             
             .navigationBarTitle("프로필 수정", displayMode: .inline)
             .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+        }
+        .onAppear() {
+            self.myNickName = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknamePartner) as! String
+            self.opponentNickName = coupleViewModel.root?.object(forKey: CKConstant.Field.nicknameOwner) as! String
         }
     }
 }

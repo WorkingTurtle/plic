@@ -64,7 +64,7 @@ struct MainAddSchedule: View {
                 
                 Section(header: Text("누구의 일정인가요?").padding(.leading, -20)) {
                     Picker(selection: $whoSchedule, label: Text("")){
-                        Text("사용자1").tag("사용자1")
+                        Text("나").tag("나")
                         Text("함께").tag("함께")
                     }.pickerStyle(SegmentedPickerStyle())
                 }

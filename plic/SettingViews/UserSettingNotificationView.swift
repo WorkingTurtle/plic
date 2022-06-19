@@ -18,7 +18,7 @@ class CoupleRecordNorificationViewModel: ObservableObject {
         let notification = CKSubscription.NotificationInfo()
         
         notification.title = "Plic Calendar"
-        notification.alertBody = "함께하는 일정이 등록되었습니다"
+        notification.alertBody = "연인과의 일정이 변경되었습니다."
         notification.soundName = "default"
         
         subscription.notificationInfo = notification
@@ -39,7 +39,7 @@ class CoupleRecordNorificationViewModel: ObservableObject {
         subscription3.recordType = CKConstant.RecordType.Schedule
 
         notification2.title = "Plic Calendar"
-        notification2.alertBody = "함께하는 일정이 등록되었습니다"
+        notification2.alertBody = "연인과의 일정이 변경되었습니다."
         notification2.soundName = "default"
 
         subscription2.notificationInfo = notification2

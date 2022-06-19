@@ -114,6 +114,12 @@ final class CoupleViewModel: ObservableObject {
         }
     }
     
+    func deleteSchedule(schedule: Schedule) {
+        Task {
+            await try self.privateDB.deleteRecord(withID: schedule.getRecordID())
+        }
+    }
+    
     func addSchedule(_ schedule: Schedule) {
         schedules.append(schedule)
         uploadToCloudKit(schedule)
@@ -202,6 +208,34 @@ final class CoupleViewModel: ObservableObject {
         share = nil
     }
     
+    func updateCouple() {
+            sharedDB.save(root!) {savedRecord, error in
+                if let error = error {
+                    print("Participant upload plan error: \(error)")
+                }
+                if savedRecord != nil {
+                    print("Participant upload plan successfully")
+                    self.fetchSchedules() {
+                        print("fetch 성공!")
+                    }
+                }
+            }
+        }
+    
+    func updatePrivateCouple() {
+            privateDB.save(root!) {savedRecord, error in
+                if let error = error {
+                    print("Participant upload plan error: \(error)")
+                }
+                if savedRecord != nil {
+                    print("Participant upload plan successfully")
+                    self.fetchSchedules() {
+                        print("fetch 성공!")
+                    }
+                }
+            }
+        }
+
     func setCoupleNickname(name: String) {
         // 처음 생성 (Owner)
         if root == nil {
@@ -242,5 +276,4 @@ final class CoupleViewModel: ObservableObject {
             }
         }
     }
-
 }

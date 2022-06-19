@@ -13,6 +13,9 @@ struct DetailViewMemo: View {
     let schedule: Schedule
     @State var memoText: String?
     @State private var isShowingDialog: Bool = false
+    @EnvironmentObject var coupleViewModel: CoupleViewModel
+    @Environment(\.presentationMode) var presentationMode
+
     
         //Alert가 기본 틴트 컬러를 빨간색으로 가지게 하기 위한 코드
     init(schedule: Schedule) {
@@ -57,9 +60,18 @@ struct DetailViewMemo: View {
             }.confirmationDialog("", isPresented: $isShowingDialog, titleVisibility: .hidden) {
                 Button("일정 삭제", role: .destructive) {
                     //일정 삭제 코드
+                    coupleViewModel.deleteSchedule(schedule: self.schedule)
+                    
+                    coupleViewModel.fetchSchedules() {
+                    }
+                    presentationMode.wrappedValue.dismiss()
                 }
                 Button("취소", role: .cancel) {
                 }
+            }
+        }
+        .onAppear(){
+            coupleViewModel.fetchSchedules() {
             }
         }
     }
