@@ -19,39 +19,78 @@ struct DetailTimeTableView: View {
     
     var body: some View {
         if(scheduleAdaptor(schedules: schedule) == 2){
-            VStack{
-                HStack{
-                    Text(schedule.title)
-                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                        .foregroundColor(Color("plicTimeyellow"))
-                        .padding(.top, 5)
-                        .padding(.leading, 5)
+            if (dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate) < 3) {
+                VStack{
+                    HStack{
+                        Text(schedule.title)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                            .foregroundColor(Color("plicTimeyellow"))
+                            .padding(.top, 5)
+                            .padding(.leading, 5)
+                        Spacer()
+                    }
+                    
                     Spacer()
                 }
+                .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
+                .background(Color("plicYellow"))
+                .cornerRadius(3)
+            }else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 3){
+                VStack{
+                    HStack{
+                        Text(schedule.title)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                            .foregroundColor(Color("plicTimeyellow"))
+                            .padding(.top, 5)
+                            .padding(.leading, 5)
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                }
+                .frame(width: width, height: height * 3)
+                .background(Color("plicYellow"))
+                .cornerRadius(3)
                 
-                Spacer()
             }
-            .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
-            .background(Color("plicYellow"))
-            .cornerRadius(3)
+            
         }else if(scheduleAdaptor(schedules: schedule) == 1){
-            VStack{
-                HStack{
-                    Text(schedule.title)
-                        .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
-                        .foregroundColor(Color("plicPink"))
-                        .padding(.top, 5)
-                        .padding(.leading, 5)
+            if (dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate) < 3) {
+                VStack{
+                    HStack{
+                        Text(schedule.title)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                            .foregroundColor(Color("plicPink"))
+                            .padding(.top, 5)
+                            .padding(.leading, 5)
+                        Spacer()
+                    }
+                    
                     Spacer()
                 }
-                
-                Spacer()
+                .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
+                .background(Color("plicTimepink"))
+                .cornerRadius(3)
+            }else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 3){
+                VStack{
+                    HStack{
+                        Text(schedule.title)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 12))
+                            .foregroundColor(Color("plicPink"))
+                            .padding(.top, 5)
+                            .padding(.leading, 5)
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                }
+                .frame(width: coupleWidth, height: height * 3)
+                .background(Color("plicTimepink"))
+                .cornerRadius(3)
             }
-            .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
-            .background(Color("plicTimepink"))
-            .cornerRadius(3)
+            
         }else if(scheduleAdaptor(schedules: schedule) == 0){
-            if (dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate) < 4) {
+            if (dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate) < 3) {
                 VStack{
                     HStack{
                         Text(schedule.title)
@@ -68,7 +107,7 @@ struct DetailTimeTableView: View {
                 .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicTimeblue"))
                 .cornerRadius(3)
-            } else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 4){
+            } else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 3){
                 VStack{
                     HStack{
                         Text(schedule.title)

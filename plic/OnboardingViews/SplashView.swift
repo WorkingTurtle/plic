@@ -17,7 +17,7 @@ struct SplashView: View {
 
     @ViewBuilder
     var body: some View {
-        if coupleViewModel.loadCnt < 2 && !isRequestDone {
+        if coupleViewModel.loadCnt < 1 && !isRequestDone {
             OnboardingRequestNotificationPermission()
                 .onAppear() {
                     coupleViewModel.fetchSchedules() {

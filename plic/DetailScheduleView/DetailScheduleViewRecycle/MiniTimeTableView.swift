@@ -45,17 +45,17 @@ struct MiniTimeTableView: View {
                     if(scheduleAdaptor(schedules: schedule) == 2){
                         DetailTimeTableView(schedule: schedule)
 //                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
-                            .offset(x: -60, y: 0)
+                            .offset(x: -60, y: CGFloat((dateToFloat(schedule.startDate) - dateToTime(schedule.startDate)) * 43))
                     }
                     else if(scheduleAdaptor(schedules: schedule) == 1){
                         DetailTimeTableView(schedule: schedule)
-                            .offset(x: 15, y: 0)
+                            .offset(x: 15, y: CGFloat((dateToFloat(schedule.startDate) - dateToTime(schedule.startDate)) * 43))
 //                            .padding(.top, CGFloat((testSchedule.startTime - 9) * 43))
                     }
                     else
                     {
                         DetailTimeTableView(schedule: schedule)
-                            .offset(x: 90, y: 0)
+                            .offset(x: 90, y: CGFloat((dateToFloat(schedule.startDate) - dateToTime(schedule.startDate)) * 43))
 //                            .padding(.top, CGFloat((testSchedule.startTime - 1.3) * 43))
                     }
                     Spacer()
@@ -85,6 +85,25 @@ struct MiniTimeTableView: View {
             let hour = formatter.string(from: date)
             
             return hour
+    }
+    func dateToFloat(_ date: Date) -> Float {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH"
+            let hour = formatter.string(from: date)
+            
+            formatter.dateFormat = "mm"
+            let min = formatter.string(from: date)
+            
+            return (hour as NSString).floatValue + (min as NSString).floatValue / 60.0
+    }
+    func dateToTime(_ date: Date) -> Float {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH"
+            let hour = formatter.string(from: date)
+            
+            
+            
+            return (hour as NSString).floatValue
     }
 }
 
