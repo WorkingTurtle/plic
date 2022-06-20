@@ -20,8 +20,8 @@ struct MainTimeTable: View {
         NavigationLink(destination: DetailScheduleView(schedule: schedule)){
                 //                    if(dateToFloat(item.endDate) >= dateToFloat(currentTime)){
                 VStack{
-                    if(dateToFloat(schedule.startDate) < dateToFloat(currentTime)){
-                        if(dateToFloat(schedule.endDate) > (dateToFloat(currentTime) + 3)){
+                    if(dateToTime(schedule.startDate) < dateToTime(currentTime)){
+                        if(dateToFloat(schedule.endDate) > (dateToTime(currentTime) + 3)){
                             
                     if(scheduleAdaptor(schedules: schedule) == 2){
                         VStack{
@@ -88,7 +88,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(currentTime)))
+                        .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToTime(currentTime)))
                         .background(Color("plicYellow"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 1){
@@ -104,7 +104,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(currentTime)))
+                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToTime(currentTime)))
                         .background(Color("plicTimepink"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 0){
@@ -121,14 +121,14 @@ struct MainTimeTable: View {
                             Spacer()
 
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToFloat(currentTime)))
+                        .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate) - dateToTime(currentTime)))
                         .background(Color("plicTimeblue"))
                         .cornerRadius(3)
                     }
                         }
                         
                     } else {
-                        if(dateToFloat(schedule.endDate) > (dateToFloat(currentTime) + 3)){
+                        if(dateToFloat(schedule.endDate) > (dateToTime(currentTime) + 3)){
                             
                     if(scheduleAdaptor(schedules: schedule) == 2){
                         VStack{
@@ -140,10 +140,9 @@ struct MainTimeTable: View {
                                     .padding(.leading, 5)
                                 Spacer()
                             }
-                            
                             Spacer()
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(currentTime) + 3 - dateToFloat(schedule.startDate)))
+                        .frame(width: width, height: height * CGFloat(dateToTime(currentTime) + 3 - dateToFloat(schedule.startDate)))
                         .background(Color("plicYellow"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 1){
@@ -159,7 +158,7 @@ struct MainTimeTable: View {
                             
                             Spacer()
                         }
-                        .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(currentTime) + 3 - dateToFloat(schedule.startDate)))
+                        .frame(width: coupleWidth, height: height * CGFloat(dateToTime(currentTime) + 3 - dateToFloat(schedule.startDate)))
                         .background(Color("plicTimepink"))
                         .cornerRadius(3)
                     }else if(scheduleAdaptor(schedules: schedule) == 0){
@@ -176,7 +175,7 @@ struct MainTimeTable: View {
                             Spacer()
 
                         }
-                        .frame(width: width, height: height * CGFloat(dateToFloat(currentTime) + 3 - dateToFloat(schedule.startDate)))
+                        .frame(width: width, height: height * CGFloat(dateToTime(currentTime) + 3 - dateToFloat(schedule.startDate)))
                         .background(Color("plicTimeblue"))
                         .cornerRadius(3)
                     }
@@ -269,6 +268,15 @@ struct MainTimeTable: View {
             let min = formatter.string(from: date)
             
             return (hour as NSString).floatValue + (min as NSString).floatValue / 60.0
+    }
+    func dateToTime(_ date: Date) -> Float {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        let hour = formatter.string(from: date)
+        
+        
+        
+        return (hour as NSString).floatValue
     }
             
 }

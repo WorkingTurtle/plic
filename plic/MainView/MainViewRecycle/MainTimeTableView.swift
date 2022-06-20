@@ -149,7 +149,7 @@ struct TimeTableMiniView : View {
             ForEach(coupleViewModel.schedules, id: \.self) { item in
                 if (compareDate(currentDate.currentDate) == compareDate(item.startDate) && dateToFloat(item.endDate) >= dateToFloat(currentTime)){
                     VStack{
-                        if(dateToFloat(item.startDate) < dateToFloat(currentTime)){
+                        if(dateToFloat(item.startDate) <= dateToFloat(currentTime)){
                                 if(scheduleAdaptor(schedules: item) == 2){
                                     MainTimeTable(schedule: item)
                                         .offset(x: -60, y: 0)
@@ -186,7 +186,7 @@ struct TimeTableMiniView : View {
                         }
                         
                         Spacer()
-                    }.padding(.top, 10)
+                    }.padding(.top, 1)
                     
                     //                    }
                 }

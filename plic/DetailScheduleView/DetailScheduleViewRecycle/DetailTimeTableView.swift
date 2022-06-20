@@ -35,7 +35,7 @@ struct DetailTimeTableView: View {
                 .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicYellow"))
                 .cornerRadius(3)
-            }else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 3){
+            }else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) >= 3){
                 VStack{
                     HStack{
                         Text(schedule.title)
@@ -71,7 +71,7 @@ struct DetailTimeTableView: View {
                 .frame(width: coupleWidth, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicTimepink"))
                 .cornerRadius(3)
-            }else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 3){
+            }else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) >= 3){
                 VStack{
                     HStack{
                         Text(schedule.title)
@@ -107,7 +107,7 @@ struct DetailTimeTableView: View {
                 .frame(width: width, height: height * CGFloat(dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)))
                 .background(Color("plicTimeblue"))
                 .cornerRadius(3)
-            } else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) > 3){
+            } else if ((dateToFloat(schedule.endDate)-dateToFloat(schedule.startDate)) >= 3){
                 VStack{
                     HStack{
                         Text(schedule.title)
