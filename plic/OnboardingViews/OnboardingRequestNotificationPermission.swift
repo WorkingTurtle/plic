@@ -40,8 +40,8 @@ struct OnboardingRequestNotificationPermission: View {
                 Image("plicLogoExample")
                     .resizable()
                     .frame(width: 290, height: 118)
-                    .padding(.top, 70)
-                    .padding(.bottom, 116)
+                    .padding(.top, 90)
+                    .padding(.bottom, 141)
                 
                 Spacer()
             }
